@@ -116,7 +116,9 @@
 .QA_function dt button:hover span{color: var(--color-Main);}
 .QA_function dl.active dt i{background: var(--color-Sub);border-color: var(--color-Sub) !important;transform: rotate(135deg);}
 .QA_function dl.active dt i::before, .QA_function dl.active dt i::after{background: #fff;}
-.QA_function dd{display: none;padding: 0 60px 30px 64px;}
+.QA_function dd{display: none;padding: 0;overflow: hidden;}
+.QA_function .QA_in{padding: 0 60px 30px 64px;opacity: 0;transform: translateY(-6px);transition: opacity .35s ease, transform .45s var(--ease);}
+.QA_function dl.active .QA_in{opacity: 1;transform: none;transition-delay: .08s;}
 .hs_box .QA_function dd p{color: var(--colorText-sub);}
 .hs_box .QA_function dd li{color: var(--colorText-sub);padding-left: 20px;position: relative;}
 .QA_function dd li::before{content: '⊸';position: absolute;left: 0;color: var(--color-Sub);}
@@ -132,7 +134,7 @@
 }
 @media (max-width: 992px) {}
 @media (max-width: 768px) {
-    .QA_function dd{padding: 0 10px 26px 10px;}
+    .QA_function .QA_in{padding: 0 10px 26px 10px;}
 }
 @media (max-width: 576px) {
     .chc_form{grid-template-columns: 1fr;}
@@ -322,17 +324,23 @@
 <script src="../js/chiu_common.js"></script>
 <script>
     /* 訂購須知手風琴 */
-    /* 常見問題手風琴（原生 JS，不需 jQuery） */
+    /* 常見問題手風琴：內距放在內層，高度從「目前高度」開始動畫，連點也不會跳 */
     [].forEach.call(document.querySelectorAll('.QA_function > dl'), function (dl) {
-        var dd = dl.querySelector('dd'), btn = dl.querySelector('dt button');
+        var dd = dl.querySelector('dd'), btn = dl.querySelector('dt button'), anim = null;
+        var inner = document.createElement('div');
+        inner.className = 'QA_in';
+        while (dd.firstChild) inner.appendChild(dd.firstChild);
+        dd.appendChild(inner);
         dl.querySelector('dt').addEventListener('click', function () {
             var open = !dl.classList.contains('active');
+            var from = dd.getBoundingClientRect().height;      /* 動畫進行中也從當下高度接著走 */
+            if (anim) anim.cancel();
             dl.classList.toggle('active', open);
             if (btn) btn.setAttribute('aria-expanded', open);
-            if (open) dd.style.display = 'block';
-            var h = dd.scrollHeight;
-            var anim = dd.animate([{ height: (open ? 0 : h) + 'px', overflow: 'hidden' }, { height: (open ? h : 0) + 'px', overflow: 'hidden' }], { duration: 400, easing: 'ease' });
-            anim.onfinish = function () { if (!open) dd.style.display = 'none'; };
+            dd.style.display = 'block';
+            var to = open ? inner.offsetHeight : 0;
+            anim = dd.animate([{ height: from + 'px' }, { height: to + 'px' }], { duration: 450, easing: 'cubic-bezier(.4, 0, .2, 1)' });
+            anim.onfinish = function () { anim = null; if (!open) dd.style.display = 'none'; };
         });
     });
 
