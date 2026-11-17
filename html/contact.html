@@ -5,6 +5,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>聯絡我們｜CHIU.FLORIST 台中花藝工作室</title>
+	<!-- Google Analytics (GA4) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-TN85Y7GN7T"></script>
+	<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-TN85Y7GN7T');</script>
 	<link rel="icon" href="../image/icon/icon-48.png" sizes="48x48" type="image/png">
 	<link rel="icon" href="../image/icon/icon-96.png" sizes="96x96" type="image/png">
 	<link rel="icon" href="../image/icon/icon-192.png" sizes="192x192" type="image/png">
@@ -368,6 +371,8 @@
             lines.push('需求說明：' + f.msg.value.trim());
             var text = lines.join('\n');
             pre.textContent = text;
+            /* GA4：記錄送出諮詢（只記需求類型，不送個資） */
+            if (window.gtag) gtag('event', 'generate_lead', { lead_type: type.value });
 
             var copied = done.querySelector('.chc_copied');
             copy(text).then(function () { copied.hidden = false; }, function () { copied.hidden = true; });
