@@ -65,15 +65,15 @@
                 '</div>' +
                 '<div class="ch_footer_b">' +
                     '<div>' +
-                        '<h6>About</h6>' +
+                        '<h3>About</h3>' +
                         '<p>台中花藝工作室。訂製花禮、婚慶活動視覺佈置、商業軟裝空間設計、企業商用週花與花藝課程。</p>' +
                         '<a class="ch_footer_ig" href="' + IG + '" target="_blank" rel="noopener">' + igIcon + '<span>@chiu.florist</span></a>' +
                     '</div>' +
-                    '<div><h6>Menu</h6><ul>' + footerLinks + '</ul></div>' +
-                    '<div><h6>Services</h6><ul>' +
+                    '<div><h3>Menu</h3><ul>' + footerLinks + '</ul></div>' +
+                    '<div><h3>Services</h3><ul>' +
                         '<li>訂製花禮</li><li>婚慶活動視覺佈置</li><li>商業軟裝空間設計</li><li>企業商用週花</li><li>專屬黃銅家飾選品</li>' +
                     '</ul></div>' +
-                    '<div><h6>Contact</h6><ul>' +
+                    '<div><h3>Contact</h3><ul>' +
                         '<li>服務地區｜台中</li><li>工作室採預約制，地點請私訊詢問</li><li><a href="contact.html">線上諮詢表單</a></li>' +
                     '</ul></div>' +
                 '</div>' +

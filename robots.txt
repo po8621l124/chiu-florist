@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://po8621l124.github.io/chiu-florist/sitemap.xml

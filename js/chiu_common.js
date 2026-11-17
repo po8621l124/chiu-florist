@@ -121,7 +121,7 @@
             el.appendChild(s);
         });
     };
-    [].forEach.call(document.querySelectorAll('.hs_box h5, .hs_box h6'), window.chSegment);
+    [].forEach.call(document.querySelectorAll('.hs_box h1, .hs_box h2, .hs_box h3'), window.chSegment);
 
     var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 

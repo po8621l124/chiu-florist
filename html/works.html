@@ -4,9 +4,17 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="robots" content="noindex, nofollow">
 	<title>作品｜CHIU.FLORIST 台中花藝工作室</title>
 	<meta name="description" content="CHIU.FLORIST 作品集：訂製花禮、婚禮捧花、商業空間與櫥窗花藝、企業商用週花與活動佈置。">
+	<link rel="canonical" href="https://po8621l124.github.io/chiu-florist/html/works.html">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="CHIU.FLORIST">
+	<meta property="og:locale" content="zh_TW">
+	<meta property="og:title" content="作品｜CHIU.FLORIST 台中花藝工作室">
+	<meta property="og:description" content="CHIU.FLORIST 作品集：訂製花禮、婚禮捧花、商業空間與櫥窗花藝、企業商用週花與活動佈置。">
+	<meta property="og:url" content="https://po8621l124.github.io/chiu-florist/html/works.html">
+	<meta property="og:image" content="https://po8621l124.github.io/chiu-florist/image/chiu/w_blue.jpg">
+	<meta name="twitter:card" content="summary_large_image">
     <script src="../js/jquery-1.11.3.min.js"></script>
     <script src="../js/scrollfade.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -71,7 +79,7 @@ body:has(.ch_header:not(.is-hidden).is-scrolled) .chw_filter{top: 74px;}
 .chw_grid figure::after{content: '+';position: absolute;right: 16px;bottom: 16px;width: 44px;height: 44px;border-radius: 50%;display: grid;place-items: center;background: rgba(245,240,232,.92);color: var(--colorText);font-family: var(--Corfont);font-size: 26px;line-height: 1;opacity: 0;transform: scale(.6);transition: opacity .4s, transform .5s var(--ease);}
 .chw_grid button:is(:hover, :focus-visible) figure::after{opacity: 1;transform: none;}
 .chw_grid button:is(:hover, :focus-visible) figure img{transform: scale(1.06);}
-.hs_box .chw_grid button:hover h6{color: var(--color-Main);}
+.hs_box .chw_grid button:hover h3{color: var(--color-Main);}
 .chw_empty{display: none;text-align: center;padding: 80px 0;}
 
 /* 燈箱 */
@@ -86,7 +94,7 @@ body:has(.chw_lb[open]){overflow: hidden;}
 .hs_box .chw_lb figure img{display: block;width: auto;height: auto;max-width: 100%;max-height: 92vh;max-height: 92dvh;object-fit: contain;}
 .chw_lb_txt{padding: clamp(28px, 3.5vw, 52px);overflow-y: auto;display: flex;flex-direction: column;min-height: 0;}
 .hs_box .chw_lb_txt i{font-size: var(--f14);letter-spacing: .25em;color: var(--color-Sub);}
-.hs_box .chw_lb_txt h6{font-family: var(--Seriffont);font-weight: 500;font-size: var(--f26);letter-spacing: .1em;line-height: 1.6;margin: 10px 0 22px;padding-right: 40px;}
+.hs_box .chw_lb_txt h3{font-family: var(--Seriffont);font-weight: 500;font-size: var(--f26);letter-spacing: .1em;line-height: 1.6;margin: 10px 0 22px;padding-right: 40px;}
 .hs_box .chw_lb_txt p{white-space: pre-line;line-height: 2;}
 .chw_lb_txt .ch_btn{align-self: flex-start;}
 .chw_lb_txt .chw_lb_gap{flex: 1;min-height: 30px;}
@@ -97,7 +105,7 @@ body:has(.chw_lb[open]){overflow: hidden;}
 .hs_box .chw_lb[data-orient="land"] figure img{width: 100%;max-height: 54vh;max-height: 54dvh;}
 .chw_lb[data-orient="land"] .chw_lb_txt{display: grid;grid-template-rows: auto auto 1fr;overflow: visible;grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);column-gap: clamp(30px, 4vw, 60px);align-content: start;}
 .chw_lb[data-orient="land"] .chw_lb_txt > i{grid-column: 1;grid-row: 1;}
-.chw_lb[data-orient="land"] .chw_lb_txt > h6{grid-column: 1;grid-row: 2;}
+.chw_lb[data-orient="land"] .chw_lb_txt > h3{grid-column: 1;grid-row: 2;}
 .chw_lb[data-orient="land"] .chw_lb_txt > .ch_btn{grid-column: 1;grid-row: 3;align-self: start;justify-self: start;}
 .chw_lb[data-orient="land"] .chw_lb_txt > p{grid-column: 2;grid-row: 1 / span 3;}
 .chw_lb[data-orient="land"] .chw_lb_gap{display: none;}
@@ -133,7 +141,7 @@ body:has(.chw_lb[open]){overflow: hidden;}
     .chw_lb figure{grid-area: fig;background: transparent;padding: 0;touch-action: pan-y;}
     .hs_box .chw_lb figure img, .hs_box .chw_lb[data-orient="land"] figure img{width: 100%;height: 100%;max-height: none;object-fit: contain;transition: opacity .3s;}
     .hs_box .chw_lb_txt > i{grid-area: cat;padding: 18px 20px 0;}
-    .hs_box .chw_lb_txt h6, .hs_box .chw_lb[data-orient="land"] .chw_lb_txt > h6{grid-area: title;margin: 4px 0 0;padding: 0 20px;font-size: var(--f20);color: var(--colorText-whi);}
+    .hs_box .chw_lb_txt h3, .hs_box .chw_lb[data-orient="land"] .chw_lb_txt > h3{grid-area: title;margin: 4px 0 0;padding: 0 20px;font-size: var(--f20);color: var(--colorText-whi);}
     .chw_lb_more{grid-area: more;display: inline-flex;align-items: center;gap: 8px;justify-self: start;margin: 14px 0 0 20px;padding: 8px 0;background: none;cursor: pointer;}
     .hs_box .chw_lb_more span{font-size: var(--f15);letter-spacing: .15em;color: rgba(244,239,230,.85);}
     .chw_lb_more i{width: 8px;height: 8px;border-right: 1px solid var(--color-Sub);border-bottom: 1px solid var(--color-Sub);transform: rotate(45deg) translateY(-2px);transition: transform .4s var(--ease);}
@@ -145,7 +153,7 @@ body:has(.chw_lb[open]){overflow: hidden;}
     .chw_lb_gap, .chw_lb[data-orient="land"] .chw_lb_gap{display: none;}
     /* 蓋過桌機橫圖版型的格線位置 */
     .hs_box .chw_lb[data-orient] .chw_lb_txt > i{grid-area: cat;}
-    .hs_box .chw_lb[data-orient] .chw_lb_txt > h6{grid-area: title;}
+    .hs_box .chw_lb[data-orient] .chw_lb_txt > h3{grid-area: title;}
     .hs_box .chw_lb[data-orient] .chw_lb_txt > .ch_btn{grid-area: ig;}
     .hs_box .chw_lb[data-orient] .chw_lb_txt > p{grid-area: story;scrollbar-width: thin;scrollbar-color: rgba(180,141,85,.5) transparent;}
     .hs_box .chw_lb[data-orient] .chw_lb_nav{grid-area: nav;}
@@ -165,7 +173,7 @@ body:has(.chw_lb[open]){overflow: hidden;}
     .chw_grid > li{margin-bottom: 28px;}
     .chw_grid .ch_work_txt{padding-top: 10px;gap: 0;}
     .hs_box .chw_grid .ch_work_txt i{font-size: 12px;letter-spacing: .12em;}
-    .hs_box .chw_grid .ch_work_txt h6{font-size: var(--f15);letter-spacing: .05em;line-height: 1.55;}
+    .hs_box .chw_grid .ch_work_txt h3{font-size: var(--f15);letter-spacing: .05em;line-height: 1.55;}
     .chw_grid figure::after{display: none;}
 }
 @media (max-width: 480px) {
@@ -189,8 +197,8 @@ body:has(.chw_lb[open]){overflow: hidden;}
         <div class="ch_banner_bg"></div>
         <div class="ch_banner_in">
             <div data-animate-in="up">
-                <h4>Works</h4>
-                <h5>作品集</h5>
+                <div class="ch_en">Works</div>
+                <h1>作品集</h1>
             </div>
             <ol class="ch_crumb" data-animate-in="up"><li><a href="index.html">首頁</a></li><li><span>作品</span></li></ol>
         </div>
@@ -200,8 +208,8 @@ body:has(.chw_lb[open]){overflow: hidden;}
         <div class="chw_b01">
             <div class="chw_b01_head">
                 <div class="ch_title" data-animate-in="left">
-                    <h4>Portfolio</h4>
-                    <h5>每一件作品，都是一段季節的光影</h5>
+                    <div class="ch_en">Portfolio</div>
+                    <h2>每一件作品，都是一段季節的光影</h2>
                 </div>
                 <p data-animate-in="up">從一束花禮到一整個空間，點選作品可查看創作故事。</p>
             </div>
@@ -222,7 +230,7 @@ body:has(.chw_lb[open]){overflow: hidden;}
                 <figure><img src="" alt=""></figure>
                 <div class="chw_lb_txt">
                     <i></i>
-                    <h6 id="chw_lb_title"></h6>
+                    <h3 id="chw_lb_title"></h3>
                     <button class="chw_lb_more" type="button" aria-expanded="false" aria-controls="chw_lb_story"><span>作品故事</span><i></i></button>
                     <p id="chw_lb_story"></p>
                     <div class="chw_lb_gap"></div>
@@ -241,8 +249,8 @@ body:has(.chw_lb[open]){overflow: hidden;}
         <div class="ch_cta_bg" data-parallax="0.12"></div>
         <div class="ch_cta_in cen">
             <div class="ch_title cen whi" data-animate-in="down">
-                <h4>Let’s Create Together</h4>
-                <h5>喜歡這樣的風格嗎？</h5>
+                <div class="ch_en">Let’s Create Together</div>
+                <h2>喜歡這樣的風格嗎？</h2>
             </div>
             <p data-animate-in="up">告訴我們你的場合與想法，為你量身規劃。</p>
             <div class="ch_btns" data-animate-in="up">
@@ -383,7 +391,7 @@ body:has(.chw_lb[open]){overflow: hidden;}
         var lb = document.querySelector('.chw_lb');
         var lbImg = lb.querySelector('figure img');
         var lbCat = lb.querySelector('.chw_lb_txt > i');
-        var lbTitle = lb.querySelector('.chw_lb_txt h6');
+        var lbTitle = lb.querySelector('.chw_lb_txt h3');
         var lbText = lb.querySelector('.chw_lb_txt p');
         var lbIg = lb.querySelector('.chw_lb_txt .ch_btn');
         var lbIdx = lb.querySelector('.chw_lb_nav span');
@@ -392,10 +400,11 @@ body:has(.chw_lb[open]){overflow: hidden;}
         function fill() {
             var li = list[cur];
             lbImg.src = li.querySelector('img').getAttribute('src');
+            lbImg.alt = li.querySelector('img').getAttribute('alt') || '';
             var im = li.querySelector("img");
             lb.setAttribute("data-orient", (+im.getAttribute("width") >= +im.getAttribute("height") * 1.15) ? "land" : "port");
             lbCat.textContent = li.querySelector('.ch_work_txt i').textContent;
-            lbTitle.textContent = li.querySelector('h6').textContent;
+            lbTitle.textContent = li.querySelector('h3').textContent;
             if (window.chSegment) window.chSegment(lbTitle);
             lbText.textContent = li.querySelector('template').content.textContent.trim();
             var ig = li.getAttribute('data-ig');
@@ -441,12 +450,12 @@ body:has(.chw_lb[open]){overflow: hidden;}
                     }).join('');
                 grid.innerHTML = data.works.map(function (w) {
                     return '<li class="ch_work" data-cat="' + esc(w.category) + '" data-ig="' + esc(w.instagram) + '">' +
-                        '<button type="button" data-cursor="View"><figure><img src="../image/chiu/' + esc(w.image) + '" alt="" width="' + (+w.width || '') + '" height="' + (+w.height || '') + '" loading="lazy"></figure>' +
-                        '<div class="ch_work_txt"><i>' + esc(w.label) + '</i><h6>' + esc(w.title) + '</h6></div></button>' +
+                        '<button type="button" data-cursor="View"><figure><img src="../image/chiu/' + esc(w.image) + '" alt="' + esc(w.label + '｜' + w.title) + '" width="' + (+w.width || '') + '" height="' + (+w.height || '') + '" loading="lazy"></figure>' +
+                        '<div class="ch_work_txt"><i>' + esc(w.label) + '</i><h3>' + esc(w.title) + '</h3></div></button>' +
                         '<template>' + esc(w.story) + '</template></li>';
                 }).join('');
                 grid.removeAttribute('aria-busy');
-                [].forEach.call(grid.querySelectorAll('h6'), function (h) { if (window.chSegment) window.chSegment(h); });
+                [].forEach.call(grid.querySelectorAll('h3'), function (h) { if (window.chSegment) window.chSegment(h); });
                 chwInit();
             })
             .catch(function () {

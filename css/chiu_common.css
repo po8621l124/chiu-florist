@@ -113,7 +113,7 @@ body{margin: 0;background-color: #F5F0E8;}
     --zero-dec: decimal-leading-zero;
 }
 
-.hs_box :is(p, span, a, li, h4, h5, h6, label, b, i, em, s, dfn, var, sub, sup){
+.hs_box :is(p, span, a, li, h1, h2, h3, label, b, i, em, s, dfn, var, sub, sup){
     font-size: var(--f16);
     color: var(--colorText);
     line-height: 1.9;
@@ -236,10 +236,10 @@ figure [class^="anima_"]{transition: filter 1.1s ease .3s, opacity 1.1s ease .3s
 .cen{text-align: center;}
 /* 避免掉字：段落最後一行不留單字、標題各行長度平均 */
 .hs_box :is(p, dd, li, label){text-wrap: pretty;}
-.hs_box :is(h4, h5, h6){text-wrap: balance;}
+.hs_box :is(h1, h2, h3){text-wrap: balance;}
 /* 文案斷行用 <s>：沿用父層字樣 */
-.hs_box :is(p, h4, h5, h6, dd, li) s{display: inline-block;font: inherit;color: inherit;letter-spacing: inherit;text-decoration: none;}
-.hs_box .whi, .hs_box .whi :is(p, span, a, li, h5, h6, label, b, s, dt, dd){color: var(--colorText-whi);}
+.hs_box :is(p, h1, h2, h3, dd, li) s{display: inline-block;font: inherit;color: inherit;letter-spacing: inherit;text-decoration: none;}
+.hs_box .whi, .hs_box .whi :is(p, span, a, li, h2, h3, label, b, s, dt, dd){color: var(--colorText-whi);}
 .ch_sr{position: absolute !important;width: 1px;height: 1px;overflow: hidden;clip: rect(0 0 0 0);white-space: nowrap;}
 .ch_skip{position: fixed;top: -100px;left: 16px;z-index: 300;background: var(--color-dark);color: var(--colorText-whi);padding: 10px 18px;font-family: var(--Sansfont);font-size: 14px;text-decoration: none;transition: top .3s;}
 .ch_skip:focus{top: 16px;}
@@ -315,9 +315,9 @@ body.menu-open .ch_burger span:nth-child(3){top: 23px;width: 24px;transform: rot
 /* ---------- 共通標題 ch_title ---------- */
 .ch_title::before{content: '';display: block;width: 40px;height: 1px;background: var(--color-Sub);margin-bottom: 22px;}
 .ch_title.cen::before{margin-left: auto;margin-right: auto;}
-.hs_box .ch_title h4{font-family: var(--Corfont);font-style: italic;font-weight: 400;font-size: var(--f50);line-height: 1.1;letter-spacing: .02em;color: var(--color-Sub);}
-.hs_box .ch_title h5{font-family: var(--Seriffont);font-weight: 500;font-size: var(--f26);line-height: 1.6;letter-spacing: .2em;margin-top: 12px;}
-.hs_box .ch_title.whi h5{color: var(--colorText-whi);}
+.hs_box .ch_title .ch_en{font-family: var(--Corfont);font-style: italic;font-weight: 400;font-size: var(--f50);line-height: 1.1;letter-spacing: .02em;color: var(--color-Sub);}
+.hs_box .ch_title h2{font-family: var(--Seriffont);font-weight: 500;font-size: var(--f26);line-height: 1.6;letter-spacing: .2em;margin-top: 12px;}
+.hs_box .ch_title.whi h2{color: var(--colorText-whi);}
 
 /* 小標（英文細字） */
 .hs_box .ch_eyebrow{display: inline-block;font-family: var(--Corfont);font-style: italic;font-size: var(--f20);letter-spacing: .08em;color: var(--color-Sub);}
@@ -346,8 +346,8 @@ body.menu-open .ch_burger span:nth-child(3){top: 23px;width: 24px;transform: rot
 .ch_banner_bg{position: absolute;inset: -6% 0;z-index: -1;background: var(--bn_img) var(--bn_pos, center) / cover no-repeat;animation: ch_kenburns 14s ease-out both;}
 .ch_banner::after{content: '';position: absolute;inset: 0;z-index: -1;background: linear-gradient(180deg, rgba(var(--rgb_shade),.55) 0%, rgba(var(--rgb_shade),.25) 45%, rgba(var(--rgb_shade),.75) 100%);}
 .ch_banner_in{max-width: 1400px;width: 100%;margin: auto;display: flex;justify-content: space-between;align-items: flex-end;gap: 30px;flex-wrap: wrap;}
-.hs_box .ch_banner h4{font-family: var(--Corfont);font-style: italic;font-weight: 400;font-size: var(--f100);line-height: 1;letter-spacing: .01em;color: var(--colorText-whi);}
-.hs_box .ch_banner h5{font-family: var(--Seriffont);font-weight: 500;font-size: var(--f26);letter-spacing: .3em;color: var(--colorText-whi);margin-top: 16px;}
+.hs_box .ch_banner .ch_en{font-family: var(--Corfont);font-style: italic;font-weight: 400;font-size: var(--f100);line-height: 1;letter-spacing: .01em;color: var(--colorText-whi);}
+.hs_box .ch_banner h1{font-family: var(--Seriffont);font-weight: 500;font-size: var(--f26);letter-spacing: .3em;color: var(--colorText-whi);margin-top: 16px;}
 .ch_crumb{display: flex;gap: 10px;align-items: center;}
 .hs_box .ch_crumb :is(a, span, li){font-size: var(--f14);color: rgba(244,239,230,.75);letter-spacing: .15em;}
 .hs_box .ch_crumb a:hover{color: var(--color-Sub);}
@@ -373,8 +373,8 @@ body.menu-open .ch_burger span:nth-child(3){top: 23px;width: 24px;transform: rot
 .ch_work a:hover figure img{transform: scale(1.06);}
 .ch_work_txt{padding-top: 18px;display: flex;flex-direction: column;gap: 4px;}
 .hs_box .ch_work_txt i{font-size: var(--f14);color: var(--color-Sub);letter-spacing: .15em;}
-.hs_box .ch_work_txt h6{font-family: var(--Seriffont);font-weight: 500;font-size: var(--f20);letter-spacing: .12em;line-height: 1.6;transition: color .4s;}
-.hs_box .ch_work a:hover h6{color: var(--color-Main);}
+.hs_box .ch_work_txt h3{font-family: var(--Seriffont);font-weight: 500;font-size: var(--f20);letter-spacing: .12em;line-height: 1.6;transition: color .4s;}
+.hs_box .ch_work a:hover h3{color: var(--color-Main);}
 .hs_box .ch_work_txt p{font-size: var(--f15);color: var(--colorText-sub);}
 
 /* ---------- 滑動列 ch_slider（無外掛） ---------- */
@@ -407,7 +407,7 @@ body.menu-open .ch_burger span:nth-child(3){top: 23px;width: 24px;transform: rot
 .hs_box .ch_footer_logo span{display: block;font-family: var(--Corfont);font-size: var(--f14);letter-spacing: .6em;color: var(--colorText-whi);margin-top: 6px;}
 .hs_box .ch_footer_a > p{font-family: var(--Corfont);font-style: italic;font-size: var(--f30);color: rgba(244,239,230,.85);letter-spacing: .02em;line-height: 1.4;}
 .ch_footer_b{display: grid;grid-template-columns: 1.2fr 1fr 1fr 1.2fr;gap: 40px;padding: 50px 0;}
-.hs_box .ch_footer_b h6{font-family: var(--Corfont);font-style: italic;font-size: var(--f20);font-weight: 400;color: var(--color-Sub);letter-spacing: .06em;margin-bottom: 18px;}
+.hs_box .ch_footer_b h3{font-family: var(--Corfont);font-style: italic;font-size: var(--f20);font-weight: 400;color: var(--color-Sub);letter-spacing: .06em;margin-bottom: 18px;}
 .hs_box .ch_footer_b :is(p, li, a, span){font-size: var(--f15);color: rgba(244,239,230,.72);}
 .ch_footer_b ul{display: flex;flex-direction: column;gap: 6px;}
 .hs_box .ch_footer_b a{position: relative;transition: color .3s;}
