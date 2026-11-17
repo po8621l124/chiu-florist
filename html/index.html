@@ -8,8 +8,8 @@
 	<!-- 檔期開關：早鳥 11/22 截止（is-eb-end）、最後取件 12/12 後本季結束（is-season-end）。改日期只要改這裡 -->
 	<script>(function(){var n=Date.now(),c=document.documentElement.classList;if(n>Date.parse('2026-11-22T23:59:59+08:00'))c.add('is-eb-end');if(n>Date.parse('2026-12-12T23:59:59+08:00'))c.add('is-season-end');})();</script>
 	<!-- Google Analytics (GA4) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-TN85Y7GN7T"></script>
-	<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-TN85Y7GN7T');</script>
+	<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-TN85Y7GN7T');
+	window.addEventListener('load', function () { setTimeout(function () { var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-TN85Y7GN7T'; document.head.appendChild(s); }, 2000); });</script>
 	<meta name="google-site-verification" content="p_6z-OWAsTWC5hHmUmyuWNeH4Io1HOpn83x5PBPVKpA">
 	<link rel="preload" as="image" href="../image/chiu/w_lobby3.webp" media="(min-width: 769px)" fetchpriority="high">
 	<link rel="preload" as="image" href="../image/chiu/960/w_dahlia.webp" media="(max-width: 768px)" fetchpriority="high">
@@ -43,7 +43,7 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif+TC:wght@400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif+TC:wght@400;500&family=Pinyon+Script&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif+TC:wght@400;500&family=Pinyon+Script&display=swap"></noscript>
     <link rel="stylesheet" href="../css/chiu_common.css">
 <style>
 /* ===== 首頁 chi_ ===== */
@@ -53,6 +53,7 @@
 .chi_a_slides{position: absolute;inset: 0;z-index: -2;}
 .chi_a_slide{position: absolute;inset: 0;background: var(--img) var(--pos, center) / cover no-repeat;opacity: 0;transform: scale(1.05);transition: opacity 1.8s ease, transform 8s ease-out;}
 .chi_a_slide.is-active{opacity: 1;transform: scale(1);}
+.hs_box .chi_a_slide.is-lazy{background-image: none;}   /* 第 2、3 張：頁面載入完才下載 */
 .chi_a::after{content: '';position: absolute;inset: 0;z-index: -1;background: linear-gradient(90deg, rgba(var(--rgb_shade),.82) 0%, rgba(var(--rgb_shade),.45) 50%, rgba(var(--rgb_shade),.15) 100%), linear-gradient(0deg, rgba(var(--rgb_shade),.6) 0%, rgba(var(--rgb_shade),0) 40%);}
 .chi_a01{max-width: 1400px;width: 100%;margin: auto;}
 .hs_box .chi_a_script{display: block;font-family: var(--Pinyfont);font-size: var(--f45);line-height: 1;color: var(--color-Sub);letter-spacing: 0;}
@@ -282,8 +283,8 @@
     <section class="chi_a" aria-label="主視覺">
         <div class="chi_a_slides">
             <div class="chi_a_slide is-active" style="--img:url(../image/chiu/w_lobby3.webp);--pos:70% center;--img_m:url(../image/chiu/960/w_dahlia.webp);--pos_m:center 30%"></div>
-            <div class="chi_a_slide" style="--img:url(../image/chiu/w_blue.webp);--pos:65% center;--img_m:url(../image/chiu/960/w_paris.webp);--pos_m:center 30%"></div>
-            <div class="chi_a_slide" style="--img:url(../image/chiu/w_window.webp);--pos:60% center;--img_m:url(../image/chiu/960/w_opera.webp);--pos_m:center 30%"></div>
+            <div class="chi_a_slide is-lazy" style="--img:url(../image/chiu/w_blue.webp);--pos:65% center;--img_m:url(../image/chiu/960/w_paris.webp);--pos_m:center 30%"></div>
+            <div class="chi_a_slide is-lazy" style="--img:url(../image/chiu/w_window.webp);--pos:60% center;--img_m:url(../image/chiu/960/w_opera.webp);--pos_m:center 30%"></div>
         </div>
         <div class="chi_a01">
             <h1 class="chi_a_h1" data-animate-in="up" data-animate-in-delay="100"><span class="chi_a_kw"><span class="ch_s">台中花藝工作室｜</span><span class="ch_s">訂製花禮・婚禮佈置・花藝課程</span></span><span class="chi_a_script">Chiu Florist</span></h1>
@@ -522,6 +523,7 @@
         var dots = hero.querySelectorAll('.chi_a_dot');
         var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         var cur = 0, timer = null, DUR = 6000;
+        window.addEventListener('load', function () { [].forEach.call(hero.querySelectorAll('.chi_a_slide.is-lazy'), function (s) { s.classList.remove('is-lazy'); }); });
         hero.style.setProperty('--dur', DUR / 1000 + 's');
         function go(n) {
             slides[cur].classList.remove('is-active'); dots[cur].classList.remove('is-active');

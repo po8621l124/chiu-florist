@@ -292,7 +292,7 @@ body.menu-open .ch_burger span:nth-child(3){top: 23px;width: 24px;transform: rot
 .ch_menu{position: fixed;inset: 0;z-index: 90;background: var(--color-dark);display: flex;flex-direction: column;justify-content: center;padding: 110px calc(5% + 5px) 50px;clip-path: circle(0% at calc(100% - 50px) 48px);visibility: hidden;transition: clip-path .8s var(--ease), visibility 0s .8s;overflow-y: auto;}
 .ch_menu *{box-sizing: border-box;margin: 0;padding: 0;list-style: none;text-decoration: none;}
 .ch_menu.is-open{clip-path: circle(150% at calc(100% - 50px) 48px);visibility: visible;transition: clip-path .8s var(--ease), visibility 0s;}
-.ch_menu::before{content: '';position: absolute;inset: 0;background: url(../image/chiu/w_roses.webp) center / cover;opacity: .16;z-index: -1;}
+.ch_menu::before{content: '';position: absolute;inset: 0;background: url(../image/chiu/480/w_roses.webp) center / cover;opacity: .16;z-index: -1;}
 .ch_menu ul{display: flex;flex-direction: column;gap: 6px;}
 .ch_menu li{overflow: hidden;}
 .ch_menu li a{display: flex;align-items: baseline;gap: 18px;padding: 10px 0;border-bottom: 1px solid rgba(244,239,230,.12);transform: translateY(110%);transition: transform .8s var(--ease);}
@@ -495,6 +495,7 @@ body.cursor-on .ch_cursor.is-label + .ch_cursor_dot{opacity: 0;}
     .ch_banner{min-height: 60vh;}
 }
 @media (max-width: 768px) {
+    .ch_cta_bg{background-image: url(../image/chiu/960/w_teal.webp);}
     .ch_banner_bg{background-image: var(--bn_img_m, var(--bn_img));background-position: var(--bn_pos_m, center);}
     .ch_slider_track{gap: 18px;}
     .ch_slider_track > *{flex-basis: 72%;}
