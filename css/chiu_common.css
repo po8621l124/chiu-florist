@@ -312,6 +312,18 @@ body.menu-open .ch_burger span:nth-child(3){top: 23px;width: 24px;transform: rot
 .ch_totop svg.ring circle{fill: none;stroke: var(--color-Sub);stroke-width: 2;stroke-dasharray: 151;stroke-dashoffset: calc(151 - 151 * var(--p, 0));}
 .ch_totop svg.arw{width: 16px;height: 16px;}
 
+/* ---------- IG 浮動按鈕（在回頂按鈕上方；回頂按鈕出現時往上讓位） ---------- */
+.ch_igfab{position: fixed;right: 24px;bottom: 24px;z-index: 80;width: 54px;height: 54px;border-radius: 50%;background: var(--color-Sub);color: #fff;display: grid;place-items: center;box-shadow: 0 8px 24px rgba(var(--rgb_dark),.22);transition: transform .5s var(--ease), background-color .3s;}
+.ch_igfab::before{content: '';position: absolute;inset: 0;border-radius: 50%;border: 1px solid var(--color-Sub);animation: ch_igpulse 2.4s ease-out 3s 2 both;pointer-events: none;}
+.ch_igfab svg{width: 24px;height: 24px;}
+.ch_igfab span{position: absolute;right: calc(100% + 12px);top: 50%;padding: 8px 16px;border-radius: 30px;background: var(--color-dark);color: var(--colorText-whi);font-family: var(--Sansfont);font-size: 0.88rem;letter-spacing: .12em;line-height: 1.5;white-space: nowrap;opacity: 0;visibility: hidden;transform: translate(8px, -50%);transition: opacity .3s, transform .4s var(--ease), visibility 0s .3s;pointer-events: none;}
+.ch_igfab:is(:hover, :focus-visible){background: var(--color-Main);}
+.ch_igfab:is(:hover, :focus-visible) span{opacity: 1;visibility: visible;transform: translate(0, -50%);transition: opacity .3s, transform .4s var(--ease), visibility 0s;}
+.ch_igfab:focus-visible{outline: 2px solid var(--color-Sub);outline-offset: 3px;}
+.ch_totop.is-show ~ .ch_igfab{transform: translateY(-66px);}
+@keyframes ch_igpulse{0%{transform: scale(1);opacity: .9;}100%{transform: scale(1.6);opacity: 0;}}
+@media (prefers-reduced-motion: reduce){.ch_igfab::before{animation: none;opacity: 0;}}
+
 /* ---------- 共通標題 ch_title ---------- */
 .ch_title::before{content: '';display: block;width: 40px;height: 1px;background: var(--color-Sub);margin-bottom: 22px;}
 .ch_title.cen::before{margin-left: auto;margin-right: auto;}
@@ -481,6 +493,9 @@ body.cursor-on .ch_cursor.is-label + .ch_cursor_dot{opacity: 0;}
     .ch_btns{flex-direction: column;align-items: stretch;}
     .ch_btns .ch_btn{justify-content: center;}
     .ch_totop{right: 14px;bottom: 14px;width: 48px;height: 48px;}
+    .ch_igfab{right: 14px;bottom: calc(14px + env(safe-area-inset-bottom));width: 48px;height: 48px;}
+    .ch_igfab svg{width: 22px;height: 22px;}
+    .ch_totop.is-show ~ .ch_igfab{transform: translateY(-58px);}
     [style*="--delay_time"] > *{transition-delay: 0s !important;}
 }
 @media (max-width: 380px) {

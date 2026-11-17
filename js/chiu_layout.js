@@ -54,7 +54,8 @@
                 '<p>Instagram <a href="' + IG + '" target="_blank" rel="noopener">@chiu.florist</a></p>' +
             '</div>' +
         '</div>' +
-        '<button class="ch_totop" type="button" aria-label="回到頂端"><svg class="ring" viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="24"/></svg><svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>';
+        '<button class="ch_totop" type="button" aria-label="回到頂端"><svg class="ring" viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="24"/></svg><svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>' +
+        '<a class="ch_igfab" href="https://ig.me/m/chiu.florist" target="_blank" rel="noopener" aria-label="Instagram 私訊 CHIU.FLORIST（另開新視窗）">' + igIcon + '<span aria-hidden="true">IG 私訊預約</span></a>';
 
     var FOOTER =
         '<footer class="ch_footer">' +
