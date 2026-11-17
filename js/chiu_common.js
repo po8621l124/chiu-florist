@@ -34,9 +34,17 @@
         burger.setAttribute('aria-expanded', open);
         burger.setAttribute('aria-label', open ? '關閉選單' : '開啟選單');
         menu.inert = !open;
-        if (open) { var first = menu.querySelector('a'); if (first) setTimeout(function () { first.focus(); }, 300); }
+        /* 開選單後把焦點移到第一個連結；preventScroll 避免動畫中的連結被捲動而跳動（iOS） */
+        if (open) { var first = menu.querySelector('a'); if (first) setTimeout(function () { first.focus({ preventScroll: true }); }, 900); }
     }
     if (menu) menu.inert = true;
+    /* 預先載入選單用到的中文字（例如「首頁」只出現在選單，不先載入會在展開時才換字型而閃一下） */
+    if (menu && document.fonts && document.fonts.load) {
+        window.addEventListener('load', function () {
+            var txt = [].map.call(menu.querySelectorAll('b'), function (b) { return b.textContent; }).join('');
+            document.fonts.load('500 40px "Noto Serif TC"', txt).catch(function () {});
+        });
+    }
     if (burger) burger.addEventListener('click', function () { setMenu(!menu.classList.contains('is-open')); });
     if (menu) menu.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
     document.addEventListener('keydown', function (e) {
