@@ -47,6 +47,12 @@
 
 .chc_b01_r{flex: 0 1 780px;background: #FBF8F3;padding: clamp(30px, 4vw, 60px);box-shadow: 0 30px 60px -30px rgba(50,47,45,.25);}
 .hs_box .chc_form_head h3{font-family: var(--Seriffont);font-weight: 500;font-size: var(--f26);letter-spacing: .15em;}
+/* 「不會寄出」提示 */
+.chc_notice{display: flex;align-items: flex-start;gap: 10px;margin-top: 16px;padding: 12px 16px;background: rgba(180,141,85,.1);border-left: 2px solid var(--color-Sub) !important;}
+.chc_notice svg{flex: none;width: 18px;height: 18px;margin-top: 3px;color: var(--color-Sub);}
+.hs_box .chc_notice span, .hs_box .chc_notice b{font-size: var(--f14);line-height: 1.7;color: var(--colorText);}
+.hs_box .chc_notice b{font-weight: 500;color: var(--color-Main);}
+.hs_box .chc_done .chc_warn{font-weight: 500;color: var(--color-Main);}
 .hs_box .chc_form_head p{font-size: var(--f15);color: var(--colorText-sub);margin-top: 6px;}
 .chc_form{display: grid;grid-template-columns: 1fr 1fr;gap: 26px 24px;margin-top: 36px;}
 .chc_field{display: flex;flex-direction: column;gap: 8px;}
@@ -161,7 +167,7 @@
                     <div class="ch_en">Get in Touch</div>
                     <h2>告訴我們你的想法</h2>
                 </div>
-                <p data-animate-in="up">無論是一份花禮、一場婚禮，或是一整個空間的佈置，都歡迎與我們聊聊。填寫線上諮詢表單後，系統會整理好你的需求，一鍵帶到 Instagram 私訊給我們。</p>
+                <p data-animate-in="up">無論是一份花禮、一場婚禮，或是一整個空間的佈置，都歡迎與我們聊聊。所有諮詢與訂購都透過 <b>Instagram 或 Facebook 私訊</b>，網站沒有線上送單或 Email 寄信。</p>
                 <ul class="chc_info" data-animate-in="up">
                     <li>
                         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></i>
@@ -186,8 +192,9 @@
             <div class="chc_b01_r" data-animate-in="up">
                 <form class="chc_form_wrap" novalidate>
                     <div class="chc_form_head">
-                        <h3>線上諮詢</h3>
-                        <p>標示 <em>*</em> 為必填，送出後可直接複製內容私訊給我們。</p>
+                        <h3>私訊小幫手</h3>
+                        <p>幫你把需求整理成一段文字，複製後貼到 IG 或 FB 私訊給我們。標示 <em>*</em> 為必填。</p>
+                        <p class="chc_notice"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/></svg><span>這裡<b>不會寄出</b>任何資料。整理好後，請記得到私訊貼上並送出，我們才會收到。</span></p>
                     </div>
                     <div class="chc_form">
                         <fieldset class="chc_field full chc_types" id="f_type">
@@ -240,7 +247,7 @@
                             <p class="chc_hint" id="c_msg">0 / 500</p>
                         </div>
                         <div class="chc_submit">
-                            <p>為保護你的個人資料，表單內容不會上傳至伺服器，只會整理成文字讓你私訊給我們。</p>
+                            <p>內容不會寄出、也不會上傳到任何伺服器，只會整理成文字讓你貼到私訊。</p>
                             <button class="ch_btn fill" type="submit"><span>整理並複製</span><i></i></button>
                         </div>
                     </div>
@@ -248,11 +255,12 @@
 
                 <div class="chc_done" hidden tabindex="-1">
                     <div class="chc_done_icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
-                    <h3>謝謝你的來信</h3>
-                    <p>需求內容已整理好，<span class="chc_copied">並已複製到剪貼簿</span>。請按下方按鈕前往 Instagram，貼上後送出私訊即可。</p>
+                    <h3>需求已整理好</h3>
+                    <p>需求內容已整理好<span class="chc_copied">，並複製到剪貼簿</span>。<b class="chc_warn">訊息還沒有送出</b>，請前往 Instagram 或 Facebook 私訊，貼上後送出，我們才會收到。</p>
                     <pre></pre>
                     <div class="ch_btns">
                         <a class="ch_btn fill" href="https://ig.me/m/chiu.florist" target="_blank" rel="noopener"><span>前往 IG 私訊</span><i></i></a>
+                        <a class="ch_btn fill" href="https://www.facebook.com/p/Chiuflorist-100071734697100/" target="_blank" rel="noopener"><span>前往 FB 私訊</span><i></i></a>
                         <button class="ch_btn chc_copy" type="button"><span>再次複製</span><i></i></button>
                         <button class="ch_btn chc_reset" type="button"><span>重新填寫</span><i></i></button>
                     </div>
@@ -368,7 +376,7 @@
 
             var f = form.elements;
             var lines = [
-                '【CHIU.FLORIST 線上諮詢】',
+                '【CHIU.FLORIST 諮詢】',
                 '需求類型：' + type.value,
                 '姓名：' + f.name.value.trim(),
                 '電話：' + f.tel.value.trim()

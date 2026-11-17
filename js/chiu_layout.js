@@ -89,7 +89,7 @@
                         '<li>訂製花禮</li><li>婚慶活動視覺佈置</li><li>商業軟裝空間設計</li><li>企業商用週花</li><li>專屬黃銅家飾選品</li>' +
                     '</ul></div>' +
                     '<div><h3>Contact</h3><ul>' +
-                        '<li>服務地區｜台中</li><li>工作室採預約制，地點請私訊詢問</li><li><a href="contact.html">線上諮詢表單</a></li>' +
+                        '<li>服務地區｜台中</li><li>工作室採預約制，地點請私訊詢問</li><li><a href="contact.html">私訊小幫手</a></li>' +
                     '</ul></div>' +
                 '</div>' +
                 '<div class="ch_footer_c">' +
