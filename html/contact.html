@@ -61,8 +61,10 @@
 .chc_field [aria-invalid="true"]{border-color: #A3343B !important;}
 .hs_box .chc_err{font-size: var(--f14);color: #A3343B;min-height: 1em;line-height: 1.4;}
 .hs_box .chc_hint{font-size: var(--f14);color: var(--colorText-sub);text-align: right;line-height: 1.4;}
-.chc_types{display: grid;grid-template-columns: repeat(3, 1fr);gap: 10px;border: 0;padding: 0;margin: 0;}
-.chc_types .chc_err{grid-column: 1 / -1;}
+/* fieldset 在 iOS Safari 不能當 grid 容器，排版放在內層 div */
+.chc_types{display: block;min-width: 0;border: 0;padding: 0;margin: 0;}
+.chc_types_list{display: grid;grid-template-columns: repeat(3, minmax(0, 1fr));gap: 10px;}
+.chc_types .chc_err{margin-top: 10px;}
 .chc_types legend{padding: 0;margin-bottom: 12px;}
 .chc_types label{position: relative;cursor: pointer;}
 .chc_types input{position: absolute;opacity: 0;width: 1px;height: 1px;}
@@ -129,7 +131,7 @@
     .QA_function dt button{gap: 12px;}
 }
 @media (max-width: 380px) {
-    .chc_types{grid-template-columns: repeat(2, 1fr);}
+    .chc_types_list{grid-template-columns: repeat(2, minmax(0, 1fr));}
 }
 </style>
 </head>
@@ -189,12 +191,14 @@
                     <div class="chc_form">
                         <fieldset class="chc_field full chc_types" id="f_type">
                             <legend><b>需求類型 <em>*</em></b></legend>
-                            <label><input type="radio" name="type" value="訂製花禮" required><span>訂製花禮</span></label>
-                            <label><input type="radio" name="type" value="婚禮佈置"><span>婚禮佈置</span></label>
-                            <label><input type="radio" name="type" value="空間軟裝"><span>空間軟裝</span></label>
-                            <label><input type="radio" name="type" value="企業週花"><span>企業週花</span></label>
-                            <label><input type="radio" name="type" value="花藝課程" data-key="lesson"><span>花藝課程</span></label>
-                            <label><input type="radio" name="type" value="其他"><span>其他</span></label>
+                            <div class="chc_types_list">
+                                <label><input type="radio" name="type" value="訂製花禮" required><span>訂製花禮</span></label>
+                                <label><input type="radio" name="type" value="婚禮佈置"><span>婚禮佈置</span></label>
+                                <label><input type="radio" name="type" value="空間軟裝"><span>空間軟裝</span></label>
+                                <label><input type="radio" name="type" value="企業週花"><span>企業週花</span></label>
+                                <label><input type="radio" name="type" value="花藝課程" data-key="lesson"><span>花藝課程</span></label>
+                                <label><input type="radio" name="type" value="其他"><span>其他</span></label>
+                            </div>
                             <p class="chc_err" id="e_type" aria-live="polite"></p>
                         </fieldset>
                         <div class="chc_field">
