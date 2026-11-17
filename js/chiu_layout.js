@@ -7,6 +7,8 @@
    ========================================================= */
 (function () {
     var IG = 'https://www.instagram.com/chiu.florist/';
+    var FB = 'https://www.facebook.com/p/Chiuflorist-100071734697100/';
+    var fbIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 3H17v3.5h-2.2a1 1 0 0 0-1 1V10H17l-.5 3.5h-2.7V21h-3.6v-7.5H8V10h2.2V7a4 4 0 0 1 4-4z"/></svg>';
     var igIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>';
 
     /* 選單項目：改這裡就好 */
@@ -42,6 +44,7 @@
                 '<nav class="ch_nav" aria-label="主選單"><ul>' + navLinks + '</ul></nav>' +
                 '<div class="ch_hd_r">' +
                     '<a class="ch_hd_ig" href="' + IG + '" target="_blank" rel="noopener" aria-label="Instagram（另開視窗）">' + igIcon + '</a>' +
+                    '<a class="ch_hd_ig" href="' + FB + '" target="_blank" rel="noopener" aria-label="Facebook（另開視窗）">' + fbIcon + '</a>' +
                     '<a class="ch_hd_btn" href="contact.html">預約諮詢</a>' +
                     '<button class="ch_burger" type="button" aria-expanded="false" aria-controls="ch_menu" aria-label="開啟選單"><span></span><span></span><span></span></button>' +
                 '</div>' +
@@ -52,6 +55,7 @@
             '<div class="ch_menu_info">' +
                 '<p>台中・工作室採預約制</p>' +
                 '<p>Instagram <a href="' + IG + '" target="_blank" rel="noopener">@chiu.florist</a></p>' +
+                '<p>Facebook <a href="' + FB + '" target="_blank" rel="noopener">Chiuflorist</a></p>' +
             '</div>' +
         '</div>' +
         '<button class="ch_totop" type="button" aria-label="回到頂端"><svg class="ring" viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="24"/></svg><svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>' +
@@ -69,6 +73,7 @@
                         '<h3>About</h3>' +
                         '<p>台中花藝工作室。訂製花禮、婚慶活動視覺佈置、商業軟裝空間設計、企業商用週花與花藝課程。</p>' +
                         '<a class="ch_footer_ig" href="' + IG + '" target="_blank" rel="noopener">' + igIcon + '<span>@chiu.florist</span></a>' +
+                        '<a class="ch_footer_ig" href="' + FB + '" target="_blank" rel="noopener">' + fbIcon + '<span>Chiuflorist</span></a>' +
                     '</div>' +
                     '<div><h3>Menu</h3><ul>' + footerLinks + '</ul></div>' +
                     '<div><h3>Services</h3><ul>' +

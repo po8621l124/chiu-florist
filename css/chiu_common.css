@@ -425,6 +425,7 @@ body.menu-open .ch_burger span:nth-child(3){top: 23px;width: 24px;transform: rot
 .hs_box .ch_footer_b a{position: relative;transition: color .3s;}
 .hs_box .ch_footer_b a:hover{color: var(--color-Sub);}
 .ch_footer_ig{display: inline-flex !important;align-items: center;gap: 10px;margin-top: 14px;}
+.ch_footer_ig + .ch_footer_ig{margin-left: 24px;}
 .ch_footer_ig svg{width: 18px;height: 18px;color: var(--color-Sub);}
 .ch_footer_c{display: flex;justify-content: space-between;gap: 20px;flex-wrap: wrap;padding-top: 26px;border-top: 1px solid rgba(244,239,230,.12) !important;}
 .hs_box .ch_footer_c :is(p, a, span){font-size: var(--f14);color: rgba(244,239,230,.45);letter-spacing: .12em;}
