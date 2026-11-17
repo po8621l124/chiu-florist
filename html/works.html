@@ -8,6 +8,8 @@
 	<!-- Google Analytics (GA4) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-TN85Y7GN7T"></script>
 	<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-TN85Y7GN7T');</script>
+	<link rel="preload" as="image" href="../image/chiu/w_fair.webp" media="(min-width: 769px)" fetchpriority="high">
+	<link rel="preload" as="image" href="../image/chiu/960/w_bridal.webp" media="(max-width: 768px)" fetchpriority="high">
 	<link rel="icon" href="../image/icon/icon-48.png" sizes="48x48" type="image/png">
 	<link rel="icon" href="../image/icon/icon-96.png" sizes="96x96" type="image/png">
 	<link rel="icon" href="../image/icon/icon-192.png" sizes="192x192" type="image/png">
@@ -22,11 +24,9 @@
 	<meta property="og:url" content="https://po8621l124.github.io/chiu-florist/html/works.html">
 	<meta property="og:image" content="https://po8621l124.github.io/chiu-florist/image/chiu/w_blue.jpg">
 	<meta name="twitter:card" content="summary_large_image">
-    <script src="../js/jquery-1.11.3.min.js"></script>
-    <script src="../js/scrollfade.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif+TC:wght@400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/chiu_common.css">
 <style>
 /* ===== 作品 chw_ ===== */
@@ -200,7 +200,7 @@ body:has(.chw_lb[open]){overflow: hidden;}
 <div class="hs_box">
 <main id="main">
 
-    <section class="ch_banner" style="--bn_img:url(../image/chiu/w_fair.webp);--bn_pos:center 55%;--bn_img_m:url(../image/chiu/w_bridal.webp);--bn_pos_m:center 35%">
+    <section class="ch_banner" style="--bn_img:url(../image/chiu/w_fair.webp);--bn_pos:center 55%;--bn_img_m:url(../image/chiu/960/w_bridal.webp);--bn_pos_m:center 35%">
         <div class="ch_banner_bg"></div>
         <div class="ch_banner_in">
             <div data-animate-in="up">
@@ -272,6 +272,7 @@ body:has(.chw_lb[open]){overflow: hidden;}
 <script src="../js/chiu_layout.js" data-part="footer"></script>
 </div>
 
+<script src="../js/scrollfade.js"></script>
 <script src="../js/chiu_common.js"></script>
 <script>
     /* 作品頁邏輯：篩選、分頁、燈箱、手機篩選面板（資料載入後執行） */
@@ -447,6 +448,16 @@ body:has(.chw_lb[open]){overflow: hidden;}
         var grid = document.querySelector('.chw_grid');
         var filterUl = document.querySelector('.chw_filter ul');
         var empty = document.querySelector('.chw_empty');
+        /* 響應式圖片：依原圖寬度提供 480／960 縮圖（data/works.json 的 width 要填原圖寬） */
+        function rs(w, sizes) {
+            var n = String(w.image).replace(/\.webp$/, ''), W = +w.width || 0, s = [];
+            if (W > 552) s.push('../image/chiu/480/' + n + '.webp 480w');
+            if (W > 1104) s.push('../image/chiu/960/' + n + '.webp 960w');
+            if (!s.length) return '';
+            s.push('../image/chiu/' + n + '.webp ' + W + 'w');
+            return ' srcset="' + s.join(', ') + '" sizes="' + sizes + '" onerror="this.onerror=null;this.removeAttribute(\x27srcset\x27)"';
+        }
+
         function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
         fetch('../data/works.json', { cache: 'no-cache' })
             .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
@@ -457,7 +468,7 @@ body:has(.chw_lb[open]){overflow: hidden;}
                     }).join('');
                 grid.innerHTML = data.works.map(function (w) {
                     return '<li class="ch_work" data-cat="' + esc(w.category) + '" data-ig="' + esc(w.instagram) + '">' +
-                        '<button type="button" data-cursor="View"><figure><img src="../image/chiu/' + esc(w.image) + '" alt="' + esc(w.label + '｜' + w.title) + '" width="' + (+w.width || '') + '" height="' + (+w.height || '') + '" loading="lazy"></figure>' +
+                        '<button type="button" data-cursor="View"><figure><img src="../image/chiu/' + esc(w.image) + '"' + rs(w, '(max-width: 768px) 50vw, 33vw') + ' alt="' + esc(w.label + '｜' + w.title) + '" width="' + (+w.width || '') + '" height="' + (+w.height || '') + '" loading="lazy"></figure>' +
                         '<div class="ch_work_txt"><i>' + esc(w.label) + '</i><h3>' + esc(w.title) + '</h3></div></button>' +
                         '<template>' + esc(w.story) + '</template></li>';
                 }).join('');

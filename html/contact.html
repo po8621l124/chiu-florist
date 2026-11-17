@@ -8,6 +8,8 @@
 	<!-- Google Analytics (GA4) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-TN85Y7GN7T"></script>
 	<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-TN85Y7GN7T');</script>
+	<link rel="preload" as="image" href="../image/chiu/w_window.webp" media="(min-width: 769px)" fetchpriority="high">
+	<link rel="preload" as="image" href="../image/chiu/960/w_opening.webp" media="(max-width: 768px)" fetchpriority="high">
 	<link rel="icon" href="../image/icon/icon-48.png" sizes="48x48" type="image/png">
 	<link rel="icon" href="../image/icon/icon-96.png" sizes="96x96" type="image/png">
 	<link rel="icon" href="../image/icon/icon-192.png" sizes="192x192" type="image/png">
@@ -22,11 +24,9 @@
 	<meta property="og:url" content="https://po8621l124.github.io/chiu-florist/html/contact.html">
 	<meta property="og:image" content="https://po8621l124.github.io/chiu-florist/image/chiu/w_window.jpg">
 	<meta name="twitter:card" content="summary_large_image">
-    <script src="../js/jquery-1.11.3.min.js"></script>
-    <script src="../js/scrollfade.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif+TC:wght@400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/chiu_common.css">
 <style>
 /* ===== 聯絡 chc_ ===== */
@@ -157,7 +157,7 @@
 <div class="hs_box">
 <main id="main">
 
-    <section class="ch_banner" style="--bn_img:url(../image/chiu/w_window.webp);--bn_pos:center 50%;--bn_img_m:url(../image/chiu/w_opening.webp);--bn_pos_m:center 40%">
+    <section class="ch_banner" style="--bn_img:url(../image/chiu/w_window.webp);--bn_pos:center 50%;--bn_img_m:url(../image/chiu/960/w_opening.webp);--bn_pos_m:center 40%">
         <div class="ch_banner_bg"></div>
         <div class="ch_banner_in">
             <div data-animate-in="up">
@@ -323,14 +323,22 @@
 <script src="../js/chiu_layout.js" data-part="footer"></script>
 </div>
 
+<script src="../js/scrollfade.js"></script>
 <script src="../js/chiu_common.js"></script>
 <script>
     /* 訂購須知手風琴 */
-    $('.QA_function > dl dt').click(function(){
-        var $dl = $(this).closest('dl');
-        $dl.toggleClass('active');
-        $dl.find('dd').slideToggle();
-        $dl.find('dt button').attr('aria-expanded', $dl.hasClass('active'));
+    /* 常見問題手風琴（原生 JS，不需 jQuery） */
+    [].forEach.call(document.querySelectorAll('.QA_function > dl'), function (dl) {
+        var dd = dl.querySelector('dd'), btn = dl.querySelector('dt button');
+        dl.querySelector('dt').addEventListener('click', function () {
+            var open = !dl.classList.contains('active');
+            dl.classList.toggle('active', open);
+            if (btn) btn.setAttribute('aria-expanded', open);
+            if (open) dd.style.display = 'block';
+            var h = dd.scrollHeight;
+            var anim = dd.animate([{ height: (open ? 0 : h) + 'px', overflow: 'hidden' }, { height: (open ? h : 0) + 'px', overflow: 'hidden' }], { duration: 400, easing: 'ease' });
+            anim.onfinish = function () { if (!open) dd.style.display = 'none'; };
+        });
     });
 
     /* 諮詢表單 */
