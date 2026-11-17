@@ -214,4 +214,16 @@
             requestAnimationFrame(loop);
         })();
     });
+    /* 聯絡浮動按鈕：點開 IG／FB */
+    (function () {
+        var chat = document.querySelector('.ch_chat');
+        if (!chat) return;
+        var btn = chat.querySelector('.ch_chat_btn');
+        function set(open) { chat.classList.toggle('is-open', open); btn.setAttribute('aria-expanded', open); }
+        btn.addEventListener('click', function () { set(!chat.classList.contains('is-open')); });
+        document.addEventListener('click', function (e) { if (!chat.contains(e.target)) set(false); });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && chat.classList.contains('is-open')) { set(false); btn.focus(); } });
+        [].forEach.call(chat.querySelectorAll('a'), function (a) { a.addEventListener('click', function () { set(false); }); });
+    })();
+
 })();

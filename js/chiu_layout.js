@@ -59,7 +59,16 @@
             '</div>' +
         '</div>' +
         '<button class="ch_totop" type="button" aria-label="回到頂端"><svg class="ring" viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="24"/></svg><svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>' +
-        '<a class="ch_igfab" href="https://ig.me/m/chiu.florist" target="_blank" rel="noopener" aria-label="Instagram 私訊 CHIU.FLORIST（另開新視窗）">' + igIcon + '<span aria-hidden="true">IG 私訊預約</span></a>';
+        '<div class="ch_chat">' +
+            '<ul class="ch_chat_list" id="ch_chat_list">' +
+                '<li><a href="https://ig.me/m/chiu.florist" target="_blank" rel="noopener"><span>Instagram 私訊</span><i class="ig">' + igIcon + '</i></a></li>' +
+                '<li><a href="' + FB + '" target="_blank" rel="noopener"><span>Facebook 粉專</span><i class="fb">' + fbIcon + '</i></a></li>' +
+            '</ul>' +
+            '<button class="ch_chat_btn" type="button" aria-expanded="false" aria-controls="ch_chat_list" aria-label="聯絡我們：Instagram、Facebook">' +
+                '<svg class="open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></svg>' +
+                '<svg class="close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>' +
+            '</button>' +
+        '</div>';
 
     var FOOTER =
         '<footer class="ch_footer">' +
