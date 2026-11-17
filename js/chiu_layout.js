@@ -61,7 +61,7 @@
         '<button class="ch_totop" type="button" aria-label="回到頂端"><svg class="ring" viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="24"/></svg><svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>' +
         '<div class="ch_chat">' +
             '<ul class="ch_chat_list" id="ch_chat_list">' +
-                '<li><a href="https://ig.me/m/chiu.florist" target="_blank" rel="noopener"><span>Instagram 私訊</span><i class="ig">' + igIcon + '</i></a></li>' +
+                '<li><a href="https://www.instagram.com/chiu.florist/" target="_blank" rel="noopener"><span>Instagram 私訊</span><i class="ig">' + igIcon + '</i></a></li>' +
                 '<li><a href="' + FB + '" target="_blank" rel="noopener"><span>Facebook 粉專</span><i class="fb">' + fbIcon + '</i></a></li>' +
             '</ul>' +
             '<button class="ch_chat_btn" type="button" aria-expanded="false" aria-controls="ch_chat_list" aria-label="聯絡我們：Instagram、Facebook">' +
