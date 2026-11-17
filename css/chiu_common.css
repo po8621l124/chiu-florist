@@ -102,7 +102,7 @@ body{margin: 0;background-color: #F5F0E8;}
     --rgb_shade:20,16,15;
     --color-line:rgba(50,47,45,.16);
 
-    --Sansfont:"Noto Sans TC", sans-serif;
+    --Sansfont:"PingFang TC", "Noto Sans CJK TC", "Noto Sans TC", "Microsoft JhengHei", "Heiti TC", system-ui, sans-serif; /* 內文用系統黑體，省下網路字型流量 */
     --Seriffont:"Noto Serif TC", serif;
     --Corfont:"Cormorant Garamond", serif;
     --Pinyfont:"Pinyon Script", serif;
