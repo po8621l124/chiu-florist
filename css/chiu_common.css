@@ -290,7 +290,7 @@ body.menu-open .ch_burger span:nth-child(3){top: 23px;width: 24px;transform: rot
 .ch_menu{position: fixed;inset: 0;z-index: 90;background: var(--color-dark);display: flex;flex-direction: column;justify-content: center;padding: 110px calc(5% + 5px) 50px;clip-path: circle(0% at calc(100% - 50px) 48px);visibility: hidden;transition: clip-path .8s var(--ease), visibility 0s .8s;overflow-y: auto;}
 .ch_menu *{box-sizing: border-box;margin: 0;padding: 0;list-style: none;text-decoration: none;}
 .ch_menu.is-open{clip-path: circle(150% at calc(100% - 50px) 48px);visibility: visible;transition: clip-path .8s var(--ease), visibility 0s;}
-.ch_menu::before{content: '';position: absolute;inset: 0;background: url(../image/chiu/w_roses.jpg) center / cover;opacity: .16;z-index: -1;}
+.ch_menu::before{content: '';position: absolute;inset: 0;background: url(../image/chiu/w_roses.webp) center / cover;opacity: .16;z-index: -1;}
 .ch_menu ul{display: flex;flex-direction: column;gap: 6px;}
 .ch_menu li{overflow: hidden;}
 .ch_menu li a{display: flex;align-items: baseline;gap: 18px;padding: 10px 0;border-bottom: 1px solid rgba(244,239,230,.12);transform: translateY(110%);transition: transform .8s var(--ease);}
@@ -394,7 +394,7 @@ body.menu-open .ch_burger span:nth-child(3){top: 23px;width: 24px;transform: rot
 
 /* ---------- 共通 CTA ---------- */
 .ch_cta{position: relative;z-index: 1;overflow: hidden;padding: calc(var(--pdy) * 1.4) var(--pdx);background: var(--color-dark);}
-.ch_cta_bg{position: absolute;inset: -15% 0;z-index: -1;background: url(../image/chiu/w_teal.jpg) center / cover no-repeat;opacity: .5;}
+.ch_cta_bg{position: absolute;inset: -15% 0;z-index: -1;background: url(../image/chiu/w_teal.webp) center / cover no-repeat;opacity: .5;}
 .ch_cta::after{content: '';position: absolute;inset: 0;z-index: -1;background: radial-gradient(ellipse at center, rgba(var(--rgb_dark),.2) 0%, rgba(var(--rgb_dark),.85) 75%);}
 .ch_cta_in{max-width: 820px;margin: auto;display: flex;flex-direction: column;align-items: center;gap: 30px;}
 .hs_box .ch_cta_in > p{color: rgba(244,239,230,.8);}

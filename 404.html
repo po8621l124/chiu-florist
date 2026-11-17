@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="robots" content="noindex">
+	<!-- 找不到頁面時 GitHub Pages 會顯示這頁；網址可能在任何層級，用 base 固定相對路徑（換正式網域時改成 /html/） -->
+	<base href="/chiu-florist/html/">
+	<title>找不到頁面｜CHIU.FLORIST 台中花藝工作室</title>
+	<link rel="icon" href="../image/icon/icon-48.png" sizes="48x48" type="image/png">
+	<link rel="icon" href="../image/icon/icon-96.png" sizes="96x96" type="image/png">
+	<link rel="icon" href="../image/icon/icon-192.png" sizes="192x192" type="image/png">
+	<link rel="apple-touch-icon" href="../image/icon/icon-180.png">
+    <script src="../js/jquery-1.11.3.min.js"></script>
+    <script src="../js/scrollfade.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/chiu_common.css">
+<style>
+/* ===== 404 ch404_ ===== */
+.ch404{position: relative;z-index: 1;min-height: 100vh;min-height: 100svh;display: flex;align-items: center;justify-content: center;padding: calc(var(--hd_h) + 40px) var(--pdx) 80px;overflow: hidden;background: var(--color-shade);text-align: center;}
+.ch404_bg{position: absolute;inset: -6% 0;z-index: -2;background: url(../image/chiu/w_candle.webp) center 40% / cover no-repeat;animation: ch_kenburns 14s ease-out both;}
+.ch404::after{content: '';position: absolute;inset: 0;z-index: -1;background: radial-gradient(ellipse at center, rgba(var(--rgb_shade),.55) 0%, rgba(var(--rgb_shade),.85) 75%);}
+.ch404_in{max-width: 640px;}
+.hs_box .ch404_num{display: block;font-family: var(--Corfont);font-style: italic;font-weight: 400;font-size: clamp(6rem, 18vw, 13rem);line-height: .9;letter-spacing: .02em;color: var(--color-Sub);}
+.hs_box .ch404_en{display: block;font-family: var(--Pinyfont);font-size: var(--f45);line-height: 1.2;color: rgba(244,239,230,.85);margin-top: 6px;}
+.hs_box .ch404 h1{font-family: var(--Seriffont);font-weight: 500;font-size: var(--f30);letter-spacing: .3em;color: var(--colorText-whi);margin-top: 20px;}
+.hs_box .ch404 p{color: rgba(244,239,230,.8);margin-top: 18px;}
+.ch404 .ch_btns{justify-content: center;margin-top: 40px;}
+.hs_box .ch404 .ch_btn:not(.fill) span{color: var(--colorText-whi);}
+
+@media (max-width: 480px) {
+    .hs_box .ch404 h1{letter-spacing: .2em;}
+    .ch404 .ch_btns{flex-direction: column;align-items: stretch;}
+    .ch404 .ch_btn{justify-content: center;}
+}
+</style>
+</head>
+<body>
+
+<script src="../js/chiu_layout.js" data-part="header"></script>
+
+<div class="hs_box">
+<main id="main">
+    <section class="ch404">
+        <div class="ch404_bg" aria-hidden="true"></div>
+        <div class="ch404_in" data-animate-in="up">
+            <span class="ch404_num" aria-hidden="true">404</span>
+            <span class="ch404_en" aria-hidden="true">Page not found</span>
+            <h1>找不到這個頁面</h1>
+            <p>這個頁面可能已經移動或不存在。<br>回到首頁，或看看我們最近的作品吧。</p>
+            <div class="ch_btns">
+                <a class="ch_btn fill" href="index.html"><span>回到首頁</span><i></i></a>
+                <a class="ch_btn" href="works.html#portfolio"><span>瀏覽作品</span><i></i></a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script src="../js/chiu_layout.js" data-part="footer"></script>
+</div>
+
+<script src="../js/chiu_common.js"></script>
+</body>
+</html>
