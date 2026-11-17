@@ -13,13 +13,13 @@
     var NAV = [
         { href: 'index.html',   zh: '首頁',     en: 'Home',    inNav: false },
         { href: 'about.html',   zh: '關於',     en: 'About',   inNav: true },
-        { href: 'works.html',   zh: '作品',     en: 'Works',   inNav: true },
+        { href: 'works.html#portfolio', zh: '作品', en: 'Works',   inNav: true },
         { href: 'lessons.html', zh: '花藝課程', en: 'Lessons', inNav: true },
         { href: 'contact.html', zh: '聯絡',     en: 'Contact', inNav: true }
     ];
 
     var page = location.pathname.split('/').pop() || 'index.html';
-    function cur(href) { return href === page ? ' aria-current="page"' : ''; }
+    function cur(href) { return href.split('#')[0] === page ? ' aria-current="page"' : ''; }
     function pad(n) { return (n < 10 ? '0' : '') + n; }
 
     var navLinks = NAV.filter(function (n) { return n.inNav; }).map(function (n) {

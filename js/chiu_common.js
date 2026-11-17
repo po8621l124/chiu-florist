@@ -110,4 +110,108 @@
         });
         track.addEventListener('dragstart', function (e) { e.preventDefault(); });
     });
+
+    /* ---------- 標題斷行：依「｜」分段，每段不從中間斷開（規格書 §6-1 的 <s> 做法） ---------- */
+    window.chSegment = function (el) {
+        if (!el || el.children.length || el.textContent.indexOf('｜') < 0) return;
+        var parts = el.textContent.split('｜');
+        el.textContent = '';
+        parts.forEach(function (t, i) {
+            var s = document.createElement('s'); s.textContent = t.trim() + (i < parts.length - 1 ? '｜' : '');
+            el.appendChild(s);
+        });
+    };
+    [].forEach.call(document.querySelectorAll('.hs_box h5, .hs_box h6'), window.chSegment);
+
+    var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    /* ---------- 捲動進度條 ---------- */
+    var bar = document.createElement('div');
+    bar.className = 'ch_progress'; bar.setAttribute('aria-hidden', 'true');
+    body.appendChild(bar);
+    function progress() {
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.setProperty('--sp', max > 0 ? (window.scrollY / max).toFixed(4) : 0);
+    }
+    window.addEventListener('scroll', progress, { passive: true });
+    window.addEventListener('resize', progress);
+    progress();
+
+    /* ---------- 游標標籤：作品卡顯示 View、滑動列顯示 Drag ---------- */
+    [].forEach.call(document.querySelectorAll('.ch_work a, .chw_grid button'), function (el) { if (!el.hasAttribute('data-cursor')) el.setAttribute('data-cursor', 'View'); });
+    [].forEach.call(document.querySelectorAll('.ch_slider_track'), function (el) { if (!el.hasAttribute('data-cursor')) el.setAttribute('data-cursor', 'Drag'); });
+
+    if (finePointer && !reduce) {
+        /* ---------- 自訂游標 ---------- */
+        var ring = document.createElement('div'); ring.className = 'ch_cursor'; ring.setAttribute('aria-hidden', 'true');
+        var label = document.createElement('span'); ring.appendChild(label);
+        var dot = document.createElement('div'); dot.className = 'ch_cursor_dot'; dot.setAttribute('aria-hidden', 'true');
+        body.appendChild(ring); body.appendChild(dot);
+        var mx = -100, my = -100, rx = -100, ry = -100;
+        document.addEventListener('mousemove', function (e) {
+            mx = e.clientX; my = e.clientY;
+            dot.style.transform = 'translate3d(' + mx + 'px,' + my + 'px,0)';
+            body.classList.add('cursor-on');
+        }, { passive: true });
+        document.addEventListener('mouseleave', function () { body.classList.remove('cursor-on'); });
+        (function follow() {
+            rx += (mx - rx) * 0.18; ry += (my - ry) * 0.18;
+            ring.style.transform = 'translate3d(' + rx.toFixed(1) + 'px,' + ry.toFixed(1) + 'px,0)';
+            requestAnimationFrame(follow);
+        })();
+        document.addEventListener('mouseover', function (e) {
+            var lab = e.target.closest('[data-cursor]');
+            var link = e.target.closest('a, button, label, summary, [role="button"], input, select, textarea');
+            if (lab) { label.textContent = lab.getAttribute('data-cursor'); ring.classList.add('is-label'); ring.classList.remove('is-link'); }
+            else { ring.classList.remove('is-label'); ring.classList.toggle('is-link', !!link); }
+        });
+
+        /* ---------- 磁吸按鈕 ---------- */
+        [].forEach.call(document.querySelectorAll('.ch_btn, .ch_hd_btn, .ch_hd_ig, .ch_arw, .ch_totop'), function (el) {
+            var k = el.classList.contains('ch_btn') || el.classList.contains('ch_hd_btn') ? 0.22 : 0.35;
+            el.addEventListener('mousemove', function (e) {
+                var r = el.getBoundingClientRect();
+                el.style.setProperty('--mx', ((e.clientX - r.left - r.width / 2) * k).toFixed(1) + 'px');
+                el.style.setProperty('--my', ((e.clientY - r.top - r.height / 2) * k).toFixed(1) + 'px');
+            });
+            el.addEventListener('mouseleave', function () { el.style.removeProperty('--mx'); el.style.removeProperty('--my'); });
+        });
+
+        /* ---------- 3D 傾斜卡片 ---------- */
+        [].forEach.call(document.querySelectorAll('[data-tilt]'), function (el) {
+            el.addEventListener('mousemove', function (e) {
+                var r = el.getBoundingClientRect();
+                var px = (e.clientX - r.left) / r.width - 0.5, py = (e.clientY - r.top) / r.height - 0.5;
+                el.classList.add('is-tilting');
+                el.style.transform = 'perspective(1600px) rotateX(' + (-py * 1.6).toFixed(2) + 'deg) rotateY(' + (px * 2.2).toFixed(2) + 'deg) translateY(-4px)';
+            });
+            el.addEventListener('mouseleave', function () { el.classList.remove('is-tilting'); el.style.transform = ''; });
+        });
+    }
+
+    /* ---------- 跑馬燈：跟著捲動加速，往上捲時反向 ---------- */
+    [].forEach.call(document.querySelectorAll('.ch_marquee'), function (m) {
+        var tr = m.querySelector('.ch_marquee_track');
+        if (!tr || reduce) return;
+        tr.style.animation = 'none';
+        var x = 0, v = 0, dir = 1, lastY = window.scrollY, hover = false, onScreen = false;
+        m.addEventListener('mouseenter', function () { hover = true; });
+        m.addEventListener('mouseleave', function () { hover = false; });
+        if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { onScreen = en[0].isIntersecting; }).observe(m);
+        else onScreen = true;
+        (function loop() {
+            var y = window.scrollY, dy = y - lastY; lastY = y;
+            v += (dy - v) * 0.12;
+            if (Math.abs(dy) > 1) dir = dy > 0 ? 1 : -1;
+            if (onScreen) {
+                var half = tr.scrollWidth / 2;
+                var speed = hover ? 0.15 : 0.6 + Math.min(Math.abs(v) * 0.35, 14);
+                x -= speed * dir;
+                if (x <= -half) x += half;
+                if (x > 0) x -= half;
+                tr.style.transform = 'translate3d(' + x.toFixed(2) + 'px,0,0)';
+            }
+            requestAnimationFrame(loop);
+        })();
+    });
 })();

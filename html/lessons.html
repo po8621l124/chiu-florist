@@ -18,14 +18,29 @@
 
 /* b 介紹 */
 .chl_b{padding: calc(var(--pdy) * 1.3) var(--pdx) var(--pdy);}
-.chl_b01{display: flex;justify-content: space-between;align-items: center;gap: 40px;max-width: 1400px;width: 100%;margin: auto;}
-.chl_b01_l{flex: 0 1 560px;min-width: 320px;}
-.chl_b01_l .ch_title{margin-bottom: 34px;}
-.chl_b01_l p + p{margin-top: 18px;}
-.chl_b01_r{flex: 0 1 700px;display: grid;grid-template-columns: 1fr 1fr;gap: 20px;align-items: end;}
-.chl_b01_r figure{overflow: hidden;}
-.chl_b01_r figure:nth-child(2){margin-bottom: 60px;}
-.chl_b01_r img{width: 100%;height: auto;}
+/* 編排：左側照片拼貼（主圖＋金框位移＋疊放小圖），右側文字與三個重點 */
+.chl_b01{display: grid;grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);align-items: center;gap: clamp(60px, 7vw, 130px);max-width: 1400px;width: 100%;margin: auto;}
+.chl_b01_media{position: relative;isolation: isolate;padding: 0 0 15% 0;}
+.chl_b01_main{position: relative;width: 82%;}
+.chl_b01_main::before{content: '';position: absolute;inset: 0;z-index: -1;border: 1px solid rgba(180,141,85,.55) !important;transform: translate(-24px, -24px);pointer-events: none;}
+.chl_b01_media figure{overflow: hidden;}
+.chl_b01_media img{width: 100%;height: auto;display: block;}
+.hs_box .chl_b01_sub{position: absolute;right: 0;bottom: 0;width: 44%;outline: 10px solid var(--color-bg);}
+.hs_box .chl_b01_vert{position: absolute;right: 2%;top: 0;writing-mode: vertical-rl;display: flex;align-items: center;gap: 16px;font-family: var(--Corfont);font-style: italic;font-size: var(--f16);letter-spacing: .3em;color: var(--color-Sub);}
+.chl_b01_vert::after{content: '';width: 1px;height: 70px;background: var(--color-Sub);opacity: .6;}
+
+.chl_b01_txt{position: relative;isolation: isolate;}
+.hs_box .chl_b01_script{position: absolute;left: -.12em;top: -.9em;z-index: -1;font-family: var(--Pinyfont);font-style: normal;font-size: var(--f100);line-height: 1;color: var(--color-Sub);opacity: .2;white-space: nowrap;pointer-events: none;}
+.chl_b01_txt .ch_title{margin-bottom: 34px;}
+.hs_box .chl_b01_lead{font-family: var(--Seriffont);font-size: var(--f20);line-height: 2;letter-spacing: .1em;}
+.hs_box .chl_b01_lead + p{margin-top: 18px;color: var(--colorText-sub);}
+.chl_b02{display: grid;grid-template-columns: repeat(3, 1fr);margin: 44px 0 46px;border-top: 1px solid var(--color-line) !important;border-bottom: 1px solid var(--color-line) !important;}
+.chl_b02 > li{padding: 24px 10px 22px 24px;border-left: 1px solid var(--color-line) !important;}
+.chl_b02 > li:first-child{padding-left: 0;border-left: 0 !important;}
+.hs_box .chl_b02 b{display: flex;align-items: baseline;gap: 4px;font-family: var(--Corfont);font-weight: 400;font-size: var(--f45);line-height: 1;color: var(--color-Main);white-space: nowrap;}
+.hs_box .chl_b02 b em{font-style: italic;}
+.hs_box .chl_b02 b small{font-family: var(--Seriffont);font-size: var(--f14);letter-spacing: .1em;color: var(--colorText);}
+.hs_box .chl_b02 span{display: block;margin-top: 12px;font-size: var(--f14);letter-spacing: .12em;line-height: 1.7;color: var(--colorText-sub);}
 
 /* c 課程類型 */
 .chl_c{padding: var(--pdy) var(--pdx) calc(var(--pdy) * 1.2);}
@@ -38,17 +53,20 @@
 .chl_c02 > li{background: var(--color-bg2);display: flex;flex-direction: column;}
 .chl_c02 figure{aspect-ratio: 16 / 9;overflow: hidden;}
 .chl_c02 figure img{width: 100%;height: 100%;object-fit: cover;transition: transform 1.2s var(--ease);}
-.chl_c02 > li:hover figure img{transform: scale(1.06);}
+.chl_c02 > li:hover figure img{transform: scale(1.04);}
 .chl_c02_txt{padding: 34px 32px 38px;display: flex;flex-direction: column;flex: 1;}
 .hs_box .chl_c02_txt s{font-family: var(--Corfont);font-style: italic;font-size: var(--f18);color: var(--color-Sub);text-decoration: none;letter-spacing: .04em;}
 .hs_box .chl_c02_txt h6{font-family: var(--Seriffont);font-weight: 500;font-size: var(--f24);letter-spacing: .15em;margin: 4px 0 14px;}
 .hs_box .chl_c02_txt p{font-size: var(--f15);}
+.chl_c_hint{display: none;align-items: center;justify-content: center;gap: 10px;margin-top: 18px;}
+.hs_box .chl_c_hint span{font-size: var(--f14);letter-spacing: .2em;color: var(--colorText-sub);}
+.chl_c_hint i{width: 30px;height: 1px;background: var(--color-Sub);}
 .chl_c02_tag{display: flex;flex-wrap: wrap;gap: 8px;margin-top: auto;padding-top: 24px;}
 .hs_box .chl_c02_tag li{font-size: var(--f14);letter-spacing: .1em;padding: 2px 14px;border: 1px solid var(--color-line);border-radius: 30px;color: var(--colorText-sub);}
 
 /* d 合作課程紀錄 */
 .chl_d{position: relative;z-index: 1;padding: calc(var(--pdy) * 1.2) var(--pdx);background: var(--color-dark);overflow: hidden;}
-.chl_d::before{content: '';position: absolute;inset: 0;z-index: -1;background: radial-gradient(circle at 15% 50%, rgba(78,14,19,.55) 0%, rgba(78,14,19,0) 55%);}
+.chl_d::before{content: '';position: absolute;inset: 0;z-index: -1;background: radial-gradient(circle at 15% 50%, rgba(180,141,85,.16) 0%, rgba(180,141,85,0) 55%);}
 .chl_d01{display: flex;justify-content: space-between;align-items: center;gap: 50px;max-width: 1400px;width: 100%;margin: auto;}
 .chl_d01_l{flex: 0 1 640px;}
 .chl_d01_l figure{aspect-ratio: 16 / 9;overflow: hidden;max-width: 640px;}
@@ -59,7 +77,7 @@
 .hs_box .chl_d01_r h6 + p{font-family: var(--Corfont);font-style: italic;font-size: var(--f22);color: var(--color-Sub);}
 .hs_box .chl_d01_r .chl_d_desc{color: rgba(244,239,230,.78);margin-top: 20px;}
 .hs_box .chl_d01_r .chl_d_note{font-size: var(--f15);color: rgba(244,239,230,.65);margin-bottom: 30px;}
-.hs_box .chl_em{color: var(--color-Main);font-weight: 500;}
+.hs_box .chl_em{color: var(--color-Main);font-weight: 500;font-size: var(--f20);font-family: var(--Seriffont);}
 .chl_d01_r dl{display: grid;grid-template-columns: auto 1fr;gap: 10px 22px;margin: 30px 0;padding: 26px 0;border-top: 1px solid rgba(244,239,230,.14) !important;border-bottom: 1px solid rgba(244,239,230,.14) !important;}
 .chl_d01_r :is(dt, dd){font-family: var(--Sansfont);font-size: var(--f15);letter-spacing: .1em;line-height: 1.8;color: rgba(244,239,230,.85);}
 .chl_d01_r dt{color: var(--color-Sub);}
@@ -96,25 +114,53 @@
 /* --- Media Queries --- */
 @media (max-width: 1440px) {}
 @media (max-width: 1024px) {
-    .chl_b01, .chl_d01{flex-direction: column;align-items: stretch;max-width: 720px;}
-    .chl_b01_l, .chl_b01_r, .chl_d01_l, .chl_d01_r{flex: none;}
-    .chl_b01_l, .chl_d01_r{min-width: unset;}
-    .chl_c02{grid-template-columns: repeat(2, 1fr);}
+    .chl_b01{gap: 56px;}
+    .chl_b02 > li{padding-left: 16px;}
+    .hs_box .chl_b02 b{font-size: var(--f35);}
+    /* 課程形式：維持三欄，文字縮一階 */
+    .chl_c02{gap: 20px;}
+    .chl_c02_txt{padding: 24px 22px 28px;}
+    .hs_box .chl_c02_txt h6{font-size: var(--f20);letter-spacing: .1em;}
+    .chl_d01{gap: 40px;}
+    .chl_d01_r{min-width: 300px;}
+    .hs_box .chl_d01_r h6{font-size: var(--f30);}
     .chl_e01{flex-direction: column;gap: 40px;}
     .chl_e01 .ch_title{position: static;}
     .chl_e02{flex: none;width: 100%;}
 }
-@media (max-width: 992px) {}
+@media (max-width: 992px) {
+    /* 介紹：改單欄，文字在上、照片拼貼在下 */
+    .chl_b01{grid-template-columns: 1fr;gap: 70px;max-width: 720px;}
+    .chl_b01_media{width: min(100%, 600px);margin: 0 auto;padding-left: 24px;}
+    .chl_b01_txt{order: -1;}
+    .chl_d01{flex-direction: column;align-items: stretch;max-width: 720px;}
+    .chl_d01_l, .chl_d01_r{flex: none;min-width: 0;}
+    .chl_d01_l figure{max-width: none;}
+}
 @media (max-width: 768px) {
-    .chl_c02{grid-template-columns: 1fr;max-width: 500px;margin: auto;}
-    .chl_b01_r figure:nth-child(2){margin-bottom: 30px;}
+    /* 課程形式：橫向滑動卡片，頁面不再拉很長 */
+    .chl_c01 .ch_title{margin-bottom: 40px;}
+    .hs_box .chl_c02{display: flex;max-width: none;gap: 16px;overflow-x: auto;scroll-snap-type: x mandatory;scroll-padding-left: var(--pdx);scrollbar-width: none;margin: 0 calc(var(--pdx) * -1);padding: 0 var(--pdx) 6px;}
+    .chl_c02::-webkit-scrollbar{display: none;}
+    .chl_c02 > li{flex: 0 0 min(80%, 340px);scroll-snap-align: start;}
+    .chl_c_hint{display: flex;}
     .QA_function dd{padding: 0 10px 26px 10px;}
 }
-@media (max-width: 576px) {}
+@media (max-width: 576px) {
+    .chl_b01{gap: 56px;}
+    .chl_b01_media{padding-left: 14px;}
+    .chl_b01_main{width: 86%;}
+    .chl_b01_main::before{transform: translate(-14px, -14px);}
+    .hs_box .chl_b01_sub{width: 46%;outline-width: 6px;}
+    .chl_b01_vert{display: none !important;}
+    .chl_b02{margin: 34px 0 36px;}
+    .chl_b02 > li{padding: 18px 6px 16px 12px;}
+    .hs_box .chl_b02 b{font-size: var(--f30);}
+    .hs_box .chl_b02 span{margin-top: 8px;font-size: 0.8rem;letter-spacing: .06em;}
+}
 @media (max-width: 480px) {
     .chl_c02{--delay_time:0s;}
-    .chl_e02 li{grid-template-columns: 60px 1fr;gap: 12px;}
-    .chl_c02_txt{padding: 26px 22px 30px;}
+    .chl_e02 li{grid-template-columns: 40px 1fr;gap: 12px;}
     .QA_function dt button{gap: 12px;}
 }
 @media (max-width: 380px) {}
@@ -140,18 +186,26 @@
 
     <section class="chl_b">
         <div class="chl_b01">
-            <article class="chl_b01_l">
+            <div class="chl_b01_media">
+                <div class="chl_b01_main" data-animate-in="fadeIn"><figure><img src="../image/chiu/w_slow.jpg" alt="" class="anima_blur" width="1440" height="1920"></figure></div>
+                <figure class="chl_b01_sub" data-animate-in="up"><img class="anima_big" src="../image/chiu/w_tulip.jpg" alt="" width="1440" height="1800"></figure>
+                <span class="chl_b01_vert" aria-hidden="true">Private Lesson</span>
+            </div>
+            <article class="chl_b01_txt">
+                <em class="chl_b01_script" aria-hidden="true">a slow afternoon</em>
                 <div class="ch_title" data-animate-in="left">
                     <h4>By Appointment</h4>
                     <h5>一堂只屬於你的花藝課</h5>
                 </div>
-                <p data-animate-in="up">CHIU.FLORIST 的花藝課程皆採<b class="chl_em">預約包班</b>，不對外公開招生。課程隨節慶推出當季主題作品，時段與費用歡迎私訊洽詢。</p>
+                <p class="chl_b01_lead" data-animate-in="up">CHIU.FLORIST 的花藝課程皆採<b class="chl_em">預約包班</b>，不對外公開招生。課程隨節慶推出當季主題作品，時段與費用歡迎私訊洽詢。</p>
                 <p data-animate-in="up">從認識花材、配色，到修剪與構圖，不必有任何基礎，只要帶著想好好陪自己一個下午的心情。在這樣的色系裡慢慢修剪、靜心，妳會發現，花藝是一種把生活過成詩的溫柔方式。</p>
+                <ul class="chl_b02">
+                    <li data-animate-in="up"><b>4–6<small>人</small></b><span>即可預約包班</span></li>
+                    <li data-animate-in="up"><b><em>Season</em></b><span>隨節慶推出主題</span></li>
+                    <li data-animate-in="up"><b>0<small>基礎</small></b><span>新手也能上手</span></li>
+                </ul>
+                <a class="ch_btn" href="contact.html?type=lesson" data-animate-in="up"><span>預約課程</span><i></i></a>
             </article>
-            <div class="chl_b01_r">
-                <figure data-animate-in="fadeIn"><img src="../image/chiu/w_slow.jpg" alt="" class="anima_blur" width="1440" height="1920"></figure>
-                <figure data-animate-in="fadeIn"><img src="../image/chiu/w_tulip.jpg" alt="" class="anima_blur" width="1440" height="1800"></figure>
-            </div>
         </div>
     </section>
 
@@ -190,6 +244,7 @@
                     </div>
                 </li>
             </ul>
+            <p class="chl_c_hint" aria-hidden="true"><i></i><span>左右滑動看更多</span><i></i></p>
         </div>
     </section>
 

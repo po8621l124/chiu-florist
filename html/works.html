@@ -33,10 +33,37 @@ body:has(.ch_header:not(.is-hidden).is-scrolled) .chw_filter{top: 74px;}
 .hs_box .chw_count{font-family: var(--Corfont);font-style: italic;font-size: var(--f18);color: var(--colorText-sub);}
 .hs_box .chw_count b{font-family: var(--Corfont);font-size: var(--f26);color: var(--color-Sub);font-style: normal;}
 
+/* 手機浮動篩選鈕＋底部分類面板（放在 hs_box 外，字體自行指定） */
+.chw_fab{position: fixed;left: 50%;bottom: calc(20px + env(safe-area-inset-bottom));z-index: 85;display: none;align-items: center;gap: 10px;padding: 12px 22px;border: 0;border-radius: 40px;background: var(--color-dark);color: var(--colorText-whi);font-family: var(--Seriffont);font-size: 14px;letter-spacing: .12em;box-shadow: 0 12px 30px -10px rgba(0,0,0,.55);cursor: pointer;transform: translate(-50%, calc(100% + 60px));transition: transform .5s var(--ease);}
+.chw_fab b{font-weight: 500;color: var(--color-Sub);}
+.chw_fab i{width: 7px;height: 7px;border-right: 1px solid currentColor;border-bottom: 1px solid currentColor;transform: rotate(-135deg) translate(-2px, -2px);}
+.chw_fab.is-show{transform: translate(-50%, 0);}
+.chw_sheet{position: fixed;inset: 0;z-index: 150;visibility: hidden;transition: visibility 0s .5s;}
+.chw_sheet.is-open{visibility: visible;transition: visibility 0s;}
+.chw_sheet_bg{position: absolute;inset: 0;background: rgba(var(--rgb_dark),.55);opacity: 0;transition: opacity .4s;border: 0;padding: 0;width: 100%;cursor: pointer;}
+.chw_sheet.is-open .chw_sheet_bg{opacity: 1;}
+.chw_sheet_panel{position: absolute;left: 0;right: 0;bottom: 0;padding: 14px 20px calc(26px + env(safe-area-inset-bottom));background: var(--color-bg);border-radius: 18px 18px 0 0;transform: translateY(100%);transition: transform .5s var(--ease);}
+.chw_sheet.is-open .chw_sheet_panel{transform: none;}
+.chw_sheet_panel::before{content: '';display: block;width: 40px;height: 4px;border-radius: 4px;margin: 0 auto 16px;background: var(--color-line);}
+.chw_sheet_panel p{margin: 0 0 14px;font-family: var(--Corfont);font-style: italic;font-size: 20px;color: var(--color-Sub);}
+.chw_sheet_panel ul{display: grid;grid-template-columns: repeat(3, 1fr);gap: 8px;margin: 0;padding: 0;list-style: none;}
+.chw_sheet_panel button{width: 100%;padding: 12px 4px;border: 1px solid var(--color-line);background: transparent;font-family: var(--Seriffont);font-size: 14px;letter-spacing: .1em;color: var(--colorText);cursor: pointer;}
+.chw_sheet_panel button sup{font-family: var(--Corfont);font-size: 12px;color: var(--color-Sub);margin-left: 3px;}
+.chw_sheet_panel button[aria-pressed="true"]{background: var(--color-dark);border-color: var(--color-dark);color: var(--colorText-whi);}
+
 /* 瀑布流：每張圖照原比例 */
 .chw_grid{columns: 3;column-gap: 36px;}
 .chw_grid > li{display: block;break-inside: avoid;margin-bottom: 56px;}
 .chw_grid > li.is-hide{display: none;}
+.chw_grid[aria-busy="true"]{min-height: 60vh;}
+.chw_grid > li.is-off{display: none;}
+/* 分頁 */
+.chw_pager{display: flex;justify-content: center;align-items: center;flex-wrap: wrap;gap: 10px;margin-top: 30px;padding-top: 40px;border-top: 1px solid var(--color-line) !important;}
+.chw_pager button{min-width: 46px;height: 46px;padding: 0 6px;border-radius: 50%;border: 1px solid var(--color-line) !important;background: transparent;font-family: var(--Corfont);font-size: 18px;letter-spacing: .05em;color: var(--colorText);cursor: pointer;display: grid;place-items: center;transition: background-color .3s, color .3s, border-color .3s;}
+.chw_pager button:hover:not(:disabled){border-color: var(--color-Sub) !important;color: var(--color-Sub);}
+.chw_pager button[aria-current="page"]{background: var(--color-dark);border-color: var(--color-dark) !important;color: var(--colorText-whi);}
+.chw_pager button:disabled{opacity: .3;cursor: default;}
+.chw_pager .chw_pg_arw svg{width: 18px;height: 18px;}
 .chw_grid > li.is-enter{animation: chw_in .7s var(--ease) both;animation-delay: calc(var(--n, 0) * 60ms);}
 @keyframes chw_in{from{opacity: 0;transform: translateY(30px);}to{opacity: 1;transform: none;}}
 .chw_grid button{display: block;width: 100%;text-align: left;background: none;cursor: zoom-in;}
@@ -48,25 +75,38 @@ body:has(.ch_header:not(.is-hidden).is-scrolled) .chw_filter{top: 74px;}
 .chw_empty{display: none;text-align: center;padding: 80px 0;}
 
 /* 燈箱 */
-.chw_lb{border: 0;padding: 0;margin: auto;width: min(1200px, 92vw);max-width: none;max-height: 90vh;background: var(--color-bg);overflow: visible;}
+/* 燈箱：依照片方向切換版型（直圖左右並排、橫圖上下），手機全螢幕 */
+.chw_lb{border: 0;padding: 0;margin: auto;width: fit-content;max-width: min(1280px, 94vw);max-height: 92vh;max-height: 92dvh;background: var(--color-bg);overflow: hidden;}
 body:has(.chw_lb[open]){overflow: hidden;}
-.chw_lb::backdrop{background: rgba(20,16,15,.85);-webkit-backdrop-filter: blur(4px);backdrop-filter: blur(4px);}
+.chw_lb::backdrop{background: rgba(var(--rgb_dark),.85);-webkit-backdrop-filter: blur(4px);backdrop-filter: blur(4px);}
 .chw_lb[open]{animation: chw_lb_in .5s var(--ease);}
 @keyframes chw_lb_in{from{opacity: 0;transform: translateY(30px) scale(.98);}to{opacity: 1;transform: none;}}
-.chw_lb_in{display: grid;grid-template-columns: 1.15fr 1fr;max-height: 90vh;}
-.chw_lb figure{background: var(--color-dark);display: grid;place-items: center;min-height: 0;}
-.chw_lb figure img{width: 100%;height: 100%;max-height: 90vh;object-fit: contain;}
-.chw_lb_txt{padding: clamp(30px, 4vw, 60px);overflow-y: auto;display: flex;flex-direction: column;}
+.chw_lb_in{display: grid;grid-template-columns: minmax(0, auto) minmax(340px, 440px);max-height: inherit;}
+.chw_lb figure{background: var(--color-dark);display: flex;align-items: center;justify-content: center;min-width: 0;min-height: 0;}
+.hs_box .chw_lb figure img{display: block;width: auto;height: auto;max-width: 100%;max-height: 92vh;max-height: 92dvh;object-fit: contain;}
+.chw_lb_txt{padding: clamp(28px, 3.5vw, 52px);overflow-y: auto;display: flex;flex-direction: column;min-height: 0;}
 .hs_box .chw_lb_txt i{font-size: var(--f14);letter-spacing: .25em;color: var(--color-Sub);}
-.hs_box .chw_lb_txt h6{font-family: var(--Seriffont);font-weight: 500;font-size: var(--f30);letter-spacing: .12em;line-height: 1.5;margin: 10px 0 24px;}
-.hs_box .chw_lb_txt p{white-space: pre-line;}
-.chw_lb_txt .ch_btn{margin-top: auto;align-self: flex-start;}
+.hs_box .chw_lb_txt h6{font-family: var(--Seriffont);font-weight: 500;font-size: var(--f26);letter-spacing: .1em;line-height: 1.6;margin: 10px 0 22px;padding-right: 40px;}
+.hs_box .chw_lb_txt p{white-space: pre-line;line-height: 2;}
+.chw_lb_txt .ch_btn{align-self: flex-start;}
 .chw_lb_txt .chw_lb_gap{flex: 1;min-height: 30px;}
-.chw_lb_nav{display: flex;align-items: center;gap: 14px;margin-top: 30px;padding-top: 24px;border-top: 1px solid var(--color-line) !important;}
+.chw_lb_nav{display: flex;align-items: center;gap: 14px;margin-top: 30px;padding-top: 22px;border-top: 1px solid var(--color-line) !important;}
 .hs_box .chw_lb_nav span{font-family: var(--Corfont);font-size: var(--f18);color: var(--colorText-sub);margin-right: auto;}
-.chw_lb_close{position: absolute;top: -56px;right: 0;width: 46px;height: 46px;border-radius: 50%;background: transparent;border: 1px solid rgba(244,239,230,.5) !important;color: var(--colorText-whi);cursor: pointer;display: grid;place-items: center;transition: background-color .3s, transform .5s var(--ease);}
+/* 橫圖：圖片在上，下方左欄標題、右欄說明 */
+.chw_lb[data-orient="land"] .chw_lb_in{grid-template-columns: minmax(0, 1fr);grid-template-rows: auto auto;overflow-y: auto;}
+.hs_box .chw_lb[data-orient="land"] figure img{width: 100%;max-height: 54vh;max-height: 54dvh;}
+.chw_lb[data-orient="land"] .chw_lb_txt{display: grid;grid-template-rows: auto auto 1fr;overflow: visible;grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);column-gap: clamp(30px, 4vw, 60px);align-content: start;}
+.chw_lb[data-orient="land"] .chw_lb_txt > i{grid-column: 1;grid-row: 1;}
+.chw_lb[data-orient="land"] .chw_lb_txt > h6{grid-column: 1;grid-row: 2;}
+.chw_lb[data-orient="land"] .chw_lb_txt > .ch_btn{grid-column: 1;grid-row: 3;align-self: start;justify-self: start;}
+.chw_lb[data-orient="land"] .chw_lb_txt > p{grid-column: 2;grid-row: 1 / span 3;}
+.chw_lb[data-orient="land"] .chw_lb_gap{display: none;}
+.chw_lb[data-orient="land"] .chw_lb_nav{grid-column: 1 / -1;}
+/* 關閉鈕放在框內右上角 */
+.chw_lb_close{position: absolute;top: 14px;right: 14px;z-index: 2;width: 44px;height: 44px;border-radius: 50%;background: rgba(var(--rgb_dark),.55);border: 1px solid rgba(244,239,230,.55) !important;color: #fff;-webkit-backdrop-filter: blur(6px);backdrop-filter: blur(6px);cursor: pointer;display: grid;place-items: center;transition: background-color .3s, transform .5s var(--ease);}
 .chw_lb_close:hover{background: var(--color-Sub);transform: rotate(90deg);}
 .chw_lb_close svg{width: 18px;height: 18px;}
+.chw_lb_more{display: none;}
 
 /* --- Media Queries --- */
 @media (max-width: 1440px) {
@@ -79,24 +119,63 @@ body:has(.chw_lb[open]){overflow: hidden;}
     body:has(.ch_header:not(.is-hidden).is-scrolled) .chw_filter{top: 64px;}
 }
 @media (max-width: 768px) {
-    .chw_lb_in{grid-template-columns: 1fr;overflow-y: auto;}
-    .chw_lb figure img{max-height: 50vh;}
-    .chw_lb_txt{overflow: visible;}
-    .chw_filter ul{flex-wrap: nowrap;overflow-x: auto;scrollbar-width: none;margin: 0 calc(var(--pdx) * -1);padding: 0 var(--pdx);width: calc(100% + var(--pdx) * 2);max-width: none;}
-    .chw_filter ul::-webkit-scrollbar{display: none;}
-    .chw_filter button{white-space: nowrap;}
-    .chw_count{display: none;}
+    /* 燈箱（手機）：全黑看圖模式。照片為主角、左右滑動切換，文案收在「作品故事」 */
+    .chw_lb{width: 100vw;max-width: 100vw;height: 100dvh;max-height: 100dvh;margin: 0;background: var(--color-dark2);overflow: hidden;}
+    .chw_lb::backdrop{background: var(--color-dark2);}
+    .chw_lb_in, .chw_lb[data-orient="land"] .chw_lb_in{display: grid;height: 100%;max-height: none;overflow: hidden;grid-template-columns: 1fr auto;grid-template-rows: auto minmax(0, 1fr) auto auto auto auto;grid-template-areas: "nav nav" "fig fig" "cat cat" "title title" "more ig" "story story";padding-bottom: calc(18px + env(safe-area-inset-bottom));}
+    .chw_lb_txt, .chw_lb[data-orient="land"] .chw_lb_txt{display: contents;}
+    .chw_lb_nav{grid-area: nav;margin: 0;padding: 16px 70px 12px 20px;border: 0 !important;justify-content: flex-start;gap: 10px;}
+    .hs_box .chw_lb_nav span{order: 2;margin: 0 6px;color: rgba(244,239,230,.75);font-size: var(--f16);letter-spacing: .1em;}
+    .chw_lb_nav .ch_arw.prev{order: 1;}
+    .chw_lb_nav .ch_arw.next{order: 3;}
+    .chw_lb_nav .ch_arw{width: 36px;height: 36px;color: var(--colorText-whi);border-color: rgba(244,239,230,.3) !important;}
+    .chw_lb_nav .ch_arw:disabled{color: var(--colorText-whi);}
+    .chw_lb figure{grid-area: fig;background: transparent;padding: 0;touch-action: pan-y;}
+    .hs_box .chw_lb figure img, .hs_box .chw_lb[data-orient="land"] figure img{width: 100%;height: 100%;max-height: none;object-fit: contain;transition: opacity .3s;}
+    .hs_box .chw_lb_txt > i{grid-area: cat;padding: 18px 20px 0;}
+    .hs_box .chw_lb_txt h6, .hs_box .chw_lb[data-orient="land"] .chw_lb_txt > h6{grid-area: title;margin: 4px 0 0;padding: 0 20px;font-size: var(--f20);color: var(--colorText-whi);}
+    .chw_lb_more{grid-area: more;display: inline-flex;align-items: center;gap: 8px;justify-self: start;margin: 14px 0 0 20px;padding: 8px 0;background: none;cursor: pointer;}
+    .hs_box .chw_lb_more span{font-size: var(--f15);letter-spacing: .15em;color: rgba(244,239,230,.85);}
+    .chw_lb_more i{width: 8px;height: 8px;border-right: 1px solid var(--color-Sub);border-bottom: 1px solid var(--color-Sub);transform: rotate(45deg) translateY(-2px);transition: transform .4s var(--ease);}
+    .chw_lb_more[aria-expanded="true"] i{transform: rotate(-135deg) translateY(-2px);}
+    .chw_lb_txt .ch_btn, .chw_lb[data-orient="land"] .chw_lb_txt > .ch_btn{grid-area: ig;align-self: center;margin: 14px 20px 0 0;padding: 8px 16px;}
+    .hs_box .chw_lb_txt .ch_btn span{font-size: var(--f14);letter-spacing: .1em;}
+    .hs_box .chw_lb_txt p, .hs_box .chw_lb[data-orient="land"] .chw_lb_txt > p{grid-area: story;display: none;margin: 12px 20px 0;padding: 14px 0 0;border-top: 1px solid rgba(244,239,230,.14);max-height: 36dvh;overflow-y: auto;font-size: var(--f15);line-height: 1.9;color: rgba(244,239,230,.78);}
+    .hs_box .chw_lb.is-story[data-orient] .chw_lb_txt > p{display: block;}
+    .chw_lb_gap, .chw_lb[data-orient="land"] .chw_lb_gap{display: none;}
+    /* 蓋過桌機橫圖版型的格線位置 */
+    .hs_box .chw_lb[data-orient] .chw_lb_txt > i{grid-area: cat;}
+    .hs_box .chw_lb[data-orient] .chw_lb_txt > h6{grid-area: title;}
+    .hs_box .chw_lb[data-orient] .chw_lb_txt > .ch_btn{grid-area: ig;}
+    .hs_box .chw_lb[data-orient] .chw_lb_txt > p{grid-area: story;scrollbar-width: thin;scrollbar-color: rgba(180,141,85,.5) transparent;}
+    .hs_box .chw_lb[data-orient] .chw_lb_nav{grid-area: nav;}
+    .hs_box .chw_lb[data-orient] .chw_lb_more{grid-area: more;}
+    .chw_lb_close{top: 14px;right: 16px;width: 40px;height: 40px;background: transparent;border-color: rgba(244,239,230,.3) !important;}
+    /* 分類：3×2 等寬方格，一次看到全部；數量置中顯示 */
+    .chw_filter{position: static;flex-direction: column;align-items: stretch;gap: 14px;padding: 0;margin-bottom: 36px;border: 0 !important;}
+    .chw_filter ul{display: grid;grid-template-columns: repeat(3, 1fr);gap: 8px;}
+    .chw_filter button{width: 100%;display: flex;justify-content: center;align-items: baseline;padding: 11px 4px;border-radius: 0;border: 1px solid var(--color-line) !important;}
+    .hs_box .chw_filter button span{font-size: var(--f14);letter-spacing: .1em;}
+    .chw_count{text-align: center;}
+    .chw_fab{display: flex;}
 }
 @media (max-width: 576px) {
-    .chw_grid{column-gap: 16px;}
-    .chw_grid > li{margin-bottom: 40px;}
-    .hs_box .chw_grid .ch_work_txt h6{font-size: var(--f16);}
+    /* 作品牆：兩欄瀑布流 */
+    .chw_grid{columns: 2;column-gap: 14px;}
+    .chw_grid > li{margin-bottom: 28px;}
+    .chw_grid .ch_work_txt{padding-top: 10px;gap: 0;}
+    .hs_box .chw_grid .ch_work_txt i{font-size: 12px;letter-spacing: .12em;}
+    .hs_box .chw_grid .ch_work_txt h6{font-size: var(--f15);letter-spacing: .05em;line-height: 1.55;}
+    .chw_grid figure::after{display: none;}
 }
 @media (max-width: 480px) {
-    .chw_grid{columns: 1;}
-    .chw_lb_close{top: -52px;}
+    .chw_filter button{padding: 10px 2px;white-space: nowrap;}
+    .hs_box .chw_filter button span{letter-spacing: .04em;}
 }
-@media (max-width: 380px) {}
+@media (max-width: 380px) {
+    /* 分類：窄螢幕改兩欄，避免「活動・課程」折行 */
+    .chw_filter ul, .chw_sheet_panel ul{grid-template-columns: repeat(2, 1fr);}
+}
 </style>
 </head>
 <body>
@@ -117,7 +196,7 @@ body:has(.chw_lb[open]){overflow: hidden;}
         </div>
     </section>
 
-    <section class="chw_b">
+    <section class="chw_b" id="portfolio">
         <div class="chw_b01">
             <div class="chw_b01_head">
                 <div class="ch_title" data-animate-in="left">
@@ -128,185 +207,12 @@ body:has(.chw_lb[open]){overflow: hidden;}
             </div>
 
             <div class="chw_filter">
-                <ul aria-label="作品分類">
-                    <li><button type="button" data-filter="all" aria-pressed="true"><span>全部</span><sup></sup></button></li>
-                    <li><button type="button" data-filter="gift" aria-pressed="false"><span>訂製花禮</span><sup></sup></button></li>
-                    <li><button type="button" data-filter="wedding" aria-pressed="false"><span>婚禮</span><sup></sup></button></li>
-                    <li><button type="button" data-filter="space" aria-pressed="false"><span>空間佈置</span><sup></sup></button></li>
-                    <li><button type="button" data-filter="weekly" aria-pressed="false"><span>商業週花</span><sup></sup></button></li>
-                    <li><button type="button" data-filter="event" aria-pressed="false"><span>活動・課程</span><sup></sup></button></li>
-                </ul>
+                <ul aria-label="作品分類"></ul>
                 <p class="chw_count" aria-live="polite">共 <b>23</b> 件作品</p>
             </div>
 
-            <ul class="chw_grid">
-                <li class="ch_work" data-cat="wedding" data-ig="Dfq1xMqlAJX">
-                    <button type="button"><figure><img src="../image/chiu/w_bridal.jpg" alt="" width="1500" height="2000" loading="lazy"></figure>
-                    <div class="ch_work_txt"><i>婚禮</i><h6>證婚捧花｜柔粉與奶油杏</h6></div></button>
-                    <template>不同深淺的柔粉與奶油杏色交織，讓鬱金香的純粹與白色石蒜跳躍的線條自然舒展。
-
-刻意保留了花材原本的呼吸感與空氣感，就像送花人那份不張揚、卻始終在身後的祝福。
-
-陪著她，走過人生最美的一天。</template>
-                </li>
-                <li class="ch_work" data-cat="space" data-ig="DfUfTHDFC1N">
-                    <button type="button"><figure><img src="../image/chiu/w_window.jpg" alt="" width="2000" height="1125" loading="lazy"></figure>
-                    <div class="ch_work_txt"><i>空間佈置</i><h6>晶漾金飾・鑽石｜櫥窗花藝</h6></div></button>
-                    <template>推開古典石柱與幾何光影交織的大門，迎接您的是一場關於光芒與姿態的感官饗宴。
-
-以高雅的純白蝴蝶蘭為主幹，錯落著靈動的枝條與細緻的黃色植栽，宛如春日裡破曉的晨光，輕輕灑落在溫潤的金飾與璀璨鑽石旁。
-
-Floral Design &amp; Spatial Styling｜CHIU Florist
-Boutique Showcase &amp; Jewelry｜晶漾金飾・鑽石 市政店</template>
-                </li>
-                <li class="ch_work" data-cat="gift" data-ig="DfRGz0LlLjG">
-                    <button type="button"><figure><img src="../image/chiu/w_opera.jpg" alt="" width="1500" height="2000" loading="lazy"></figure>
-                    <div class="ch_work_txt"><i>訂製花禮</i><h6>《 緋紅歌劇 · Crimson Opera 》</h6></div></button>
-                    <template>當夜幕低垂，古典劇院的紅絨帷幕緩緩拉開，一場專屬於聖誕季的華麗盛宴正隆重上演。
-
-以極致濃郁的酒紅與深緋為主調，交織著沉穩優雅的聖誕松綠。典雅的皮革花盒底座襯托出溫潤質感，點綴其間的珠串飾件、玻璃球與復古掛飾，在光影搖曳下閃耀著如古典珠寶般的光澤。
-
-聖誕桌花花禮｜NT$ 4,280｜約 58 × 45 cm</template>
-                </li>
-                <li class="ch_work" data-cat="weekly" data-ig="DeTZR17ESoU">
-                    <button type="button"><figure><img src="../image/chiu/w_lobby3.jpg" alt="" width="2000" height="1125" loading="lazy"></figure>
-                    <div class="ch_work_txt"><i>商業週花</i><h6>光流域｜一場與空間的奇妙對話</h6></div></button>
-                    <template>有時候，創作過程中的巧合，會讓你不得不相信場域是有靈魂的。
-
-那天創作時，才與門市伙伴聊起最近帶有中東風格的花藝案子，清單裡的音樂竟隨機播起了中東風情的旋律——花與空間，就這樣有了一段奇妙的對話。</template>
-                </li>
-                <li class="ch_work" data-cat="wedding" data-ig="Cty8nYNv0fE">
-                    <button type="button"><figure><img src="../image/chiu/w_couple.jpg" alt="" width="1369" height="1369" loading="lazy"></figure>
-                    <div class="ch_work_txt"><i>婚禮</i><h6>新人捧花｜時髦又漂亮</h6></div></button>
-                    <template>好時髦，也好漂亮。
-
-提前了好大一陣子來討論捧花的妳們，起初擔心不知道哪種類型的捧花合適，認真地為了這重要的花兒前來與我們討論，細聊之後，才有了這束剛剛好的捧花。</template>
-                </li>
-                <li class="ch_work" data-cat="event" data-ig="DfW929qFFMu">
-                    <button type="button"><figure><img src="../image/chiu/w_fair.jpg" alt="" width="2000" height="1125" loading="lazy"></figure>
-                    <div class="ch_work_txt"><i>活動佈置</i><h6>灰熊綠展｜光影交織的森林角落</h6></div></button>
-                    <template>當陽光穿過樹梢，在布簾上投下溫柔的剪影；當金黃與橙黃的花草盛放，為溫潤的木質空間點綴出熱情的生命力。
-
-以自然為背景、光影為筆墨，為灰熊綠展打造出專屬於季節的溫暖氛圍。在這裡，不只是逛市集，更是一場融入自然景緻的感官體驗。</template>
-                </li>
-                <li class="ch_work" data-cat="space" data-ig="DejIL5WkfFy">
-                    <button type="button"><figure><img src="../image/chiu/w_corner.jpg" alt="" width="1500" height="2000" loading="lazy"></figure>
-                    <div class="ch_work_txt"><i>空間佈置</i><h6>關於一個角落的重生</h6></div></button>
-                    <template>軟裝佈置與花藝一樣，最迷人的地方不是把空間填滿，而是幫這個地方找到屬於它的呼吸節奏感。
-
-本次空間唯一的小小訴求：「想要一種有溫度的秋天復古感，但全權交給我們。」原本的角落雖然明亮，卻少了一點讓人想停留的理由；於是換上溫暖而低調的燈色，讓角落重新有了溫度。</template>
-                </li>
-                <li class="ch_work" data-cat="gift" data-ig="DfO-B5BFP2v">
-                    <button type="button"><figure><img src="../image/chiu/w_xmas_tree.jpg" alt="" width="3044" height="1714" loading="lazy"></figure>
-                    <div class="ch_work_txt"><i>訂製花禮</i><h6>《 珍珠星序 · Astro Pearl 》</h6></div></button>
-                    <template>當冬夜微光點亮，我們在深綠松柏間，綴上一抹高訂的珠光。
-
-圓潤珍珠如歲月典藏的星芒，輕落於枝葉間，隨光影流轉散發著無可取代的優雅與奢麗。
-
-聖誕樹花禮｜NT$ 3,680｜約 48 × 30 cm</template>
-                </li>
-                <li class="ch_work" data-cat="gift" data-ig="DfO-B5BFP2v">
-                    <button type="button"><figure><img src="../image/chiu/w_xmas_wreath.jpg" alt="" width="1640" height="697" loading="lazy"></figure>
-                    <div class="ch_work_txt"><i>訂製花禮</i><h6>《 琉光松影 · Velvet Luce 》</h6></div></button>
-                    <template>以自然藤圈為底，綴上玻璃掛飾、珠串飾件與針織、造型掛飾，在深綠松枝間留下一圈溫潤的冬日光影。
-
-聖誕花圈花禮｜NT$ 3,880｜約 60 × 60 cm</template>
-                </li>
-                <li class="ch_work" data-cat="wedding" data-ig="DfGStIlqjOY">
-                    <button type="button"><figure><img src="../image/chiu/w_yellow.jpg" alt="" width="1200" height="1600" loading="lazy"></figure>
-                    <div class="ch_work_txt"><i>婚禮</i><h6>婚紗拍攝捧花｜鵝黃與珍珠</h6></div></button>
-                    <template>當細膩的粉紗輕輕包覆著妳的溫柔，把一段段祝福放進了溫暖且充滿希望的色調裡。
-
-輕巧的姿態與細緻的珍珠線條交織，為柔美的粉色婚紗揉入一抹明亮而溫暖的光彩。不必張揚，卻精緻得剛剛好。</template>
-                </li>
-                <li class="ch_work" data-cat="space" data-ig="DfHLjdXFE6O">
-                    <button type="button"><figure><img src="../image/chiu/w_jewel.jpg" alt="" width="2000" height="1047" loading="lazy"></figure>
-                    <div class="ch_work_txt"><i>空間佈置</i><h6>晶漾金飾 市政店｜花藝與選品</h6></div></button>
-                    <template>為「晶漾金飾 市政店」操刀空間花藝佈置與擺飾選品。
-
-特別運用礁石與玫瑰石，搭配花藝進行佈置，讓粗獷的岩石紋理與浪漫柔美的花朵交織，碰撞出剛柔並濟的輕奢質感。主視覺「懸浮櫥窗」選用真實的梨枝，拉開空間層次，打造脫俗的高訂形象。</template>
-                </li>
-                <li class="ch_work" data-cat="gift" data-ig="DRmIHJ4kdDo">
-                    <button type="button"><figure><img src="../image/chiu/w_silver.jpg" alt="" width="1440" height="1913" loading="lazy"></figure>
-                    <div class="ch_work_txt"><i>訂製花禮</i><h6>銀色系開幕花禮｜閃亮祝賀</h6></div></button>
-                    <template>銀色系花禮，閃亮祝賀。
-
-祝未來營運順順走——Keep it sharp.</template>
-                </li>
-                <li class="ch_work" data-cat="event" data-ig="DVK9JQTkTh7">
-                    <button type="button"><figure><img src="../image/chiu/w_vintage.jpg" alt="" width="1440" height="753" loading="lazy"></figure>
-                    <div class="ch_work_txt"><i>活動佈置</i><h6>Modern Vintage｜心潮 x 新潮</h6></div></button>
-                    <template>在深色帷幕與光影的交界處，來一場關於色彩與食物的盛宴。
-
-復古的紅、優雅的藍紫，襯著沉靜的綠色牆面，空氣中流淌著一種不張揚的時髦。當台式靈魂遇上摩登美學，圓拱門廊下的繁花，在冷冽石紋上投下溫柔的光影。</template>
-                </li>
-                <li class="ch_work" data-cat="gift" data-ig="DfwRmxrEX8M">
-                    <button type="button"><figure><img src="../image/chiu/w_autumn.jpg" alt="" width="1500" height="2000" loading="lazy"></figure>
-                    <div class="ch_work_txt"><i>訂製花禮</i><h6>秋天的顏色｜焦糖與柔粉</h6></div></button>
-                    <template>十一月的暖陽收進盆裡，秋天本來就不適合太規矩的形狀。
-
-水仙百合的焦糖黃吻上金魚的柔粉，是深秋才有的濃郁果實與紅葉，讓枝條隨性往外探、各自舒展。</template>
-                </li>
-                <li class="ch_work" data-cat="weekly" data-ig="DfmFZJcEdOC">
-                    <button type="button"><figure><img src="../image/chiu/w_lobby.jpg" alt="" width="2000" height="1140" loading="lazy"></figure>
-                    <div class="ch_work_txt"><i>商業週花</i><h6>光流域｜神祕而沉靜的紫</h6></div></button>
-                    <template>一抹神祕而沉靜的紫，悄然綻放。它不張揚，卻自帶一股撫平焦躁的力量。
-
-它是繁花簇擁間的典雅點綴，也是瓶中色彩流轉時，對身心最深情的對話。</template>
-                </li>
-                <li class="ch_work" data-cat="gift" data-ig="DchsacrFIgu">
-                    <button type="button"><figure><img src="../image/chiu/w_roses.jpg" alt="" width="1500" height="2000" loading="lazy"></figure>
-                    <div class="ch_work_txt"><i>訂製花禮</i><h6>私人訂製｜白玫瑰花禮</h6></div></button>
-                    <template>Wishing you a truly beautiful day filled with moments that make you smile.</template>
-                </li>
-                <li class="ch_work" data-cat="event" data-ig="DfoGvLfFPN1">
-                    <button type="button"><figure><img src="../image/chiu/w_persia.jpg" alt="" width="2000" height="1125" loading="lazy"></figure>
-                    <div class="ch_work_txt"><i>花藝課程</i><h6>希拉茲的秋光｜波斯色調</h6></div></button>
-                    <template>與 Arsham 皇家波斯地毯聯名的花藝課。
-
-將波斯粉紅寺流動的光影美學，和地毯沉穩內斂的織品底蘊，揉合成秋天最迷人的浪漫。用微醺的紅褐、煙燻粉紫與秋日花材來對話。</template>
-                </li>
-                <li class="ch_work" data-cat="gift" data-ig="DOI-HPWETdY">
-                    <button type="button"><figure><img src="../image/chiu/w_sunny.jpg" alt="" width="1440" height="1920" loading="lazy"></figure>
-                    <div class="ch_work_txt"><i>訂製花禮</i><h6>花禮的饋贈｜明亮橙黃</h6></div></button>
-                    <template>花禮的饋贈，是心意的綻放。
-
-明亮的橙黃色，就像日常裡的那道陽光，簡單卻能帶來好心情。不論是值得慶祝的時刻，還是想把笑容送給特別的人。</template>
-                </li>
-                <li class="ch_work" data-cat="space" data-ig="De-2sowEcue">
-                    <button type="button"><figure><img src="../image/chiu/w_altar.jpg" alt="" width="2000" height="1125" loading="lazy"></figure>
-                    <div class="ch_work_txt"><i>空間佈置</i><h6>神聖領域｜對稱線條花藝</h6></div></button>
-                    <template>為神聖領域創作的專屬花藝，講求的是「時髦的佛緣」。
-
-重視花兒對稱線條的流暢度，在莊重之中保有花材自然的姿態。</template>
-                </li>
-                <li class="ch_work" data-cat="gift" data-ig="Dda-5t3kYC9">
-                    <button type="button"><figure><img src="../image/chiu/w_blue.jpg" alt="" width="2000" height="1124" loading="lazy"></figure>
-                    <div class="ch_work_txt"><i>訂製花禮</i><h6>藍紫色調｜慵懶日子</h6></div></button>
-                    <template>藍紫色調，美得讓人移不開目光。
-
-揉合了萬代蘭、繡球與神祕的洋薊，隨性優雅、帶點個性的生命力。擺在桌上一隅，空氣彷彿都安靜了下來，很有幾分慵懶日子的氛圍。</template>
-                </li>
-                <li class="ch_work" data-cat="gift" data-ig="DfZBGs_kV-z">
-                    <button type="button"><figure><img src="../image/chiu/w_box.jpg" alt="" width="2000" height="1047" loading="lazy"></figure>
-                    <div class="ch_work_txt"><i>訂製花禮</i><h6>《 綻於夜中的凜光 》</h6></div></button>
-                    <template>深沉的黑，是無聲紮根的韌性與力量。
-
-以深色花材與透明框體，收藏一份在夜裡依然閃耀的光芒。</template>
-                </li>
-                <li class="ch_work" data-cat="weekly" data-ig="De9ULXBFOVP">
-                    <button type="button"><figure><img src="../image/chiu/w_lobby2.jpg" alt="" width="2000" height="1047" loading="lazy"></figure>
-                    <div class="ch_work_txt"><i>商業週花</i><h6>光流域｜與空間的溫柔對話</h6></div></button>
-                    <template>每次的到來，都是一次與空間更深的溫柔對話。
-
-微調了空間的色階，讓整體色調與瓶中彩油的光采優雅地相互呼應；把新落定的花藝擺上，也順著光影，把季節更迭的氣息揉進了這裡。</template>
-                </li>
-                <li class="ch_work" data-cat="gift" data-ig="DTHLnHtkQAs">
-                    <button type="button"><figure><img src="../image/chiu/w_newyear.jpg" alt="" width="1440" height="754" loading="lazy"></figure>
-                    <div class="ch_work_txt"><i>訂製花禮</i><h6>2026 新年系列｜歲序之光</h6></div></button>
-                    <template>續寫歲序，看見萬物新生的朝氣。</template>
-                </li>
-            </ul>
+            <ul class="chw_grid" aria-busy="true"></ul>
+            <nav class="chw_pager" aria-label="作品分頁" hidden></nav>
             <p class="chw_empty">這個分類目前沒有作品。</p>
         </div>
 
@@ -317,7 +223,8 @@ Boutique Showcase &amp; Jewelry｜晶漾金飾・鑽石 市政店</template>
                 <div class="chw_lb_txt">
                     <i></i>
                     <h6 id="chw_lb_title"></h6>
-                    <p></p>
+                    <button class="chw_lb_more" type="button" aria-expanded="false" aria-controls="chw_lb_story"><span>作品故事</span><i></i></button>
+                    <p id="chw_lb_story"></p>
                     <div class="chw_lb_gap"></div>
                     <a class="ch_btn" href="#" target="_blank" rel="noopener"><span>在 Instagram 查看</span><i></i></a>
                     <div class="chw_lb_nav">
@@ -352,7 +259,8 @@ Boutique Showcase &amp; Jewelry｜晶漾金飾・鑽石 市政店</template>
 
 <script src="../js/chiu_common.js"></script>
 <script>
-    (function () {
+    /* 作品頁邏輯：篩選、分頁、燈箱、手機篩選面板（資料載入後執行） */
+    function chwInit() {
         var grid = document.querySelector('.chw_grid');
         var items = [].slice.call(grid.children);
         var btns = [].slice.call(document.querySelectorAll('.chw_filter button'));
@@ -368,29 +276,108 @@ Boutique Showcase &amp; Jewelry｜晶漾金飾・鑽石 市政店</template>
 
         function visible() { return items.filter(function (li) { return !li.classList.contains('is-hide'); }); }
 
-        function apply(f, push) {
+        var PER = 12, curFilter = 'all', curPage = 1;
+        var pager = document.querySelector('.chw_pager');
+        var arwL = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>';
+        var arwR = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>';
+
+        function apply(f, push, page) {
             if (!btns.some(function (b) { return b.getAttribute('data-filter') === f; })) f = 'all';
             btns.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-filter') === f); });
+            var list = items.filter(function (li) { return f === 'all' || li.getAttribute('data-cat') === f; });
+            var pages = Math.max(1, Math.ceil(list.length / PER));
+            page = Math.min(Math.max(parseInt(page, 10) || 1, 1), pages);
+            curFilter = f; curPage = page;
             var n = 0;
             items.forEach(function (li) {
-                var show = f === 'all' || li.getAttribute('data-cat') === f;
-                li.classList.toggle('is-hide', !show);
+                var idx = list.indexOf(li);
+                var inFilter = idx > -1, onPage = inFilter && Math.floor(idx / PER) === page - 1;
+                li.classList.toggle('is-hide', !inFilter);   /* 不在分類：燈箱也略過 */
+                li.classList.toggle('is-off', inFilter && !onPage);   /* 在分類但不在本頁：燈箱仍可瀏覽 */
                 li.classList.remove('is-enter');
-                if (show && !reduce) { void li.offsetWidth; li.style.setProperty('--n', n++); li.classList.add('is-enter'); }
+                if (onPage && !reduce) { void li.offsetWidth; li.style.setProperty('--n', n++); li.classList.add('is-enter'); }
             });
             grid.classList.toggle('is-filtered', f !== 'all');
-            var v = visible().length;
-            countEl.textContent = v;
-            empty.style.display = v ? 'none' : 'block';
+            countEl.textContent = list.length;
+            empty.style.display = list.length ? 'none' : 'block';
+            renderPager(pages);
             if (push) {
                 var url = new URL(location.href);
                 if (f === 'all') url.searchParams.delete('cat'); else url.searchParams.set('cat', f);
+                if (page > 1) url.searchParams.set('page', page); else url.searchParams.delete('page');
                 history.replaceState(null, '', url);
             }
-            $(window).trigger('scroll');
+            if (window.sfCheck) window.sfCheck();
+        }
+
+        function renderPager(pages) {
+            pager.innerHTML = '';
+            pager.hidden = pages < 2;
+            if (pages < 2) return;
+            function btn(html, p, label, cls, disabled, current) {
+                var b = document.createElement('button');
+                b.type = 'button'; b.innerHTML = html; b.className = cls || '';
+                b.setAttribute('aria-label', label);
+                if (current) b.setAttribute('aria-current', 'page');
+                if (disabled) b.disabled = true;
+                else b.addEventListener('click', function () { goPage(p); });
+                pager.appendChild(b);
+            }
+            btn(arwL, curPage - 1, '上一頁', 'chw_pg_arw', curPage === 1);
+            for (var p = 1; p <= pages; p++) btn(String(p).padStart(2, '0'), p, '第 ' + p + ' 頁', '', false, p === curPage);
+            btn(arwR, curPage + 1, '下一頁', 'chw_pg_arw', curPage === pages);
+        }
+
+        function goPage(p) {
+            apply(curFilter, true, p);
+            window.scrollTo({ top: grid.getBoundingClientRect().top + window.scrollY - 120, behavior: reduce ? 'auto' : 'smooth' });
         }
         btns.forEach(function (b) { b.addEventListener('click', function () { apply(b.getAttribute('data-filter'), true); }); });
-        apply(new URL(location.href).searchParams.get('cat') || 'all', false);
+        /* 從其他頁帶 #portfolio 進來：略過大 Banner，直接停在作品列表 */
+        if (location.hash === "#portfolio") {
+            var jump = function () { var t = document.getElementById("portfolio"); if (t) window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY, behavior: "auto" }); };
+            jump(); window.addEventListener("load", jump);
+        }
+        var u0 = new URL(location.href);
+        apply(u0.searchParams.get("cat") || "all", false, u0.searchParams.get("page"));
+
+        /* 手機：浮動篩選鈕＋底部面板 */
+        var fab = document.createElement("button");
+        fab.type = "button"; fab.className = "chw_fab"; fab.setAttribute("aria-haspopup", "dialog");
+        fab.innerHTML = "<span>篩選</span><b></b><i aria-hidden=\"true\"></i>";
+        var sheet = document.createElement("div");
+        sheet.className = "chw_sheet"; sheet.setAttribute("role", "dialog"); sheet.setAttribute("aria-label", "作品分類");
+        sheet.innerHTML = "<button class=\"chw_sheet_bg\" type=\"button\" aria-label=\"關閉\"></button><div class=\"chw_sheet_panel\"><p>Categories</p><ul></ul></div>";
+        var sheetBtns = btns.map(function (b) {
+            var c = document.createElement("button");
+            c.type = "button"; c.innerHTML = b.innerHTML; c.setAttribute("data-filter", b.getAttribute("data-filter"));
+            c.addEventListener("click", function () {
+                apply(c.getAttribute("data-filter"), true); closeSheet();
+                window.scrollTo({ top: grid.getBoundingClientRect().top + window.scrollY - 100, behavior: reduce ? "auto" : "smooth" });
+            });
+            var li = document.createElement("li"); li.appendChild(c); sheet.querySelector("ul").appendChild(li);
+            return c;
+        });
+        document.body.appendChild(fab); document.body.appendChild(sheet);
+        function openSheet() { sheet.classList.add("is-open"); var on = sheet.querySelector("[aria-pressed=true]"); setTimeout(function () { (on || sheetBtns[0]).focus(); }, 100); }
+        function closeSheet() { sheet.classList.remove("is-open"); }
+        fab.addEventListener("click", openSheet);
+        sheet.querySelector(".chw_sheet_bg").addEventListener("click", closeSheet);
+        document.addEventListener("keydown", function (e) { if (e.key === "Escape" && sheet.classList.contains("is-open")) { closeSheet(); fab.focus(); } });
+        function syncFab() {
+            var cur = btns.filter(function (b) { return b.getAttribute("aria-pressed") === "true"; })[0];
+            fab.querySelector("b").textContent = cur ? cur.querySelector("span").textContent : "全部";
+            sheetBtns.forEach(function (c) { c.setAttribute("aria-pressed", c.getAttribute("data-filter") === (cur && cur.getAttribute("data-filter"))); });
+        }
+        var filterBar = document.querySelector(".chw_filter");
+        function fabVisible() {
+            var fr = filterBar.getBoundingClientRect(), gr = grid.getBoundingClientRect();
+            fab.classList.toggle("is-show", fr.bottom < 0 && gr.bottom > window.innerHeight * 0.6);
+        }
+        window.addEventListener("scroll", fabVisible, { passive: true });
+        btns.forEach(function (b) { b.addEventListener("click", syncFab); });
+        sheetBtns.forEach(function (c) { c.addEventListener("click", syncFab); });
+        syncFab(); fabVisible();
 
         /* 燈箱 */
         var lb = document.querySelector('.chw_lb');
@@ -405,27 +392,68 @@ Boutique Showcase &amp; Jewelry｜晶漾金飾・鑽石 市政店</template>
         function fill() {
             var li = list[cur];
             lbImg.src = li.querySelector('img').getAttribute('src');
+            var im = li.querySelector("img");
+            lb.setAttribute("data-orient", (+im.getAttribute("width") >= +im.getAttribute("height") * 1.15) ? "land" : "port");
             lbCat.textContent = li.querySelector('.ch_work_txt i').textContent;
             lbTitle.textContent = li.querySelector('h6').textContent;
+            if (window.chSegment) window.chSegment(lbTitle);
             lbText.textContent = li.querySelector('template').content.textContent.trim();
-            lbIg.href = 'https://www.instagram.com/p/' + li.getAttribute('data-ig') + '/';
+            var ig = li.getAttribute('data-ig');
+            lbIg.href = ig ? 'https://www.instagram.com/p/' + ig + '/' : 'https://www.instagram.com/chiu.florist/';
             lbIdx.textContent = String(cur + 1).padStart(2, '0') + ' / ' + String(list.length).padStart(2, '0');
         }
         items.forEach(function (li) {
             li.querySelector('button').addEventListener('click', function () {
                 list = visible(); cur = list.indexOf(li); fill();
+                lb.classList.remove("is-story"); more.setAttribute("aria-expanded", "false");
                 lb.showModal();
             });
         });
         function move(d) { cur = (cur + d + list.length) % list.length; fill(); }
         lb.querySelector('.prev').addEventListener('click', function () { move(-1); });
         lb.querySelector('.next').addEventListener('click', function () { move(1); });
+        /* 手機：作品故事展開、左右滑動切換 */
+        var more = lb.querySelector(".chw_lb_more");
+        more.addEventListener("click", function () { var on = !lb.classList.contains("is-story"); lb.classList.toggle("is-story", on); more.setAttribute("aria-expanded", on); });
+        var fig = lb.querySelector("figure"), tx = 0, ty = 0;
+        fig.addEventListener("touchstart", function (e) { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
+        fig.addEventListener("touchend", function (e) { var dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty; if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) move(dx < 0 ? 1 : -1); }, { passive: true });
         lb.querySelector('.chw_lb_close').addEventListener('click', function () { lb.close(); });
         lb.addEventListener('click', function (e) { if (e.target === lb) lb.close(); });
         lb.addEventListener('keydown', function (e) {
             if (e.key === 'ArrowLeft') move(-1);
             if (e.key === 'ArrowRight') move(1);
         });
+    }
+
+    /* 讀取 data/works.json，產生分類按鈕與作品卡（之後改作品只要改 JSON） */
+    (function () {
+        var grid = document.querySelector('.chw_grid');
+        var filterUl = document.querySelector('.chw_filter ul');
+        var empty = document.querySelector('.chw_empty');
+        function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+        fetch('../data/works.json', { cache: 'no-cache' })
+            .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+            .then(function (data) {
+                filterUl.innerHTML = '<li><button type="button" data-filter="all" aria-pressed="true"><span>全部</span><sup></sup></button></li>' +
+                    data.categories.map(function (c) {
+                        return '<li><button type="button" data-filter="' + esc(c.id) + '" aria-pressed="false"><span>' + esc(c.name) + '</span><sup></sup></button></li>';
+                    }).join('');
+                grid.innerHTML = data.works.map(function (w) {
+                    return '<li class="ch_work" data-cat="' + esc(w.category) + '" data-ig="' + esc(w.instagram) + '">' +
+                        '<button type="button" data-cursor="View"><figure><img src="../image/chiu/' + esc(w.image) + '" alt="" width="' + (+w.width || '') + '" height="' + (+w.height || '') + '" loading="lazy"></figure>' +
+                        '<div class="ch_work_txt"><i>' + esc(w.label) + '</i><h6>' + esc(w.title) + '</h6></div></button>' +
+                        '<template>' + esc(w.story) + '</template></li>';
+                }).join('');
+                grid.removeAttribute('aria-busy');
+                [].forEach.call(grid.querySelectorAll('h6'), function (h) { if (window.chSegment) window.chSegment(h); });
+                chwInit();
+            })
+            .catch(function () {
+                grid.removeAttribute('aria-busy');
+                empty.textContent = '作品資料載入失敗，請重新整理頁面。';
+                empty.style.display = 'block';
+            });
     })();
 </script>
 </body>

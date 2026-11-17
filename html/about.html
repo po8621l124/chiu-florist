@@ -29,30 +29,33 @@
 .cha_b01_r p + p{margin-top: 20px;}
 .hs_box .cha_b01_r p:first-of-type::first-letter{font-family: var(--Corfont);font-size: 3.4em;float: left;line-height: .9;margin: 6px 12px 0 0;color: var(--color-Sub);}
 
-/* c 理念 */
-.cha_c{padding: var(--pdy) var(--pdx) calc(var(--pdy) * 1.2);background: var(--color-dark);position: relative;z-index: 1;overflow: hidden;}
-.cha_c::before{content: '';position: absolute;top: 0;right: 0;bottom: 0;width: 50%;z-index: -1;background: url(../image/chiu/w_newyear.jpg) center / cover no-repeat;opacity: .4;-webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 60%);mask-image: linear-gradient(90deg, transparent 0%, #000 60%);}
-.cha_c01{max-width: 1400px;width: 100%;margin: auto;}
-.cha_c01 .ch_title{margin-bottom: 70px;}
-.cha_c02{display: grid;grid-template-columns: repeat(3, 1fr);gap: 0;--delay_time:.2s;}
+/* c 理念：淺色雜誌風，三張同比例照片卡（中間錯開） */
+.cha_c{padding: calc(var(--pdy) * 1.3) var(--pdx) calc(var(--pdy) * 1.6);background: var(--color-bg2);}
+.cha_c01{max-width: 1240px;width: 100%;margin: auto;}
+.hs_box .cha_c_lead{max-width: 520px;margin: 22px auto 0;font-family: var(--Seriffont);font-size: var(--f18);letter-spacing: .2em;color: var(--colorText-sub);}
+.cha_c02{display: grid;grid-template-columns: repeat(3, 1fr);gap: clamp(24px, 3.5vw, 56px);margin-top: clamp(50px, 6vw, 90px);--delay_time:.15s;}
 .cha_c02 > li:nth-child(1){transition-delay: calc(var(--delay_time) * 0) !important;}
-.cha_c02 > li:nth-child(2){transition-delay: calc(var(--delay_time) * 1) !important;}
+.cha_c02 > li:nth-child(2){transition-delay: calc(var(--delay_time) * 1) !important;margin-top: clamp(30px, 5vw, 80px);}
 .cha_c02 > li:nth-child(3){transition-delay: calc(var(--delay_time) * 2) !important;}
-.cha_c02 > li{padding: 40px clamp(20px, 3vw, 50px) 50px;border-left: 1px solid rgba(244,239,230,.14) !important;position: relative;}
-.cha_c02 > li::after{content: '';position: absolute;left: -1px;top: 0;width: 1px;height: 0;background: var(--color-Sub);transition: height .8s var(--ease);}
-.cha_c02 > li:hover::after{height: 100%;}
-.hs_box .cha_c02 s{display: block;font-family: var(--Corfont);font-size: var(--f50);line-height: 1;color: var(--color-Sub);text-decoration: none;}
-.hs_box .cha_c02 h6{font-family: var(--Seriffont);font-weight: 500;font-size: var(--f26);letter-spacing: .3em;color: var(--colorText-whi);margin-top: 26px;}
-.hs_box .cha_c02 h6 em{font-family: var(--Corfont);font-style: italic;font-size: var(--f20);letter-spacing: .05em;color: rgba(244,239,230,.55);margin-left: 12px;}
-.hs_box .cha_c02 p{color: rgba(244,239,230,.75);margin-top: 14px;}
+.cha_c02 figure{position: relative;overflow: hidden;aspect-ratio: 3 / 4;background: var(--color-bg);}
+.cha_c02 figure img{width: 100%;height: 100%;object-fit: cover;transition: transform 1.4s var(--sf_ease, ease);}
+.cha_c02 figure::after{content: '';position: absolute;inset: 12px;border: 1px solid rgba(255,255,255,.55);pointer-events: none;}
+.cha_c02 > li:hover figure img{transform: scale(1.04);}
+.cha_c02_txt{padding: 26px 4px 0;}
+.hs_box .cha_c02_txt b{display: flex;align-items: center;gap: 12px;font-family: var(--Corfont);font-style: italic;font-weight: 400;font-size: var(--f18);letter-spacing: .08em;color: var(--color-Sub);}
+.cha_c02_txt b i{display: block;width: 26px;height: 1px;background: currentColor;}
+.hs_box .cha_c02_txt h6{position: relative;display: inline-block;margin: 10px 0 14px;padding-bottom: 10px;font-family: var(--Seriffont);font-weight: 500;font-size: var(--f30);letter-spacing: .35em;line-height: 1.3;}
+.cha_c02_txt h6::after{content: '';position: absolute;left: 0;bottom: 0;width: 24px;height: 1px;background: var(--color-Sub);transition: width .5s var(--ease);}
+.cha_c02 > li:hover h6::after{width: calc(100% - .35em);}
+.hs_box .cha_c02_txt p{font-size: var(--f15);color: var(--colorText-sub);}
 
 /* d 黃銅選品 */
 .cha_d{padding: calc(var(--pdy) * 1.3) var(--pdx);overflow: hidden;}
 .cha_d01{display: flex;justify-content: space-between;align-items: center;gap: 40px;max-width: 1400px;width: 100%;margin: auto;}
-.cha_d01_l{flex: 0 1 640px;position: relative;}
-.cha_d01_l figure{max-width: 520px;overflow: hidden;}
+.cha_d01_l{flex: 0 1 600px;position: relative;padding: 0 0 36px 36px;}
+.cha_d01_l figure{position: relative;z-index: 1;max-width: 520px;overflow: hidden;}
 .cha_d01_l figure img{width: 100%;height: auto;}
-.cha_d01_l::after{content: '';position: absolute;right: 20px;top: 40px;width: 46%;height: 80%;border: 1px solid var(--color-Sub);z-index: -1;}
+.cha_d01_l::after{content: "";position: absolute;left: 0;bottom: 0;width: min(calc(100% - 36px), 520px);height: calc(100% - 36px);border: 1px solid var(--color-Sub);z-index: 0;}
 .cha_d01_r{flex: 0 1 560px;min-width: 300px;}
 .cha_d01_r .ch_title{margin-bottom: 34px;}
 .cha_d01_list{margin: 30px 0 44px;display: grid;grid-template-columns: 1fr 1fr;gap: 12px 30px;}
@@ -89,31 +92,66 @@
 .hs_box .cha_f01 li i{display: block;font-family: var(--Corfont);font-style: italic;font-size: var(--f15);color: var(--colorText-sub);letter-spacing: .05em;}
 
 /* --- Media Queries --- */
-@media (max-width: 1440px) {}
+@media (max-width: 1440px) {
+}
 @media (max-width: 1024px) {
-    .cha_b01, .cha_d01{flex-direction: column;align-items: stretch;max-width: 720px;}
-    .cha_b01_l, .cha_b01_r, .cha_d01_l, .cha_d01_r{flex: none;}
-    .cha_b01_l, .cha_d01_r{min-width: unset;}
-    .cha_b01_l{position: static;margin-bottom: 30px;}
-    .cha_d01_l{max-width: 560px;}
-    .cha_e02{grid-template-columns: repeat(2, 1fr);row-gap: 50px;}
+    /* 理念：三欄不錯開 */
+    .cha_c02 > li:nth-child(2){margin-top: 0;}
+    .hs_box .cha_c02_txt h6{font-size: var(--f24);letter-spacing: .25em;}
+    .cha_b01{gap: 50px;}
+    .cha_b01_l{flex-basis: 400px;min-width: 0;}
+    .hs_box .cha_quote{font-size: var(--f30);}
+    /* 流程：2×2 */
+    .cha_e02{grid-template-columns: repeat(2, 1fr);gap: 50px 40px;}
     .cha_e02::before{display: none;}
 }
-@media (max-width: 992px) {}
+@media (max-width: 992px) {
+    /* 故事：改單欄置中 */
+    .cha_b01{flex-direction: column;align-items: stretch;max-width: 720px;gap: 0;}
+    .cha_b01_l, .cha_b01_r{flex: none;}
+    .cha_b01_l{position: static;margin-bottom: 44px;}
+    /* 黃銅：仍左右兩欄，比例改用 grid */
+    .cha_d01{display: grid;grid-template-columns: minmax(0, .9fr) minmax(0, 1fr);gap: 44px;align-items: center;}
+    .cha_d01_r{min-width: 0;}
+}
 @media (max-width: 768px) {
-    .cha_c02{grid-template-columns: 1fr;}
-    .cha_c02 > li{border-left: 0 !important;border-top: 1px solid rgba(244,239,230,.14) !important;padding: 34px 0;}
-    .cha_c02 > li::after{display: none;}
-    .cha_c01 .ch_title, .cha_e01 .ch_title{margin-bottom: 40px;}
-    .cha_f01{flex-direction: column;align-items: flex-start;gap: 24px;}
-    .cha_f01 ul{justify-content: flex-start;}
+    /* 理念：左圖右文三列 */
+    .cha_c02{grid-template-columns: 1fr;gap: 0;max-width: 560px;margin-left: auto;margin-right: auto;}
+    .cha_c02 > li{display: grid;grid-template-columns: minmax(0, 38%) 1fr;gap: 20px;align-items: center;padding: 22px 0;border-bottom: 1px solid var(--color-line) !important;}
+    .cha_c02 > li:first-child{border-top: 1px solid var(--color-line) !important;}
+    .cha_c02 figure::after{inset: 8px;}
+    .cha_c02_txt{padding: 0;}
+    .hs_box .cha_c02_txt b{font-size: var(--f16);}
+    .hs_box .cha_c02_txt h6{font-size: var(--f22);margin: 6px 0 10px;padding-bottom: 8px;}
+    .hs_box .cha_c02_txt p{font-size: var(--f14);line-height: 1.8;}
+    .hs_box .cha_quote{font-size: var(--f24);letter-spacing: .1em;margin-top: 28px;}
+    .hs_box .cha_quote::before{font-size: 90px;height: 38px;}
+    .hs_box .cha_b01_r p:first-of-type::first-letter{float: none;font-size: inherit;font-family: inherit;line-height: inherit;margin: 0;color: inherit;}
+    .cha_b01_r figure{margin-bottom: 30px;}
+    .cha_e01 .ch_title{margin-bottom: 40px;}
+    /* 黃銅：上下排，圖片置中縮小 */
+    .cha_d01{grid-template-columns: 1fr;gap: 40px;max-width: 520px;}
+    .cha_d01_l{max-width: 380px;width: 100%;margin: 0 auto;}
+    /* 流程：垂直時間軸 */
+    .cha_e02{grid-template-columns: 1fr;gap: 0;max-width: 520px;margin: auto;}
+    .cha_e02 > li{display: grid;grid-template-columns: 56px 1fr;column-gap: 18px;padding-bottom: 32px;}
+    .cha_e02 > li::before{content: '';position: absolute;left: 27px;top: 64px;bottom: 8px;width: 1px;background: var(--color-line);}
+    .cha_e02 > li:last-child{padding-bottom: 0;}
+    .cha_e02 > li:last-child::before{display: none;}
+    .cha_e02 > li > i{grid-column: 1;grid-row: 1 / span 3;width: 56px;height: 56px;}
+    .cha_e02 > li > i svg{width: 22px;height: 22px;}
+    .hs_box .cha_e02 s{grid-column: 2;margin-top: 2px;}
+    .hs_box .cha_e02 :is(h6, p){grid-column: 2;}
+    /* 合作夥伴：置中、一列一個 */
+    .cha_f01{flex-direction: column;gap: 26px;text-align: center;}
+    .cha_f01 ul{flex-direction: column;align-items: center;gap: 18px;width: 100%;}
+    .cha_f01 li{opacity: 1;width: 100%;max-width: 360px;padding-bottom: 18px;border-bottom: 1px solid var(--color-line) !important;}
+    .cha_f01 li:last-child{padding-bottom: 0;border-bottom: 0 !important;}
 }
 @media (max-width: 576px) {}
 @media (max-width: 480px) {
     .cha_c02, .cha_e02{--delay_time:0s;}
-    .cha_e02{grid-template-columns: 1fr;}
     .cha_d01_list{grid-template-columns: 1fr;}
-    .cha_d01_l::after{display: none;}
 }
 @media (max-width: 380px) {}
 </style>
@@ -157,15 +195,37 @@
 
     <section class="cha_c">
         <div class="cha_c01">
-            <div class="ch_title whi" data-animate-in="left">
+            <div class="ch_title cen" data-animate-in="down">
                 <h4>Our Values</h4>
                 <h5>我們在意的三件事</h5>
             </div>
-            <ul class="cha_c02">
-                <li data-animate-in="up"><s>I.</s><h6>光影<em>Light</em></h6><p>以自然為背景、光影為筆墨，讓花在不同時刻呈現不同的表情。</p></li>
-                <li data-animate-in="up"><s>II.</s><h6>季節<em>Season</em></h6><p>花材皆使用當季新鮮花材，順著季節的顏色與姿態創作，留住當下最舒服的溫度。</p></li>
-                <li data-animate-in="up"><s>III.</s><h6>空間<em>Space</em></h6><p>花不只是主角，而是與空間、器物、光線一起完成的風景，為場域注入生命力。</p></li>
-            </ul>
+            <p class="cha_c_lead cen" data-animate-in="up">每一件作品，都從這三件事開始。</p>
+            <ol class="cha_c02">
+                <li data-animate-in="up">
+                    <figure><img src="../image/chiu/w_dahlia.jpg" alt="" width="1500" height="2000" loading="lazy"></figure>
+                    <div class="cha_c02_txt">
+                        <b>I<i></i>Light</b>
+                        <h6>光影</h6>
+                        <p>以自然為背景、光影為筆墨，讓花在不同時刻呈現不同的表情。</p>
+                    </div>
+                </li>
+                <li data-animate-in="up">
+                    <figure><img src="../image/chiu/w_autumn.jpg" alt="" width="1500" height="2000" loading="lazy"></figure>
+                    <div class="cha_c02_txt">
+                        <b>II<i></i>Season</b>
+                        <h6>季節</h6>
+                        <p>花材皆使用當季新鮮花材，順著季節的顏色與姿態創作，留住當下最舒服的溫度。</p>
+                    </div>
+                </li>
+                <li data-animate-in="up">
+                    <figure><img src="../image/chiu/w_corner.jpg" alt="" width="1500" height="2000" loading="lazy"></figure>
+                    <div class="cha_c02_txt">
+                        <b>III<i></i>Space</b>
+                        <h6>空間</h6>
+                        <p>花不只是主角，而是與空間、器物、光線一起完成的風景，為場域注入生命力。</p>
+                    </div>
+                </li>
+            </ol>
         </div>
     </section>
 
@@ -244,7 +304,7 @@
             <p data-animate-in="up">花禮、婚禮、空間佈置或課程，歡迎告訴我們你的想法。</p>
             <div class="ch_btns" data-animate-in="up">
                 <a class="ch_btn fill" href="contact.html"><span>預約諮詢</span><i></i></a>
-                <a class="ch_btn" href="works.html"><span>看作品</span><i></i></a>
+                <a class="ch_btn" href="works.html#portfolio"><span>看作品</span><i></i></a>
             </div>
         </div>
     </section>

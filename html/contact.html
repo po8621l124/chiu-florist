@@ -46,12 +46,12 @@
 .chc_field [aria-invalid="true"]{border-color: #A3343B !important;}
 .hs_box .chc_err{font-size: var(--f14);color: #A3343B;min-height: 1em;line-height: 1.4;}
 .hs_box .chc_hint{font-size: var(--f14);color: var(--colorText-sub);text-align: right;line-height: 1.4;}
-.chc_types{display: flex;flex-direction: row;flex-wrap: wrap;gap: 10px;border: 0;padding: 0;margin: 0;}
-.chc_types .chc_err{flex-basis: 100%;}
+.chc_types{display: grid;grid-template-columns: repeat(3, 1fr);gap: 10px;border: 0;padding: 0;margin: 0;}
+.chc_types .chc_err{grid-column: 1 / -1;}
 .chc_types legend{padding: 0;margin-bottom: 12px;}
 .chc_types label{position: relative;cursor: pointer;}
 .chc_types input{position: absolute;opacity: 0;width: 1px;height: 1px;}
-.hs_box .chc_types label span{display: inline-block;padding: 8px 18px;border: 1px solid rgba(50,47,45,.25);border-radius: 40px;font-size: var(--f15);letter-spacing: .12em;transition: background-color .3s, color .3s, border-color .3s;}
+.hs_box .chc_types label span{display: block;text-align: center;white-space: nowrap;padding: 9px 6px;border: 1px solid rgba(50,47,45,.25);border-radius: 40px;font-size: var(--f15);letter-spacing: .12em;transition: background-color .3s, color .3s, border-color .3s;}
 .hs_box .chc_types label:hover span{border-color: var(--color-Sub);}
 .hs_box .chc_types input:checked + span{background: var(--color-dark);border-color: var(--color-dark);color: var(--colorText-whi);}
 .chc_types input:focus-visible + span{outline: 2px solid var(--color-Sub);outline-offset: 2px;}
@@ -93,6 +93,9 @@
 /* --- Media Queries --- */
 @media (max-width: 1440px) {}
 @media (max-width: 1024px) {
+    /* 聯絡資訊：三欄並排，省下高度 */
+    .chc_info{display: grid;grid-template-columns: repeat(3, 1fr);column-gap: 24px;}
+    .chc_info > li{grid-template-columns: 1fr;gap: 10px;}
     .chc_b01{flex-direction: column;align-items: stretch;max-width: 780px;gap: 40px;}
     .chc_b01_l, .chc_b01_r{flex: none;}
     .chc_b01_l{position: static;min-width: unset;}
@@ -103,13 +106,17 @@
 }
 @media (max-width: 576px) {
     .chc_form{grid-template-columns: 1fr;}
-    .chc_b01_r{margin: 0 calc(var(--pdx) * -1);max-width: none;width: auto;}
+    .chc_info{grid-template-columns: 1fr;}
+    .chc_info > li{grid-template-columns: 44px 1fr;gap: 16px;}
+    .chc_b01_r{padding: 28px 20px 30px;}
 }
 @media (max-width: 480px) {
     .chc_submit .ch_btn{width: 100%;justify-content: center;}
     .QA_function dt button{gap: 12px;}
 }
-@media (max-width: 380px) {}
+@media (max-width: 380px) {
+    .chc_types{grid-template-columns: repeat(2, 1fr);}
+}
 </style>
 </head>
 <body>
@@ -137,7 +144,7 @@
                     <h4>Get in Touch</h4>
                     <h5>告訴我們你的想法</h5>
                 </div>
-                <p data-animate-in="up">無論是一份花禮、一場婚禮，或是一整個空間的佈置，都歡迎與我們聊聊。填寫右側表單後，系統會整理好你的需求，一鍵帶到 Instagram 私訊給我們。</p>
+                <p data-animate-in="up">無論是一份花禮、一場婚禮，或是一整個空間的佈置，都歡迎與我們聊聊。填寫線上諮詢表單後，系統會整理好你的需求，一鍵帶到 Instagram 私訊給我們。</p>
                 <ul class="chc_info" data-animate-in="up">
                     <li>
                         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></i>
@@ -211,7 +218,7 @@
                         </div>
                         <div class="chc_submit">
                             <p>為保護你的個人資料，表單內容不會上傳至伺服器，只會整理成文字讓你私訊給我們。</p>
-                            <button class="ch_btn fill" type="submit"><span>整理並送出</span><i></i></button>
+                            <button class="ch_btn fill" type="submit"><span>整理並複製</span><i></i></button>
                         </div>
                     </div>
                 </form>
