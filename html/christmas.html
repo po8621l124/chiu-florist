@@ -132,8 +132,9 @@
 .hs_box .chx_e02 p + p{margin-top: 6px;}
 
 /* f 結尾 CTA */
-.chx_f{position: relative;z-index: 1;padding: calc(var(--pdy) * 1.1) var(--pdx);text-align: center;background: var(--wine);overflow: hidden;}
-.chx_f::before{content: '';position: absolute;inset: 0;z-index: -1;background: url(../image/chiu/w_xmas_opera.webp) center / cover no-repeat;opacity: .22;}
+.chx_f{position: relative;z-index: 1;padding: calc(var(--pdy) * 1.1) var(--pdx);text-align: center;background: var(--color-dark2);border-bottom: 1px solid rgba(180,141,85,.35) !important;overflow: hidden;}
+.chx_f::before{content: '';position: absolute;inset: 0;z-index: -1;background: url(../image/chiu/w_xmas_opera.webp) center / cover no-repeat;opacity: .14;}
+.chx_f::after{content: '';position: absolute;inset: 0;z-index: -1;background: radial-gradient(ellipse at 50% 0%, rgba(180,141,85,.2) 0%, rgba(180,141,85,0) 60%);pointer-events: none;}
 .chx_f01{max-width: 760px;margin: auto;}
 .hs_box .chx_f h2{font-family: var(--Seriffont);font-weight: 500;font-size: var(--f35);letter-spacing: .15em;line-height: 1.6;color: var(--colorText-whi);margin-top: 10px;}
 .hs_box .chx_f p{margin-top: 18px;color: rgba(244,239,230,.85);}
@@ -335,7 +336,7 @@
     <section class="chx_f">
         <div class="chx_f01" data-animate-in="up">
             <span class="chx_script">Merry Christmas</span>
-            <h2>為這個冬天，<span class="ch_s">預留一份光影</span></h2>
+            <h2><span class="ch_s">為這個冬天，</span><span class="ch_s">預留一份光影</span></h2>
             <p class="eb-on">11/22（日）前預訂，單件 9.5 折・2 件 9 折。</p>
             <p class="eb-off season-on">早鳥優惠已截止，仍歡迎私訊詢問預購狀況。</p>
             <p class="season-off">本季預購已結束，新的節慶作品請追蹤我們的社群。</p>
