@@ -49,13 +49,14 @@
 .chl_b01_txt .ch_title{margin-bottom: 34px;}
 .hs_box .chl_b01_lead{font-family: var(--Seriffont);font-size: var(--f20);line-height: 2;letter-spacing: .1em;}
 .hs_box .chl_b01_lead + p{margin-top: 18px;color: var(--colorText-sub);}
-.chl_b02{display: grid;grid-template-columns: repeat(3, 1fr);margin: 44px 0 46px;border-top: 1px solid var(--color-line) !important;border-bottom: 1px solid var(--color-line) !important;}
-.chl_b02 > li{padding: 24px 10px 22px 24px;border-left: 1px solid var(--color-line) !important;}
-.chl_b02 > li:first-child{padding-left: 0;border-left: 0 !important;}
-.hs_box .chl_b02 b{display: flex;align-items: baseline;gap: 4px;font-family: var(--Corfont);font-weight: 400;font-size: var(--f45);line-height: 1;color: var(--color-Main);white-space: nowrap;}
-.hs_box .chl_b02 b em{font-style: italic;}
-.hs_box .chl_b02 b small{font-family: var(--Seriffont);font-size: var(--f14);letter-spacing: .1em;color: var(--colorText);}
-.hs_box .chl_b02 span{display: block;margin-top: 12px;font-size: var(--f14);letter-spacing: .12em;line-height: 1.7;color: var(--colorText-sub);}
+/* 預約重點：三張淺色小卡，金色上緣＋線條圖示 */
+.chl_b02{display: grid;grid-template-columns: repeat(3, 1fr);gap: 12px;margin: 40px 0 44px;}
+.chl_b02 > li{display: flex;flex-direction: column;align-items: flex-start;gap: 14px;padding: 22px 20px 20px;background: var(--color-bg2);border-top: 2px solid var(--color-Sub) !important;transition: translate .5s var(--ease), box-shadow .5s;}
+.chl_b02 > li:hover{translate: 0 -4px;box-shadow: 0 14px 30px rgba(var(--rgb_dark),.08);}
+.chl_b02 i{display: grid;place-items: center;width: 42px;height: 42px;border-radius: 50%;border: 1px solid var(--color-Sub) !important;color: var(--color-Sub);}
+.chl_b02 i svg{width: 20px;height: 20px;}
+.hs_box .chl_b02 b{display: block;font-family: var(--Seriffont);font-weight: 500;font-size: var(--f20);letter-spacing: .12em;line-height: 1.5;color: var(--colorText);}
+.hs_box .chl_b02 span{display: block;margin-top: 4px;font-size: var(--f14);letter-spacing: .1em;line-height: 1.7;color: var(--colorText-sub);}
 
 /* c 課程類型 */
 .chl_c{padding: var(--pdy) var(--pdx) calc(var(--pdy) * 1.2);}
@@ -130,8 +131,7 @@
 @media (max-width: 1440px) {}
 @media (max-width: 1024px) {
     .chl_b01{gap: 56px;}
-    .chl_b02 > li{padding-left: 16px;}
-    .hs_box .chl_b02 b{font-size: var(--f35);}
+    .chl_b02 > li{padding: 20px 16px 18px;}
     /* 課程形式：維持三欄，文字縮一階 */
     .chl_c02{gap: 20px;}
     .chl_c02_txt{padding: 24px 22px 28px;}
@@ -168,10 +168,11 @@
     .chl_b01_main::before{transform: translate(-14px, -14px);}
     .hs_box .chl_b01_sub{width: 46%;outline-width: 6px;}
     .chl_b01_vert{display: none !important;}
-    .chl_b02{margin: 34px 0 36px;}
-    .chl_b02 > li{padding: 18px 6px 16px 12px;}
-    .hs_box .chl_b02 b{font-size: var(--f30);}
-    .hs_box .chl_b02 span{margin-top: 8px;font-size: 0.8rem;letter-spacing: .06em;}
+    .chl_b02{grid-template-columns: 1fr;gap: 10px;margin: 32px 0 36px;}
+    .chl_b02 > li{flex-direction: row;align-items: center;gap: 16px;padding: 16px 18px;border-top: 0 !important;border-left: 2px solid var(--color-Sub) !important;}
+    .chl_b02 i{flex: none;}
+    .hs_box .chl_b02 b{font-size: var(--f18);}
+    .hs_box .chl_b02 span{margin-top: 0;}
 }
 @media (max-width: 480px) {
     .chl_c02{--delay_time:0s;}
@@ -215,9 +216,9 @@
                 <p class="chl_b01_lead" data-animate-in="up">CHIU.FLORIST 的花藝課程皆採<b class="chl_em">預約包班</b>，不對外公開招生。課程隨節慶推出當季主題作品，時段與費用歡迎私訊洽詢。</p>
                 <p data-animate-in="up">從認識花材、配色，到修剪與構圖，不必有任何基礎，只要帶著想好好陪自己一個下午的心情。在這樣的色系裡慢慢修剪、靜心，妳會發現，花藝是一種把生活過成詩的溫柔方式。</p>
                 <ul class="chl_b02">
-                    <li data-animate-in="up"><b>4–6<small>人</small></b><span>即可預約包班</span></li>
-                    <li data-animate-in="up"><b><em>Season</em></b><span>隨節慶推出主題</span></li>
-                    <li data-animate-in="up"><b>0<small>基礎</small></b><span>新手也能上手</span></li>
+                    <li data-animate-in="up"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><circle cx="17" cy="9" r="2.3"/><path d="M15.5 14.2A4.5 4.5 0 0 1 21 18.5"/></svg></i><div><b>4–6 人</b><span>即可預約包班</span></div></li>
+                    <li data-animate-in="up"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V9"/><path d="M12 14c-4 0-6-2.5-6-6 3.5 0 6 2 6 6z"/><path d="M12 11c0-3.5 2.5-6 6-6 0 3.5-2 6-6 6z"/></svg></i><div><b>節慶主題</b><span>隨節慶推出當季作品</span></div></li>
+                    <li data-animate-in="up"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M7.8 16.2 17 4M16.2 16.2 7 4"/></svg></i><div><b>零基礎</b><span>新手也能上手</span></div></li>
                 </ul>
                 <a class="ch_btn" href="contact.html?type=lesson" data-animate-in="up"><span>預約課程</span><i></i></a>
             </article>
