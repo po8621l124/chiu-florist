@@ -111,13 +111,13 @@
         track.addEventListener('dragstart', function (e) { e.preventDefault(); });
     });
 
-    /* ---------- 標題斷行：依「｜」分段，每段不從中間斷開（規格書 §6-1 的 <s> 做法） ---------- */
+    /* ---------- 標題斷行：依「｜」分段，每段不從中間斷開（用 span.ch_s，不用代表「刪除內容」的 <s>） ---------- */
     window.chSegment = function (el) {
         if (!el || el.children.length || el.textContent.indexOf('｜') < 0) return;
         var parts = el.textContent.split('｜');
         el.textContent = '';
         parts.forEach(function (t, i) {
-            var s = document.createElement('s'); s.textContent = t.trim() + (i < parts.length - 1 ? '｜' : '');
+            var s = document.createElement('span'); s.className = 'ch_s'; s.textContent = t.trim() + (i < parts.length - 1 ? '｜' : '');
             el.appendChild(s);
         });
     };

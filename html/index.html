@@ -58,7 +58,7 @@
 .hs_box .chi_a01 .chi_a_en{font-family: var(--Corfont);font-weight: 400;font-size: var(--f100);line-height: 1.02;letter-spacing: .005em;color: var(--colorText-whi);margin-top: 14px;}
 .hs_box .chi_a01 .chi_a_en em{font-family: var(--Corfont);font-style: italic;font-size: inherit;line-height: inherit;color: var(--color-Sub);}
 .hs_box .chi_a01 > p{font-family: var(--Seriffont);font-size: var(--f20);letter-spacing: .2em;color: rgba(244,239,230,.9);margin-top: 26px;}
-.chi_a01 > p s{display: inline-block;text-decoration: none;}
+.chi_a01 > p .ch_s{display: inline-block;text-decoration: none;}
 .chi_a_tags{display: flex;flex-wrap: wrap;margin: 26px 0 44px;}
 .hs_box .chi_a_tags li{font-size: var(--f15);letter-spacing: .3em;color: rgba(244,239,230,.7);}
 .chi_a_tags li + li::before{content: '｜';color: var(--color-Sub);margin: 0 .4em 0 .1em;letter-spacing: 0;}
@@ -113,14 +113,14 @@
 .hs_box .chi_d02_txt b em{font: inherit;color: inherit;letter-spacing: inherit;}
 .hs_box .chi_d02_txt h3{margin: 8px 0 10px;font-family: var(--Seriffont);font-weight: 500;font-size: var(--f22);letter-spacing: .15em;line-height: 1.5;transition: color .4s;}
 .hs_box .chi_d02_txt p{font-size: var(--f15);line-height: 1.85;color: var(--colorText-sub);}
-.chi_d02_txt span{position: relative;display: inline-flex;align-items: center;gap: 8px;margin-top: 16px;padding-bottom: 4px;font-family: var(--Seriffont);font-size: var(--f14);letter-spacing: .2em;color: var(--colorText);}
-.chi_d02_txt span::after{content: '';position: absolute;left: 0;bottom: 0;width: 100%;height: 1px;background: var(--color-line);}
-.chi_d02_txt span::before{content: '';position: absolute;left: 0;bottom: 0;z-index: 1;width: 0;height: 1px;background: var(--color-Sub);transition: width .5s var(--ease);}
-.chi_d02_txt span svg{width: 14px;height: 14px;color: var(--color-Sub);transition: transform .5s var(--ease);}
+.chi_d02_txt > span{position: relative;display: inline-flex;align-items: center;gap: 8px;margin-top: 16px;padding-bottom: 4px;font-family: var(--Seriffont);font-size: var(--f14);letter-spacing: .2em;color: var(--colorText);}
+.chi_d02_txt > span::after{content: '';position: absolute;left: 0;bottom: 0;width: 100%;height: 1px;background: var(--color-line);}
+.chi_d02_txt > span::before{content: '';position: absolute;left: 0;bottom: 0;z-index: 1;width: 0;height: 1px;background: var(--color-Sub);transition: width .5s var(--ease);}
+.chi_d02_txt > span svg{width: 14px;height: 14px;color: var(--color-Sub);transition: transform .5s var(--ease);}
 .chi_d02 a:is(:hover, :focus-visible) figure img{transform: scale(1.04);}
 .hs_box .chi_d02 a:is(:hover, :focus-visible) h3{color: var(--color-Main);}
-.chi_d02 a:is(:hover, :focus-visible) .chi_d02_txt span::before{width: 100%;}
-.chi_d02 a:is(:hover, :focus-visible) .chi_d02_txt span svg{transform: translateX(5px);}
+.chi_d02 a:is(:hover, :focus-visible) .chi_d02_txt > span::before{width: 100%;}
+.chi_d02 a:is(:hover, :focus-visible) .chi_d02_txt > span svg{transform: translateX(5px);}
 
 /* e 聖誕花禮 */
 .chi_e{position: relative;z-index: 1;padding: calc(var(--pdy) * 1.2) var(--pdx);background: var(--color-Main);overflow: hidden;}
@@ -128,7 +128,7 @@
 .chi_e01{max-width: 1400px;width: 100%;margin: auto;}
 .chi_e01_head{display: flex;justify-content: space-between;align-items: flex-end;gap: 40px;flex-wrap: wrap;margin-bottom: 60px;}
 .hs_box .chi_e01_head > p{max-width: 520px;color: rgba(244,239,230,.82);}
-.chi_e01_head > p s{display: inline-block;text-decoration: none;}
+.chi_e01_head > p .ch_s{display: inline-block;text-decoration: none;}
 .chi_e02{display: grid;grid-template-columns: repeat(3, 1fr);gap: 30px;--delay_time:.2s;}
 .chi_e02 > li:nth-child(1){transition-delay: calc(var(--delay_time) * 0) !important;}
 .chi_e02 > li:nth-child(2){transition-delay: calc(var(--delay_time) * 1) !important;}
@@ -256,7 +256,7 @@
     .hs_box .chi_d02_txt b{font-size: var(--f14);gap: 6px;}
     .chi_d02_txt b i{width: 14px;}
     .hs_box .chi_d02_txt h3{font-size: var(--f16);letter-spacing: .06em;margin: 4px 0 0;}
-    .hs_box .chi_d02_txt p, .chi_d02_txt span{display: none;}
+    .hs_box .chi_d02_txt p, .chi_d02_txt > span{display: none;}
     .hs_box .chi_d02_txt b em, .chi_d02_txt b i{display: none;}
     .chi_e02{--delay_time:0s;}
     .chi_e02_txt{padding: 24px 22px 28px;}
@@ -284,7 +284,7 @@
         <div class="chi_a01">
             <h1 class="chi_a_script" data-animate-in="up" data-animate-in-delay="100">Chiu Florist<small>台中花藝工作室</small></h1>
             <div class="chi_a_en">The Art of <em>Florals</em><br>and Spaces.</div>
-            <p data-animate-in="up" data-animate-in-delay="450">以季節花材為語言，<s>為日常與空間，</s><s>留下一抹光影。</s></p>
+            <p data-animate-in="up" data-animate-in-delay="450">以季節花材為語言，<span class="ch_s">為日常與空間，</span><span class="ch_s">留下一抹光影。</span></p>
             <ul class="chi_a_tags" data-animate-in="up" data-animate-in-delay="600">
                 <li>花藝</li><li>空間規劃</li><li>婚禮</li><li>課程</li>
             </ul>
@@ -306,7 +306,7 @@
             <article class="chi_b01_l">
                 <div class="ch_title" data-animate-in="left">
                     <div class="ch_en">Our Philosophy</div>
-                    <h2>把生活過成詩的<s>溫柔方式</s></h2>
+                    <h2>把生活過成詩的<span class="ch_s">溫柔方式</span></h2>
                 </div>
                 <p data-animate-in="up">CHIU.FLORIST 是一間位於台中的花藝工作室。我們相信，花藝不只是擺飾，而是讓空間呼吸、讓日子有了溫度的語言。</p>
                 <p data-animate-in="up">從一份訂製花禮、一場婚禮的視覺佈置，到商業空間的軟裝與週花，我們順著季節挑選花材，刻意保留花朵原本的呼吸感與空氣感，讓每一件作品低調細膩，卻自帶光芒。</p>
@@ -354,7 +354,7 @@
                 </a></li>
                 <li data-animate-in="up"><a href="works.html?cat=weekly#portfolio">
                     <figure><img src="../image/chiu/w_paris.webp" alt="粉色陶甕中的紫紅菊與蘇鐵葉大型花藝，旁有黃銅水晶燭台" width="1440" height="1920" loading="lazy"></figure>
-                    <div class="chi_d02_txt"><b>04<i></i><em>Weekly Florals</em></b><h3><s>植物美學・</s><s>企業商用週花</s></h3><p>為企業與商業空間定期更換季節花藝，讓空間保有生命力。</p><span>了解更多<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+                    <div class="chi_d02_txt"><b>04<i></i><em>Weekly Florals</em></b><h3><span class="ch_s">植物美學・</span><span class="ch_s">企業商用週花</span></h3><p>為企業與商業空間定期更換季節花藝，讓空間保有生命力。</p><span>了解更多<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
                 </a></li>
                 <li data-animate-in="up"><a href="lessons.html">
                     <figure><img src="../image/chiu/w_slow.webp" alt="手輕觸綠色高腳花器中的紫色菊花與噴泉草花藝作品" width="1440" height="1920" loading="lazy"></figure>
@@ -378,7 +378,7 @@
                     </div>
                     <div class="chi_e_badge" data-animate-in="up"><span>11/22（日）前預訂</span><b>單件 9.5 折・2 件 9 折</b></div>
                 </div>
-                <p data-animate-in="up">當冬夜微光點亮，我們在深綠松柏間，<s>綴上一抹高訂的珠光。</s>這不單是一份花禮，<s>更是獻給冬夜的光影情書，</s><s>為你靜靜典藏一整季的璀璨與閃耀。</s></p>
+                <p data-animate-in="up">當冬夜微光點亮，我們在深綠松柏間，<span class="ch_s">綴上一抹高訂的珠光。</span>這不單是一份花禮，<span class="ch_s">更是獻給冬夜的光影情書，</span><span class="ch_s">為你靜靜典藏一整季的璀璨與閃耀。</span></p>
             </div>
             <ul class="chi_e02">
                 <li data-animate-in="up" data-tilt>

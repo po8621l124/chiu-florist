@@ -29,7 +29,7 @@
     }).join('');
 
     var menuLinks = NAV.map(function (n, i) {
-        return '<li><a href="' + n.href + '" style="--i:' + i + '"' + cur(n.href) + '><s>' + pad(i + 1) + '</s><b>' + n.zh + '</b><i>' + n.en + '</i></a></li>';
+        return '<li><a href="' + n.href + '" style="--i:' + i + '"' + cur(n.href) + '><span class="ch_menu_num">' + pad(i + 1) + '</span><b>' + n.zh + '</b><i>' + n.en + '</i></a></li>';
     }).join('');
 
     var footerLinks = NAV.map(function (n) {

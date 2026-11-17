@@ -92,7 +92,7 @@
 .cha_e02 > li:hover > i{background: var(--color-Sub);}
 .cha_e02 > li > i svg{width: 28px;height: 28px;color: var(--color-Sub);transition: color .4s;}
 .cha_e02 > li:hover > i svg{color: #fff;}
-.hs_box .cha_e02 s{display: block;font-family: var(--Corfont);font-style: italic;font-size: var(--f18);color: var(--color-Sub);text-decoration: none;margin-top: 26px;letter-spacing: .05em;}
+.hs_box .cha_e02 .cha_e02_step{display: block;font-family: var(--Corfont);font-style: italic;font-size: var(--f18);color: var(--color-Sub);text-decoration: none;margin-top: 26px;letter-spacing: .05em;}
 .hs_box .cha_e02 h3{font-family: var(--Seriffont);font-weight: 500;font-size: var(--f22);letter-spacing: .2em;margin: 4px 0 10px;}
 .hs_box .cha_e02 p{font-size: var(--f15);color: var(--colorText-sub);}
 
@@ -155,7 +155,7 @@
     .cha_e02 > li:last-child::before{display: none;}
     .cha_e02 > li > i{grid-column: 1;grid-row: 1 / span 3;width: 56px;height: 56px;}
     .cha_e02 > li > i svg{width: 22px;height: 22px;}
-    .hs_box .cha_e02 s{grid-column: 2;margin-top: 2px;}
+    .hs_box .cha_e02 .cha_e02_step{grid-column: 2;margin-top: 2px;}
     .hs_box .cha_e02 :is(h3, p){grid-column: 2;}
     /* 合作夥伴：置中、一列一個 */
     .cha_f01{flex-direction: column;gap: 26px;text-align: center;}
@@ -196,7 +196,7 @@
                     <div class="ch_en">Our Story</div>
                     <h2>以花為語，與空間對話</h2>
                 </div>
-                <p class="cha_quote" data-animate-in="up">花藝不只是擺飾，<s>而是一種把生活</s><s><em>過成詩</em>的溫柔方式。</s></p>
+                <p class="cha_quote" data-animate-in="up">花藝不只是擺飾，<span class="ch_s">而是一種把生活</span><span class="ch_s"><em>過成詩</em>的溫柔方式。</span></p>
             </div>
             <article class="cha_b01_r">
                 <figure data-animate-in="fadeIn"><img src="../image/chiu/w_lobby2.webp" alt="光流域｜商業空間週花佈置" class="anima_blur" width="2000" height="1047"></figure>
@@ -276,22 +276,22 @@
             <ol class="cha_e02">
                 <li data-animate-in="up">
                     <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"/><path d="M8 9h8M8 12h5"/></svg></i>
-                    <s>Step 01</s><h3>諮詢</h3>
+                    <span class="cha_e02_step">Step 01</span><h3>諮詢</h3>
                     <p>透過線上表單或 IG 私訊，告訴我們用途、日期、預算與喜歡的風格。</p>
                 </li>
                 <li data-animate-in="up">
                     <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><circle cx="12" cy="15" r="3"/><path d="M12 18v3"/></svg></i>
-                    <s>Step 02</s><h3>提案</h3>
+                    <span class="cha_e02_step">Step 02</span><h3>提案</h3>
                     <p>依需求提出花材色系、尺寸與佈置規劃，確認後開始準備。</p>
                 </li>
                 <li data-animate-in="up">
                     <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M7.8 16.2 18 4M16.2 16.2 6 4"/></svg></i>
-                    <s>Step 03</s><h3>製作</h3>
+                    <span class="cha_e02_step">Step 03</span><h3>製作</h3>
                     <p>挑選當季花材，在工作室細細修剪、構圖，完成每一個細節。</p>
                 </li>
                 <li data-animate-in="up">
                     <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M3 8h18v12H3z"/><path d="M12 8v12M3 12h18"/><path d="M12 8c-2-4-6-4-6-1s6 1 6 1 6 2 6-1-4-3-6 1"/></svg></i>
-                    <s>Step 04</s><h3>交付</h3>
+                    <span class="cha_e02_step">Step 04</span><h3>交付</h3>
                     <p>宅配、自取或到場佈置，讓作品在最好的狀態下抵達。</p>
                 </li>
             </ol>

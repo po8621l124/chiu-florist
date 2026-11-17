@@ -70,7 +70,7 @@
 .chl_c02 figure img{width: 100%;height: 100%;object-fit: cover;transition: transform 1.2s var(--ease);}
 .chl_c02 > li:hover figure img{transform: scale(1.04);}
 .chl_c02_txt{padding: 34px 32px 38px;display: flex;flex-direction: column;flex: 1;}
-.hs_box .chl_c02_txt s{font-family: var(--Corfont);font-style: italic;font-size: var(--f18);color: var(--color-Sub);text-decoration: none;letter-spacing: .04em;}
+.hs_box .chl_c02_txt .chl_c02_en{font-family: var(--Corfont);font-style: italic;font-size: var(--f18);color: var(--color-Sub);text-decoration: none;letter-spacing: .04em;}
 .hs_box .chl_c02_txt h3{font-family: var(--Seriffont);font-weight: 500;font-size: var(--f24);letter-spacing: .15em;margin: 4px 0 14px;}
 .hs_box .chl_c02_txt p{font-size: var(--f15);}
 .chl_c_hint{display: none;align-items: center;justify-content: center;gap: 10px;margin-top: 18px;}
@@ -104,7 +104,7 @@
 .chl_e02{flex: 0 1 840px;counter-reset: st;}
 .chl_e02 li{display: grid;grid-template-columns: 90px 1fr;gap: 20px;padding: 30px 0;border-bottom: 1px solid var(--color-line) !important;}
 .chl_e02 li:first-child{border-top: 1px solid var(--color-line) !important;}
-.hs_box .chl_e02 li > s{font-family: var(--Corfont);font-size: var(--f50);line-height: 1;color: var(--color-Sub);text-decoration: none;}
+.hs_box .chl_e02 li > .chl_e02_num{font-family: var(--Corfont);font-size: var(--f50);line-height: 1;color: var(--color-Sub);text-decoration: none;}
 .hs_box .chl_e02 h3{font-family: var(--Seriffont);font-weight: 500;font-size: var(--f22);letter-spacing: .15em;margin-bottom: 6px;}
 .hs_box .chl_e02 p{font-size: var(--f15);color: var(--colorText-sub);}
 
@@ -234,7 +234,7 @@
                 <li data-animate-in="up">
                     <figure><img src="../image/chiu/w_newyear.webp" alt="2026 新年系列｜歲序之光節慶花藝" width="1440" height="754" loading="lazy"></figure>
                     <div class="chl_c02_txt">
-                        <s>Seasonal Themes</s>
+                        <span class="chl_c02_en">Seasonal Themes</span>
                         <h3>節慶主題花藝課</h3>
                         <p>每逢聖誕、新年、端午、母親節推出當季主題作品，例如聖誕花圈與桌花、端午青綠掛飾與盆花、母親節花籃。</p>
                         <ul class="chl_c02_tag"><li>預約包班</li><li>節慶限定</li></ul>
@@ -243,7 +243,7 @@
                 <li data-animate-in="up">
                     <figure><img src="../image/chiu/w_feast.webp" alt="花藝饗宴｜紅藍配色、福字花器的新春花藝作品" width="1440" height="753" loading="lazy"></figure>
                     <div class="chl_c02_txt">
-                        <s>Floral &amp; Table</s>
+                        <span class="chl_c02_en">Floral &amp; Table</span>
                         <h3>花藝饗宴</h3>
                         <p>與鹽與胡椒餐館 Salt &amp; Pepper 合作，上課時搭配輕奢小點、香檳或用餐，在美食與花香裡完成作品，作品可直接帶回家。</p>
                         <ul class="chl_c02_tag"><li>預約包班</li><li>含餐點</li></ul>
@@ -252,7 +252,7 @@
                 <li data-animate-in="up">
                     <figure><img src="../image/chiu/w_family.webp" alt="親子花藝課｜新年糖果盤花藝作品" width="1080" height="607" loading="lazy"></figure>
                     <div class="chl_c02_txt">
-                        <s>Family Class</s>
+                        <span class="chl_c02_en">Family Class</span>
                         <h3>親子花藝</h3>
                         <p>與鹽與胡椒聯名的新年糖果／果盤花藝課，讓孩子親手打造可愛的新年擺飾，作品可擺上約半個月，也在照顧花草中培養責任心。</p>
                         <ul class="chl_c02_tag"><li>預約包班</li><li>親子同樂</li></ul>
@@ -294,10 +294,10 @@
                 <h2>預約流程</h2>
             </div>
             <ol class="chl_e02">
-                <li data-animate-in="up"><s>01</s><div><h3>私訊或填寫表單</h3><p>透過 Instagram 私訊或線上表單，告訴我們想上的課程主題、人數與希望日期。</p></div></li>
-                <li data-animate-in="up"><s>02</s><div><h3>確認課程內容</h3><p>我們會回覆課程內容、包班人數與費用，確認後為你保留時段。</p></div></li>
-                <li data-animate-in="up"><s>03</s><div><h3>安排時間地點</h3><p>雙方確認上課時段與地點（部分課程於合作餐館進行）。</p></div></li>
-                <li data-animate-in="up"><s>04</s><div><h3>上課當天</h3><p>帶著好心情前來，完成的作品可以帶回家。</p></div></li>
+                <li data-animate-in="up"><span class="chl_e02_num">01</span><div><h3>私訊或填寫表單</h3><p>透過 Instagram 私訊或線上表單，告訴我們想上的課程主題、人數與希望日期。</p></div></li>
+                <li data-animate-in="up"><span class="chl_e02_num">02</span><div><h3>確認課程內容</h3><p>我們會回覆課程內容、包班人數與費用，確認後為你保留時段。</p></div></li>
+                <li data-animate-in="up"><span class="chl_e02_num">03</span><div><h3>安排時間地點</h3><p>雙方確認上課時段與地點（部分課程於合作餐館進行）。</p></div></li>
+                <li data-animate-in="up"><span class="chl_e02_num">04</span><div><h3>上課當天</h3><p>帶著好心情前來，完成的作品可以帶回家。</p></div></li>
             </ol>
         </div>
     </section>
