@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="robots" content="noindex, nofollow">
+	<title>花藝課程｜CHIU.FLORIST 台中花藝工作室</title>
+	<meta name="description" content="CHIU.FLORIST 台中花藝課程：節慶主題花藝課、與鹽與胡椒餐館合作的花藝饗宴、親子花藝，採預約包班，不對外公開招生。">
+    <script src="../js/jquery-1.11.3.min.js"></script>
+    <script src="../js/scrollfade.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/chiu_common.css">
+<style>
+/* ===== 花藝課程 chl_ ===== */
+
+/* b 介紹 */
+.chl_b{padding: calc(var(--pdy) * 1.3) var(--pdx) var(--pdy);}
+.chl_b01{display: flex;justify-content: space-between;align-items: center;gap: 40px;max-width: 1400px;width: 100%;margin: auto;}
+.chl_b01_l{flex: 0 1 560px;min-width: 320px;}
+.chl_b01_l .ch_title{margin-bottom: 34px;}
+.chl_b01_l p + p{margin-top: 18px;}
+.chl_b01_r{flex: 0 1 700px;display: grid;grid-template-columns: 1fr 1fr;gap: 20px;align-items: end;}
+.chl_b01_r figure{overflow: hidden;}
+.chl_b01_r figure:nth-child(2){margin-bottom: 60px;}
+.chl_b01_r img{width: 100%;height: auto;}
+
+/* c 課程類型 */
+.chl_c{padding: var(--pdy) var(--pdx) calc(var(--pdy) * 1.2);}
+.chl_c01{max-width: 1400px;width: 100%;margin: auto;}
+.chl_c01 .ch_title{margin-bottom: 60px;}
+.chl_c02{display: grid;grid-template-columns: repeat(3, 1fr);gap: 30px;--delay_time:.2s;}
+.chl_c02 > li:nth-child(1){transition-delay: calc(var(--delay_time) * 0) !important;}
+.chl_c02 > li:nth-child(2){transition-delay: calc(var(--delay_time) * 1) !important;}
+.chl_c02 > li:nth-child(3){transition-delay: calc(var(--delay_time) * 2) !important;}
+.chl_c02 > li{background: var(--color-bg2);display: flex;flex-direction: column;}
+.chl_c02 figure{aspect-ratio: 16 / 9;overflow: hidden;}
+.chl_c02 figure img{width: 100%;height: 100%;object-fit: cover;transition: transform 1.2s var(--ease);}
+.chl_c02 > li:hover figure img{transform: scale(1.06);}
+.chl_c02_txt{padding: 34px 32px 38px;display: flex;flex-direction: column;flex: 1;}
+.hs_box .chl_c02_txt s{font-family: var(--Corfont);font-style: italic;font-size: var(--f18);color: var(--color-Sub);text-decoration: none;letter-spacing: .04em;}
+.hs_box .chl_c02_txt h6{font-family: var(--Seriffont);font-weight: 500;font-size: var(--f24);letter-spacing: .15em;margin: 4px 0 14px;}
+.hs_box .chl_c02_txt p{font-size: var(--f15);}
+.chl_c02_tag{display: flex;flex-wrap: wrap;gap: 8px;margin-top: auto;padding-top: 24px;}
+.hs_box .chl_c02_tag li{font-size: var(--f14);letter-spacing: .1em;padding: 2px 14px;border: 1px solid var(--color-line);border-radius: 30px;color: var(--colorText-sub);}
+
+/* d 合作課程紀錄 */
+.chl_d{position: relative;z-index: 1;padding: calc(var(--pdy) * 1.2) var(--pdx);background: var(--color-dark);overflow: hidden;}
+.chl_d::before{content: '';position: absolute;inset: 0;z-index: -1;background: radial-gradient(circle at 15% 50%, rgba(78,14,19,.55) 0%, rgba(78,14,19,0) 55%);}
+.chl_d01{display: flex;justify-content: space-between;align-items: center;gap: 50px;max-width: 1400px;width: 100%;margin: auto;}
+.chl_d01_l{flex: 0 1 640px;}
+.chl_d01_l figure{aspect-ratio: 16 / 9;overflow: hidden;max-width: 640px;}
+.chl_d01_l figure img{width: 100%;height: 100%;object-fit: cover;}
+.chl_d01_r{flex: 0 1 600px;min-width: 320px;}
+.hs_box .chl_d01_r > b{display: inline-block;font-size: var(--f14);letter-spacing: .3em;color: var(--color-dark);background: var(--color-Sub);padding: 4px 14px;}
+.hs_box .chl_d01_r h6{font-family: var(--Seriffont);font-weight: 500;font-size: var(--f35);letter-spacing: .12em;line-height: 1.5;color: var(--colorText-whi);margin: 18px 0 6px;}
+.hs_box .chl_d01_r h6 + p{font-family: var(--Corfont);font-style: italic;font-size: var(--f22);color: var(--color-Sub);}
+.hs_box .chl_d01_r .chl_d_desc{color: rgba(244,239,230,.78);margin-top: 20px;}
+.hs_box .chl_d01_r .chl_d_note{font-size: var(--f15);color: rgba(244,239,230,.65);margin-bottom: 30px;}
+.hs_box .chl_em{color: var(--color-Main);font-weight: 500;}
+.chl_d01_r dl{display: grid;grid-template-columns: auto 1fr;gap: 10px 22px;margin: 30px 0;padding: 26px 0;border-top: 1px solid rgba(244,239,230,.14) !important;border-bottom: 1px solid rgba(244,239,230,.14) !important;}
+.chl_d01_r :is(dt, dd){font-family: var(--Sansfont);font-size: var(--f15);letter-spacing: .1em;line-height: 1.8;color: rgba(244,239,230,.85);}
+.chl_d01_r dt{color: var(--color-Sub);}
+
+/* e 預約流程 */
+.chl_e{padding: calc(var(--pdy) * 1.2) var(--pdx) var(--pdy);}
+.chl_e01{max-width: 1400px;width: 100%;margin: auto;display: flex;justify-content: space-between;gap: 60px;align-items: flex-start;}
+.chl_e01 .ch_title{flex: 0 0 auto;position: sticky;top: 120px;}
+.chl_e02{flex: 0 1 840px;counter-reset: st;}
+.chl_e02 li{display: grid;grid-template-columns: 90px 1fr;gap: 20px;padding: 30px 0;border-bottom: 1px solid var(--color-line) !important;}
+.chl_e02 li:first-child{border-top: 1px solid var(--color-line) !important;}
+.hs_box .chl_e02 li > s{font-family: var(--Corfont);font-size: var(--f50);line-height: 1;color: var(--color-Sub);text-decoration: none;}
+.hs_box .chl_e02 h6{font-family: var(--Seriffont);font-weight: 500;font-size: var(--f22);letter-spacing: .15em;margin-bottom: 6px;}
+.hs_box .chl_e02 p{font-size: var(--f15);color: var(--colorText-sub);}
+
+/* f 常見問題 */
+.chl_f{padding: var(--pdy) var(--pdx) calc(var(--pdy) * 1.3);background: var(--color-bg2);}
+.chl_f01{max-width: 1000px;width: 100%;margin: auto;}
+.chl_f01 .ch_title{margin-bottom: 50px;}
+.QA_function > dl{border-bottom: 1px solid var(--color-line) !important;}
+.QA_function > dl:first-child{border-top: 1px solid var(--color-line) !important;}
+.QA_function dt button{width: 100%;display: flex;align-items: center;gap: 20px;padding: 26px 4px;background: none;cursor: pointer;text-align: left;}
+.hs_box .QA_function dt b{font-family: var(--Corfont);font-style: italic;font-size: var(--f26);color: var(--color-Sub);line-height: 1;font-weight: 400;}
+.hs_box .QA_function dt span{flex: 1;font-family: var(--Seriffont);font-size: var(--f20);letter-spacing: .12em;font-weight: 500;transition: color .3s;}
+.QA_function dt i{position: relative;width: 36px;height: 36px;flex: none;border-radius: 50%;border: 1px solid var(--color-line) !important;transition: background-color .4s, border-color .4s, transform .5s var(--ease);}
+.QA_function dt i::before, .QA_function dt i::after{content: '';position: absolute;left: 50%;top: 50%;width: 12px;height: 1px;background: var(--colorText);transform: translate(-50%, -50%);transition: background-color .4s;}
+.QA_function dt i::after{transform: translate(-50%, -50%) rotate(90deg);}
+.QA_function dt button:hover span{color: var(--color-Main);}
+.QA_function dl.active dt i{background: var(--color-Sub);border-color: var(--color-Sub) !important;transform: rotate(135deg);}
+.QA_function dl.active dt i::before, .QA_function dl.active dt i::after{background: #fff;}
+.QA_function dd{display: none;padding: 0 60px 30px 64px;}
+.hs_box .QA_function dd p{color: var(--colorText-sub);}
+
+/* --- Media Queries --- */
+@media (max-width: 1440px) {}
+@media (max-width: 1024px) {
+    .chl_b01, .chl_d01{flex-direction: column;align-items: stretch;max-width: 720px;}
+    .chl_b01_l, .chl_b01_r, .chl_d01_l, .chl_d01_r{flex: none;}
+    .chl_b01_l, .chl_d01_r{min-width: unset;}
+    .chl_c02{grid-template-columns: repeat(2, 1fr);}
+    .chl_e01{flex-direction: column;gap: 40px;}
+    .chl_e01 .ch_title{position: static;}
+    .chl_e02{flex: none;width: 100%;}
+}
+@media (max-width: 992px) {}
+@media (max-width: 768px) {
+    .chl_c02{grid-template-columns: 1fr;max-width: 500px;margin: auto;}
+    .chl_b01_r figure:nth-child(2){margin-bottom: 30px;}
+    .QA_function dd{padding: 0 10px 26px 10px;}
+}
+@media (max-width: 576px) {}
+@media (max-width: 480px) {
+    .chl_c02{--delay_time:0s;}
+    .chl_e02 li{grid-template-columns: 60px 1fr;gap: 12px;}
+    .chl_c02_txt{padding: 26px 22px 30px;}
+    .QA_function dt button{gap: 12px;}
+}
+@media (max-width: 380px) {}
+</style>
+</head>
+<body>
+
+<script src="../js/chiu_layout.js" data-part="header"></script>
+
+<div class="hs_box">
+<main id="main">
+
+    <section class="ch_banner" style="--bn_img:url(../image/chiu/w_vintage.jpg);--bn_pos:center 60%;--bn_img_m:url(../image/chiu/w_slow.jpg);--bn_pos_m:center 40%">
+        <div class="ch_banner_bg"></div>
+        <div class="ch_banner_in">
+            <div data-animate-in="up">
+                <h4>Lessons</h4>
+                <h5>花藝課程</h5>
+            </div>
+            <ol class="ch_crumb" data-animate-in="up"><li><a href="index.html">首頁</a></li><li><span>花藝課程</span></li></ol>
+        </div>
+    </section>
+
+    <section class="chl_b">
+        <div class="chl_b01">
+            <article class="chl_b01_l">
+                <div class="ch_title" data-animate-in="left">
+                    <h4>By Appointment</h4>
+                    <h5>一堂只屬於你的花藝課</h5>
+                </div>
+                <p data-animate-in="up">CHIU.FLORIST 的花藝課程皆採<b class="chl_em">預約包班</b>，不對外公開招生。課程隨節慶推出當季主題作品，時段與費用歡迎私訊洽詢。</p>
+                <p data-animate-in="up">從認識花材、配色，到修剪與構圖，不必有任何基礎，只要帶著想好好陪自己一個下午的心情。在這樣的色系裡慢慢修剪、靜心，妳會發現，花藝是一種把生活過成詩的溫柔方式。</p>
+            </article>
+            <div class="chl_b01_r">
+                <figure data-animate-in="fadeIn"><img src="../image/chiu/w_slow.jpg" alt="" class="anima_blur" width="1440" height="1920"></figure>
+                <figure data-animate-in="fadeIn"><img src="../image/chiu/w_tulip.jpg" alt="" class="anima_blur" width="1440" height="1800"></figure>
+            </div>
+        </div>
+    </section>
+
+    <section class="chl_c">
+        <div class="chl_c01">
+            <div class="ch_title cen" data-animate-in="down">
+                <h4>Lesson Formats</h4>
+                <h5>課程形式</h5>
+            </div>
+            <ul class="chl_c02">
+                <li data-animate-in="up">
+                    <figure><img src="../image/chiu/w_newyear.jpg" alt="" width="1440" height="754" loading="lazy"></figure>
+                    <div class="chl_c02_txt">
+                        <s>Seasonal Themes</s>
+                        <h6>節慶主題花藝課</h6>
+                        <p>每逢聖誕、新年、端午、母親節推出當季主題作品，例如聖誕花圈與桌花、端午青綠掛飾與盆花、母親節花籃。</p>
+                        <ul class="chl_c02_tag"><li>預約包班</li><li>節慶限定</li></ul>
+                    </div>
+                </li>
+                <li data-animate-in="up">
+                    <figure><img src="../image/chiu/w_feast.jpg" alt="" width="1440" height="753" loading="lazy"></figure>
+                    <div class="chl_c02_txt">
+                        <s>Floral &amp; Table</s>
+                        <h6>花藝饗宴</h6>
+                        <p>與鹽與胡椒餐館 Salt &amp; Pepper 合作，上課時搭配輕奢小點、香檳或用餐，在美食與花香裡完成作品，作品可直接帶回家。</p>
+                        <ul class="chl_c02_tag"><li>預約包班</li><li>含餐點</li></ul>
+                    </div>
+                </li>
+                <li data-animate-in="up">
+                    <figure><img src="../image/chiu/w_family.jpg" alt="" width="1080" height="607" loading="lazy"></figure>
+                    <div class="chl_c02_txt">
+                        <s>Family Class</s>
+                        <h6>親子花藝</h6>
+                        <p>與鹽與胡椒聯名的新年糖果／果盤花藝課，讓孩子親手打造可愛的新年擺飾，作品可擺上約半個月，也在照顧花草中培養責任心。</p>
+                        <ul class="chl_c02_tag"><li>預約包班</li><li>親子同樂</li></ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="chl_d" id="collab">
+        <div class="chl_d01">
+            <div class="chl_d01_l">
+                <figure data-animate-in="fadeIn"><img src="../image/chiu/w_persia.jpg" alt="" class="anima_blur" loading="lazy"></figure>
+            </div>
+            <article class="chl_d01_r" data-animate-in="right">
+                <b>合作課程紀錄</b>
+                <h6>希拉茲的秋光｜波斯色調</h6>
+                <p>Autumn Light of Shiraz</p>
+                <p class="chl_d_desc">與 Arsham 皇家波斯地毯合作的品牌花藝課程。將波斯粉紅寺流動的光影美學，和地毯沉穩內斂的織品底蘊，揉合成秋天最迷人的浪漫——用微醺的紅褐、煙燻粉紫與秋日花材來對話。</p>
+                <dl>
+                    <dt>合作品牌</dt><dd>Arsham 皇家波斯地毯</dd>
+                    <dt>課程時間</dt><dd>2026 秋季</dd>
+                    <dt>課程形式</dt><dd>品牌合作・預約制</dd>
+                </dl>
+                <p class="chl_d_note">品牌合作課程同樣採預約制，歡迎私訊洽談。</p>
+                <div class="ch_btns">
+                    <a class="ch_btn fill" href="https://www.instagram.com/chiu.florist/" target="_blank" rel="noopener"><span>私訊洽談合作</span><i></i></a>
+                    <a class="ch_btn" href="contact.html?type=lesson"><span>預約課程</span><i></i></a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="chl_e">
+        <div class="chl_e01">
+            <div class="ch_title" data-animate-in="left">
+                <h4>How to Book</h4>
+                <h5>預約流程</h5>
+            </div>
+            <ol class="chl_e02">
+                <li data-animate-in="up"><s>01</s><div><h6>私訊或填寫表單</h6><p>透過 Instagram 私訊或線上表單，告訴我們想上的課程主題、人數與希望日期。</p></div></li>
+                <li data-animate-in="up"><s>02</s><div><h6>確認課程內容</h6><p>我們會回覆課程內容、包班人數與費用，確認後為你保留時段。</p></div></li>
+                <li data-animate-in="up"><s>03</s><div><h6>安排時間地點</h6><p>雙方確認上課時段與地點（部分課程於合作餐館進行）。</p></div></li>
+                <li data-animate-in="up"><s>04</s><div><h6>上課當天</h6><p>帶著好心情前來，完成的作品可以帶回家。</p></div></li>
+            </ol>
+        </div>
+    </section>
+
+    <section class="chl_f">
+        <div class="chl_f01">
+            <div class="ch_title cen" data-animate-in="down">
+                <h4>FAQ</h4>
+                <h5>常見問題</h5>
+            </div>
+            <div class="QA_function">
+                <dl data-animate-in="up">
+                    <dt><button type="button" aria-expanded="false"><b>Q1</b><span>課程有公開報名嗎？</span><i></i></button></dt>
+                    <dd><p>課程皆採預約包班，不對外公開招生。歡迎透過 Instagram 私訊或線上表單告訴我們你的需求，我們再為你安排。</p></dd>
+                </dl>
+                <dl data-animate-in="up">
+                    <dt><button type="button" aria-expanded="false"><b>Q2</b><span>幾個人可以包班？</span><i></i></button></dt>
+                    <dd><p>依課程而定，通常 4–6 人即可預約包班。歡迎私訊告知人數與希望日期，我們再為你確認。</p></dd>
+                </dl>
+                <dl data-animate-in="up">
+                    <dt><button type="button" aria-expanded="false"><b>Q3</b><span>課程費用怎麼算？</span><i></i></button></dt>
+                    <dd><p>費用依課程主題、花材與是否含餐點而定，請私訊洽詢。</p></dd>
+                </dl>
+                <dl data-animate-in="up">
+                    <dt><button type="button" aria-expanded="false"><b>Q4</b><span>完成的作品可以帶回家嗎？</span><i></i></button></dt>
+                    <dd><p>可以，課程中完成的作品都可以帶回家，我們也會提供花材照顧的小建議。</p></dd>
+                </dl>
+            </div>
+        </div>
+    </section>
+
+    <section class="ch_cta">
+        <div class="ch_cta_bg" data-parallax="0.12"></div>
+        <div class="ch_cta_in cen">
+            <div class="ch_title cen whi" data-animate-in="down">
+                <h4>Book a Lesson</h4>
+                <h5>預約一堂屬於你的花藝課</h5>
+            </div>
+            <p data-animate-in="up">課程採預約包班，歡迎告訴我們想上的主題、人數與日期。</p>
+            <div class="ch_btns" data-animate-in="up">
+                <a class="ch_btn fill" href="contact.html?type=lesson"><span>預約課程</span><i></i></a>
+                <a class="ch_btn" href="https://www.instagram.com/chiu.florist/" target="_blank" rel="noopener"><span>Instagram 私訊</span><i></i></a>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<script src="../js/chiu_layout.js" data-part="footer"></script>
+</div>
+
+<script src="../js/chiu_common.js"></script>
+<script>
+    /* QA 手風琴 */
+    $('.QA_function > dl dt').click(function(){
+        var $dl = $(this).closest('dl');
+        $dl.toggleClass('active');
+        $dl.find('dd').slideToggle();
+        $dl.find('dt button').attr('aria-expanded', $dl.hasClass('active'));
+    });
+
+</script>
+</body>
+</html>

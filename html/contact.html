@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="robots" content="noindex, nofollow">
+	<title>聯絡我們｜CHIU.FLORIST 台中花藝工作室</title>
+	<meta name="description" content="聯絡 CHIU.FLORIST：訂製花禮、婚禮佈置、空間軟裝、企業週花與花藝課程諮詢。台中，工作室採預約制。">
+    <script src="../js/jquery-1.11.3.min.js"></script>
+    <script src="../js/scrollfade.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/chiu_common.css">
+<style>
+/* ===== 聯絡 chc_ ===== */
+
+/* b 聯絡資訊＋表單 */
+.chc_b{padding: calc(var(--pdy) * 1.2) var(--pdx) calc(var(--pdy) * 1.3);}
+.chc_b01{display: flex;justify-content: space-between;align-items: flex-start;gap: 60px;max-width: 1400px;width: 100%;margin: auto;}
+.chc_b01_l{flex: 0 1 460px;min-width: 300px;position: sticky;top: 120px;}
+.chc_b01_l .ch_title{margin-bottom: 30px;}
+.chc_info{margin: 40px 0;border-top: 1px solid var(--color-line) !important;}
+.chc_info > li{display: grid;grid-template-columns: 44px 1fr;gap: 16px;align-items: start;padding: 22px 0;border-bottom: 1px solid var(--color-line) !important;}
+.chc_info i{width: 44px;height: 44px;border-radius: 50%;display: grid;place-items: center;border: 1px solid var(--color-Sub) !important;}
+.chc_info i svg{width: 18px;height: 18px;color: var(--color-Sub);}
+.hs_box .chc_info b{display: block;font-family: var(--Corfont);font-style: italic;font-size: var(--f18);color: var(--color-Sub);letter-spacing: .04em;line-height: 1.4;}
+.hs_box .chc_info p, .hs_box .chc_info p a{font-family: var(--Sansfont);font-size: var(--f16);letter-spacing: .08em;line-height: 1.8;color: var(--colorText);}
+.hs_box .chc_info p a{border-bottom: 1px solid var(--color-Sub) !important;transition: color .3s;}
+.hs_box .chc_info p a:hover{color: var(--color-Main);}
+
+.chc_b01_r{flex: 0 1 780px;background: #FBF8F3;padding: clamp(30px, 4vw, 60px);box-shadow: 0 30px 60px -30px rgba(50,47,45,.25);}
+.hs_box .chc_form_head h6{font-family: var(--Seriffont);font-weight: 500;font-size: var(--f26);letter-spacing: .15em;}
+.hs_box .chc_form_head p{font-size: var(--f15);color: var(--colorText-sub);margin-top: 6px;}
+.chc_form{display: grid;grid-template-columns: 1fr 1fr;gap: 26px 24px;margin-top: 36px;}
+.chc_field{display: flex;flex-direction: column;gap: 8px;}
+.chc_field.full{grid-column: 1 / -1;}
+.hs_box .chc_field > label, .hs_box .chc_field > b{font-family: var(--Seriffont);font-size: var(--f15);letter-spacing: .15em;font-weight: 500;}
+.hs_box .chc_field em{color: var(--color-Main);font-size: inherit;margin-left: 2px;}
+.chc_field :is(input, select, textarea){width: 100%;font-family: var(--Sansfont);font-size: 16px;letter-spacing: .05em;color: var(--colorText);background: transparent;border-bottom: 1px solid rgba(50,47,45,.3) !important;padding: 10px 2px;border-radius: 0;transition: border-color .3s, background-color .3s;-webkit-appearance: none;appearance: none;}
+.chc_field select{background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23B48D55' stroke-width='1.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") right 4px center / 16px no-repeat;padding-right: 28px;cursor: pointer;}
+.chc_field textarea{min-height: 140px;resize: vertical;line-height: 1.8;}
+.chc_field :is(input, select, textarea):focus{border-color: var(--color-Sub) !important;background-color: rgba(180,141,85,.06);}
+.chc_field :is(input, select, textarea)::placeholder{color: rgba(50,47,45,.4);}
+.chc_field [aria-invalid="true"]{border-color: #A3343B !important;}
+.hs_box .chc_err{font-size: var(--f14);color: #A3343B;min-height: 1em;line-height: 1.4;}
+.hs_box .chc_hint{font-size: var(--f14);color: var(--colorText-sub);text-align: right;line-height: 1.4;}
+.chc_types{display: flex;flex-direction: row;flex-wrap: wrap;gap: 10px;border: 0;padding: 0;margin: 0;}
+.chc_types .chc_err{flex-basis: 100%;}
+.chc_types legend{padding: 0;margin-bottom: 12px;}
+.chc_types label{position: relative;cursor: pointer;}
+.chc_types input{position: absolute;opacity: 0;width: 1px;height: 1px;}
+.hs_box .chc_types label span{display: inline-block;padding: 8px 18px;border: 1px solid rgba(50,47,45,.25);border-radius: 40px;font-size: var(--f15);letter-spacing: .12em;transition: background-color .3s, color .3s, border-color .3s;}
+.hs_box .chc_types label:hover span{border-color: var(--color-Sub);}
+.hs_box .chc_types input:checked + span{background: var(--color-dark);border-color: var(--color-dark);color: var(--colorText-whi);}
+.chc_types input:focus-visible + span{outline: 2px solid var(--color-Sub);outline-offset: 2px;}
+.chc_submit{grid-column: 1 / -1;display: flex;align-items: center;justify-content: space-between;gap: 20px;flex-wrap: wrap;margin-top: 10px;}
+.hs_box .chc_submit p{font-size: var(--f14);color: var(--colorText-sub);max-width: 360px;line-height: 1.7;}
+
+/* 送出後 */
+.chc_done{text-align: center;padding: 20px 0;}
+.chc_done.is-show{animation: chc_in .7s var(--ease) both;}
+@keyframes chc_in{from{opacity: 0;transform: translateY(20px);}to{opacity: 1;transform: none;}}
+.chc_done_icon{width: 80px;height: 80px;margin: 0 auto 24px;border-radius: 50%;display: grid;place-items: center;background: var(--color-Sub);}
+.chc_done_icon svg{width: 34px;height: 34px;color: #fff;stroke-dasharray: 30;stroke-dashoffset: 30;animation: chc_check .6s .3s ease forwards;}
+@keyframes chc_check{to{stroke-dashoffset: 0;}}
+.hs_box .chc_done h6{font-family: var(--Seriffont);font-weight: 500;font-size: var(--f26);letter-spacing: .15em;}
+.hs_box .chc_done > p{color: var(--colorText-sub);margin: 10px auto 26px;max-width: 460px;}
+.chc_done pre{text-align: left;white-space: pre-wrap;font-family: var(--Sansfont);font-size: 15px;line-height: 1.8;letter-spacing: .05em;color: var(--colorText);background: var(--color-bg);padding: 24px;max-height: 260px;overflow: auto;margin-bottom: 30px;}
+.chc_done .ch_btns{justify-content: center;}
+
+/* c 訂購須知 */
+.chc_c{padding: var(--pdy) var(--pdx) calc(var(--pdy) * 1.3);background: var(--color-bg2);}
+.chc_c01{max-width: 1000px;width: 100%;margin: auto;}
+.chc_c01 .ch_title{margin-bottom: 50px;}
+.QA_function > dl{border-bottom: 1px solid var(--color-line) !important;}
+.QA_function > dl:first-child{border-top: 1px solid var(--color-line) !important;}
+.QA_function dt button{width: 100%;display: flex;align-items: center;gap: 20px;padding: 26px 4px;background: none;cursor: pointer;text-align: left;}
+.hs_box .QA_function dt b{font-family: var(--Corfont);font-style: italic;font-size: var(--f26);color: var(--color-Sub);line-height: 1;font-weight: 400;}
+.hs_box .QA_function dt span{flex: 1;font-family: var(--Seriffont);font-size: var(--f20);letter-spacing: .12em;font-weight: 500;transition: color .3s;}
+.QA_function dt i{position: relative;width: 36px;height: 36px;flex: none;border-radius: 50%;border: 1px solid var(--color-line) !important;transition: background-color .4s, border-color .4s, transform .5s var(--ease);}
+.QA_function dt i::before, .QA_function dt i::after{content: '';position: absolute;left: 50%;top: 50%;width: 12px;height: 1px;background: var(--colorText);transform: translate(-50%, -50%);transition: background-color .4s;}
+.QA_function dt i::after{transform: translate(-50%, -50%) rotate(90deg);}
+.QA_function dt button:hover span{color: var(--color-Main);}
+.QA_function dl.active dt i{background: var(--color-Sub);border-color: var(--color-Sub) !important;transform: rotate(135deg);}
+.QA_function dl.active dt i::before, .QA_function dl.active dt i::after{background: #fff;}
+.QA_function dd{display: none;padding: 0 60px 30px 64px;}
+.hs_box .QA_function dd p{color: var(--colorText-sub);}
+.hs_box .QA_function dd li{color: var(--colorText-sub);padding-left: 20px;position: relative;}
+.QA_function dd li::before{content: '⊸';position: absolute;left: 0;color: var(--color-Sub);}
+
+/* --- Media Queries --- */
+@media (max-width: 1440px) {}
+@media (max-width: 1024px) {
+    .chc_b01{flex-direction: column;align-items: stretch;max-width: 780px;gap: 40px;}
+    .chc_b01_l, .chc_b01_r{flex: none;}
+    .chc_b01_l{position: static;min-width: unset;}
+}
+@media (max-width: 992px) {}
+@media (max-width: 768px) {
+    .QA_function dd{padding: 0 10px 26px 10px;}
+}
+@media (max-width: 576px) {
+    .chc_form{grid-template-columns: 1fr;}
+    .chc_b01_r{margin: 0 calc(var(--pdx) * -1);max-width: none;width: auto;}
+}
+@media (max-width: 480px) {
+    .chc_submit .ch_btn{width: 100%;justify-content: center;}
+    .QA_function dt button{gap: 12px;}
+}
+@media (max-width: 380px) {}
+</style>
+</head>
+<body>
+
+<script src="../js/chiu_layout.js" data-part="header"></script>
+
+<div class="hs_box">
+<main id="main">
+
+    <section class="ch_banner" style="--bn_img:url(../image/chiu/w_window.jpg);--bn_pos:center 50%;--bn_img_m:url(../image/chiu/w_opening.jpg);--bn_pos_m:center 40%">
+        <div class="ch_banner_bg"></div>
+        <div class="ch_banner_in">
+            <div data-animate-in="up">
+                <h4>Contact</h4>
+                <h5>聯絡我們</h5>
+            </div>
+            <ol class="ch_crumb" data-animate-in="up"><li><a href="index.html">首頁</a></li><li><span>聯絡</span></li></ol>
+        </div>
+    </section>
+
+    <section class="chc_b">
+        <div class="chc_b01">
+            <div class="chc_b01_l">
+                <div class="ch_title" data-animate-in="left">
+                    <h4>Get in Touch</h4>
+                    <h5>告訴我們你的想法</h5>
+                </div>
+                <p data-animate-in="up">無論是一份花禮、一場婚禮，或是一整個空間的佈置，都歡迎與我們聊聊。填寫右側表單後，系統會整理好你的需求，一鍵帶到 Instagram 私訊給我們。</p>
+                <ul class="chc_info" data-animate-in="up">
+                    <li>
+                        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></i>
+                        <div><b>Instagram</b><p><a href="https://www.instagram.com/chiu.florist/" target="_blank" rel="noopener">@chiu.florist</a></p></div>
+                    </li>
+                    <li>
+                        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></i>
+                        <div><b>Location</b><p>台中・工作室採預約制<br>自取與工作室地點請私訊詢問</p></div>
+                    </li>
+                    <li>
+                        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 7h13v10H3zM16 10h3l2 3v4h-5"/><circle cx="7" cy="18" r="1.8"/><circle cx="18" cy="18" r="1.8"/></svg></i>
+                        <div><b>Delivery</b><p>宅配・自取（運費另計）<br>台中地區滿 NT$ 3,500 免運</p></div>
+                    </li>
+                </ul>
+                <a class="ch_btn" href="#notice" data-animate-in="up"><span>訂購須知</span><i></i></a>
+            </div>
+
+            <div class="chc_b01_r" data-animate-in="up">
+                <form class="chc_form_wrap" novalidate>
+                    <div class="chc_form_head">
+                        <h6>線上諮詢</h6>
+                        <p>標示 <em>*</em> 為必填，送出後可直接複製內容私訊給我們。</p>
+                    </div>
+                    <div class="chc_form">
+                        <fieldset class="chc_field full chc_types" id="f_type">
+                            <legend><b>需求類型 <em>*</em></b></legend>
+                            <label><input type="radio" name="type" value="訂製花禮" required><span>訂製花禮</span></label>
+                            <label><input type="radio" name="type" value="婚禮佈置"><span>婚禮佈置</span></label>
+                            <label><input type="radio" name="type" value="空間軟裝"><span>空間軟裝</span></label>
+                            <label><input type="radio" name="type" value="企業週花"><span>企業週花</span></label>
+                            <label><input type="radio" name="type" value="花藝課程" data-key="lesson"><span>花藝課程</span></label>
+                            <label><input type="radio" name="type" value="其他"><span>其他</span></label>
+                            <p class="chc_err" id="e_type" aria-live="polite"></p>
+                        </fieldset>
+                        <div class="chc_field">
+                            <label for="f_name">姓名 <em>*</em></label>
+                            <input id="f_name" name="name" type="text" autocomplete="name" required aria-describedby="e_name" placeholder="怎麼稱呼你">
+                            <p class="chc_err" id="e_name" aria-live="polite"></p>
+                        </div>
+                        <div class="chc_field">
+                            <label for="f_tel">聯絡電話 <em>*</em></label>
+                            <input id="f_tel" name="tel" type="tel" autocomplete="tel" inputmode="tel" required pattern="[0-9+\-\s()]{8,}" aria-describedby="e_tel" placeholder="09xx-xxx-xxx">
+                            <p class="chc_err" id="e_tel" aria-live="polite"></p>
+                        </div>
+                        <div class="chc_field">
+                            <label for="f_mail">Email</label>
+                            <input id="f_mail" name="email" type="email" autocomplete="email" aria-describedby="e_mail" placeholder="name@example.com">
+                            <p class="chc_err" id="e_mail" aria-live="polite"></p>
+                        </div>
+                        <div class="chc_field">
+                            <label for="f_date">預計日期</label>
+                            <input id="f_date" name="date" type="date">
+                            <p class="chc_err"></p>
+                        </div>
+                        <div class="chc_field full">
+                            <label for="f_budget">預算範圍</label>
+                            <select id="f_budget" name="budget">
+                                <option value="">請選擇</option>
+                                <option>NT$ 3,000 以下</option>
+                                <option>NT$ 3,000 – 5,000</option>
+                                <option>NT$ 5,000 – 10,000</option>
+                                <option>NT$ 10,000 以上</option>
+                                <option>尚未確定</option>
+                            </select>
+                        </div>
+                        <div class="chc_field full">
+                            <label for="f_msg">需求說明 <em>*</em></label>
+                            <textarea id="f_msg" name="msg" required minlength="10" maxlength="500" aria-describedby="e_msg c_msg" placeholder="例如：用途與對象、喜歡的色系或風格、數量、取件方式……"></textarea>
+                            <p class="chc_err" id="e_msg" aria-live="polite"></p>
+                            <p class="chc_hint" id="c_msg">0 / 500</p>
+                        </div>
+                        <div class="chc_submit">
+                            <p>為保護你的個人資料，表單內容不會上傳至伺服器，只會整理成文字讓你私訊給我們。</p>
+                            <button class="ch_btn fill" type="submit"><span>整理並送出</span><i></i></button>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="chc_done" hidden tabindex="-1">
+                    <div class="chc_done_icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+                    <h6>謝謝你的來信</h6>
+                    <p>需求內容已整理好，<span class="chc_copied">並已複製到剪貼簿</span>。請按下方按鈕前往 Instagram，貼上後送出私訊即可。</p>
+                    <pre></pre>
+                    <div class="ch_btns">
+                        <a class="ch_btn fill" href="https://ig.me/m/chiu.florist" target="_blank" rel="noopener"><span>前往 IG 私訊</span><i></i></a>
+                        <button class="ch_btn chc_copy" type="button"><span>再次複製</span><i></i></button>
+                        <button class="ch_btn chc_reset" type="button"><span>重新填寫</span><i></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="chc_c" id="notice">
+        <div class="chc_c01">
+            <div class="ch_title cen" data-animate-in="down">
+                <h4>Ordering Notes</h4>
+                <h5>訂購須知</h5>
+            </div>
+            <div class="QA_function">
+                <dl data-animate-in="up">
+                    <dt><button type="button" aria-expanded="false"><b>01</b><span>花材說明</span><i></i></button></dt>
+                    <dd><ul>
+                        <li>花材皆使用當季新鮮花材，實際花材與色調會依季節與到貨狀況微調，並維持整體風格。</li>
+                        <li>每件作品皆為手工製作，與參考照片會有些許差異。</li>
+                    </ul></dd>
+                </dl>
+                <dl data-animate-in="up">
+                    <dt><button type="button" aria-expanded="false"><b>02</b><span>配送與運費</span><i></i></button></dt>
+                    <dd><ul>
+                        <li>提供宅配與自取，運費另計。</li>
+                        <li>台中地區滿 NT$ 3,500 免運。</li>
+                    </ul></dd>
+                </dl>
+                <dl data-animate-in="up">
+                    <dt><button type="button" aria-expanded="false"><b>03</b><span>自取方式</span><i></i></button></dt>
+                    <dd><ul>
+                        <li>自取可告知希望日期，我們會盡可能為您安排。</li>
+                        <li>自取地點請私訊詢問。</li>
+                    </ul></dd>
+                </dl>
+                <dl data-animate-in="up">
+                    <dt><button type="button" aria-expanded="false"><b>04</b><span>節慶預購</span><i></i></button></dt>
+                    <dd><ul>
+                        <li>節慶花禮採預購制，請留意各檔期的預購優惠截止日與取件日期。</li>
+                        <li>訂製作品屬特別訂製，如需更改內容，請盡早私訊與我們討論。</li>
+                    </ul></dd>
+                </dl>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<script src="../js/chiu_layout.js" data-part="footer"></script>
+</div>
+
+<script src="../js/chiu_common.js"></script>
+<script>
+    /* 訂購須知手風琴 */
+    $('.QA_function > dl dt').click(function(){
+        var $dl = $(this).closest('dl');
+        $dl.toggleClass('active');
+        $dl.find('dd').slideToggle();
+        $dl.find('dt button').attr('aria-expanded', $dl.hasClass('active'));
+    });
+
+    /* 諮詢表單 */
+    (function () {
+        var form = document.querySelector('.chc_form_wrap');
+        var done = document.querySelector('.chc_done');
+        var pre = done.querySelector('pre');
+        var msg = form.querySelector('#f_msg');
+        var counter = form.querySelector('#c_msg');
+        var dateIn = form.querySelector('#f_date');
+
+        /* 日期最早為今天 */
+        var t = new Date(); t.setMinutes(t.getMinutes() - t.getTimezoneOffset());
+        dateIn.min = t.toISOString().slice(0, 10);
+
+        /* 從其他頁帶入類型：contact.html?type=lesson */
+        var key = new URL(location.href).searchParams.get('type');
+        if (key) { var pre1 = form.querySelector('[data-key="' + key + '"]'); if (pre1) pre1.checked = true; }
+
+        msg.addEventListener('input', function () { counter.textContent = msg.value.length + ' / 500'; });
+
+        var rules = {
+            name: function (el) { return el.value.trim() ? '' : '請填寫姓名'; },
+            tel: function (el) { return !el.value.trim() ? '請填寫聯絡電話' : (el.validity.patternMismatch ? '電話格式不正確' : ''); },
+            email: function (el) { return el.value && el.validity.typeMismatch ? 'Email 格式不正確' : ''; },
+            msg: function (el) { var v = el.value.trim(); return !v ? '請簡單描述你的需求' : (v.length < 10 ? '再多說一點吧（至少 10 個字）' : ''); }
+        };
+        function check(el) {
+            var m = rules[el.name](el);
+            el.setAttribute('aria-invalid', m ? 'true' : 'false');
+            document.getElementById('e_' + (el.name === 'email' ? 'mail' : el.name)).textContent = m;
+            return !m;
+        }
+        Object.keys(rules).forEach(function (n) {
+            var el = form.elements[n];
+            el.addEventListener('blur', function () { if (el.value) check(el); });
+            el.addEventListener('input', function () { if (el.getAttribute('aria-invalid') === 'true') check(el); });
+        });
+        form.addEventListener('change', function (e) { if (e.target.name === 'type') document.getElementById('e_type').textContent = ''; });
+
+        function copy(text) {
+            if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
+            return Promise.reject();
+        }
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var ok = true, first = null;
+            var type = form.querySelector('[name="type"]:checked');
+            if (!type) { ok = false; document.getElementById('e_type').textContent = '請選擇需求類型'; first = form.querySelector('[name="type"]'); }
+            ['name', 'tel', 'email', 'msg'].forEach(function (n) { var el = form.elements[n]; if (!check(el)) { ok = false; first = first || el; } });
+            if (!ok) { first.focus(); return; }
+
+            var f = form.elements;
+            var lines = [
+                '【CHIU.FLORIST 線上諮詢】',
+                '需求類型：' + type.value,
+                '姓名：' + f.name.value.trim(),
+                '電話：' + f.tel.value.trim()
+            ];
+            if (f.email.value) lines.push('Email：' + f.email.value.trim());
+            if (f.date.value) lines.push('預計日期：' + f.date.value);
+            if (f.budget.value) lines.push('預算：' + f.budget.value);
+            lines.push('需求說明：' + f.msg.value.trim());
+            var text = lines.join('\n');
+            pre.textContent = text;
+
+            var copied = done.querySelector('.chc_copied');
+            copy(text).then(function () { copied.hidden = false; }, function () { copied.hidden = true; });
+
+            form.hidden = true;
+            done.hidden = false;
+            done.classList.add('is-show');
+            done.focus();
+            done.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+
+        done.querySelector('.chc_copy').addEventListener('click', function () {
+            var b = this.querySelector('span');
+            copy(pre.textContent).then(function () { b.textContent = '已複製'; }, function () { b.textContent = '請手動複製'; });
+            setTimeout(function () { b.textContent = '再次複製'; }, 2000);
+        });
+        done.querySelector('.chc_reset').addEventListener('click', function () {
+            form.reset(); counter.textContent = '0 / 500';
+            done.hidden = true; form.hidden = false;
+            form.querySelector('[name="type"]').focus();
+        });
+    })();
+</script>
+</body>
+</html>
