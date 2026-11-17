@@ -228,16 +228,11 @@
                             <p class="chc_err" id="e_tel" aria-live="polite"></p>
                         </div>
                         <div class="chc_field">
-                            <label for="f_mail">Email</label>
-                            <input id="f_mail" name="email" type="email" autocomplete="email" aria-describedby="e_mail" placeholder="name@example.com">
-                            <p class="chc_err" id="e_mail" aria-live="polite"></p>
-                        </div>
-                        <div class="chc_field">
                             <label for="f_date">預計日期</label>
                             <input id="f_date" name="date" type="date">
                             <p class="chc_err"></p>
                         </div>
-                        <div class="chc_field full">
+                        <div class="chc_field">
                             <label for="f_budget">預算範圍</label>
                             <select id="f_budget" name="budget">
                                 <option value="">請選擇</option>
@@ -363,13 +358,12 @@
         var rules = {
             name: function (el) { return el.value.trim() ? '' : '請填寫姓名'; },
             tel: function (el) { return !el.value.trim() ? '請填寫聯絡電話' : (el.validity.patternMismatch ? '電話格式不正確' : ''); },
-            email: function (el) { return el.value && el.validity.typeMismatch ? 'Email 格式不正確' : ''; },
             msg: function (el) { var v = el.value.trim(); return !v ? '請簡單描述你的需求' : (v.length < 10 ? '再多說一點吧（至少 10 個字）' : ''); }
         };
         function check(el) {
             var m = rules[el.name](el);
             el.setAttribute('aria-invalid', m ? 'true' : 'false');
-            document.getElementById('e_' + (el.name === 'email' ? 'mail' : el.name)).textContent = m;
+            document.getElementById('e_' + el.name).textContent = m;
             return !m;
         }
         Object.keys(rules).forEach(function (n) {
@@ -389,7 +383,7 @@
             var ok = true, first = null;
             var type = form.querySelector('[name="type"]:checked');
             if (!type) { ok = false; document.getElementById('e_type').textContent = '請選擇需求類型'; first = form.querySelector('[name="type"]'); }
-            ['name', 'tel', 'email', 'msg'].forEach(function (n) { var el = form.elements[n]; if (!check(el)) { ok = false; first = first || el; } });
+            ['name', 'tel', 'msg'].forEach(function (n) { var el = form.elements[n]; if (!check(el)) { ok = false; first = first || el; } });
             if (!ok) { first.focus(); return; }
 
             var f = form.elements;
@@ -399,7 +393,6 @@
                 '姓名：' + f.name.value.trim(),
                 '電話：' + f.tel.value.trim()
             ];
-            if (f.email.value) lines.push('Email：' + f.email.value.trim());
             if (f.date.value) lines.push('預計日期：' + f.date.value);
             if (f.budget.value) lines.push('預算：' + f.budget.value);
             lines.push('需求說明：' + f.msg.value.trim());
