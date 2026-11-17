@@ -5,6 +5,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>2026 聖誕花禮預購｜台中聖誕花圈・聖誕桌花・聖誕樹花禮｜CHIU.FLORIST</title>
+	<!-- 檔期開關：早鳥 11/22 截止（is-eb-end）、最後取件 12/12 後本季結束（is-season-end）。改日期只要改這裡 -->
+	<script>(function(){var n=Date.now(),c=document.documentElement.classList;if(n>Date.parse('2026-11-22T23:59:59+08:00'))c.add('is-eb-end');if(n>Date.parse('2026-12-12T23:59:59+08:00'))c.add('is-season-end');})();</script>
 	<!-- Google Analytics (GA4) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-TN85Y7GN7T"></script>
 	<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-TN85Y7GN7T');</script>
@@ -55,6 +57,8 @@
 .chx_badge{display: inline-flex;flex-wrap: wrap;align-items: baseline;gap: 4px 14px;margin-top: 30px;padding: 12px 22px;border: 1px dashed rgba(226,195,143,.75) !important;}
 .hs_box .chx_badge span{font-size: var(--f15);letter-spacing: .12em;color: var(--colorText-whi);}
 .hs_box .chx_badge b{font-family: var(--Seriffont);font-weight: 500;font-size: var(--f22);letter-spacing: .1em;color: var(--gold2);}
+/* 本季結束提示 */
+.hs_box .chx_closed{margin-top: 30px;padding: 16px 22px;border-left: 2px solid var(--gold2) !important;background: rgba(0,0,0,.2);color: var(--colorText-whi);line-height: 1.9;}
 /* 倒數 */
 .chx_cd{display: flex;align-items: flex-end;gap: 18px;margin-top: 26px;}
 .hs_box .chx_cd > span{font-size: var(--f14);letter-spacing: .2em;color: rgba(244,239,230,.7);padding-bottom: 6px;}
@@ -200,8 +204,9 @@
                 <span class="chx_script" data-animate-in="up">Christmas Collection</span>
                 <h1 data-animate-in="up"><span class="ch_s">2026 聖誕花禮預購</span><small>台中 CHIU.FLORIST 花藝工作室</small></h1>
                 <p class="chx_lead" data-animate-in="up">當冬夜微光點亮，我們在深綠松柏間，<span class="ch_s">綴上一抹高訂的珠光。</span>這不單是一份花禮，<span class="ch_s">更是獻給冬夜的光影情書，</span><span class="ch_s">為你靜靜典藏一整季的璀璨與閃耀。</span></p>
-                <div class="chx_badge" data-animate-in="up"><span>11/22（日）前預訂</span><b>單件 9.5 折・2 件 9 折</b></div>
-                <div class="chx_cd" data-animate-in="up" data-deadline="2026-11-22T23:59:59+08:00" aria-live="off">
+                <div class="chx_badge season-on" data-animate-in="up"><span class="eb-on">11/22（日）前預訂</span><b class="eb-on">單件 9.5 折・2 件 9 折</b><b class="eb-off">早鳥優惠已截止</b><span class="eb-off">預購狀況請私訊詢問</span></div>
+                <p class="chx_closed season-off" data-animate-in="up">本季聖誕花禮預購已結束，感謝大家的支持。<br>新的節慶作品會在 Instagram 搶先公布。</p>
+                <div class="chx_cd eb-on" data-animate-in="up" data-deadline="2026-11-22T23:59:59+08:00" aria-live="off">
                     <span>早鳥優惠倒數</span>
                     <ol>
                         <li><b data-u="d">00</b><i>天</i></li>
@@ -212,7 +217,8 @@
                     <p class="chx_cd_end">早鳥優惠已截止，預購狀況請私訊詢問。</p>
                 </div>
                 <div class="ch_btns" data-animate-in="up">
-                    <a class="ch_btn fill" href="https://ig.me/m/chiu.florist" target="_blank" rel="noopener" data-order="hero"><span>私訊預訂</span><i></i></a>
+                    <a class="ch_btn fill season-on" href="https://ig.me/m/chiu.florist" target="_blank" rel="noopener" data-order="hero"><span>私訊預訂</span><i></i></a>
+                    <a class="ch_btn fill season-off" href="https://www.instagram.com/chiu.florist/" target="_blank" rel="noopener"><span>追蹤 Instagram</span><i></i></a>
                     <a class="ch_btn" href="#collection"><span>查看三款花禮</span><i></i></a>
                 </div>
             </div>
@@ -222,9 +228,9 @@
         </div>
     </section>
 
-    <section class="chx_b" aria-label="預購資訊">
+    <section class="chx_b season-on" aria-label="預購資訊">
         <ul class="chx_b01">
-            <li data-animate-in="up"><em>Early Bird</em><h2>早鳥優惠</h2><p>11/22（日）前預訂<br><b>單件 9.5 折・2 件 9 折</b></p></li>
+            <li data-animate-in="up"><em>Early Bird</em><h2>早鳥優惠</h2><p class="eb-on">11/22（日）前預訂<br><b>單件 9.5 折・2 件 9 折</b></p><p class="eb-off">早鳥優惠已截止<br>預購狀況請私訊詢問</p></li>
             <li data-animate-in="up"><em>Pick-up</em><h2>取件日期</h2><p>首批 11/30（一）– 12/04（五）<br>第二批 12/07（一）– 12/12（六）</p></li>
             <li data-animate-in="up"><em>Delivery</em><h2>配送方式</h2><p>宅配・自取（運費另計）<br>台中地區滿 NT$ 3,500 免運</p></li>
         </ul>
@@ -251,7 +257,7 @@
                         <dt>尺寸</dt><dd>約 48 × 30 cm</dd>
                         <dt>材質</dt><dd>不銹鋼高腳杯／玻璃掛飾／珠串飾件／復古造型掛飾／小燈串</dd>
                     </dl>
-                    <a class="ch_btn fill" href="https://ig.me/m/chiu.florist" target="_blank" rel="noopener" data-order="珍珠星序"><span>預訂《珍珠星序》</span><i></i></a>
+                    <a class="ch_btn fill season-on" href="https://ig.me/m/chiu.florist" target="_blank" rel="noopener" data-order="珍珠星序"><span>預訂《珍珠星序》</span><i></i></a>
                 </div>
             </article>
 
@@ -269,7 +275,7 @@
                         <dt>尺寸</dt><dd>約 58 × 45 cm</dd>
                         <dt>材質</dt><dd>皮革花盒／玻璃掛飾／珠串飾件／復古造型掛飾</dd>
                     </dl>
-                    <a class="ch_btn fill" href="https://ig.me/m/chiu.florist" target="_blank" rel="noopener" data-order="緋紅歌劇"><span>預訂《緋紅歌劇》</span><i></i></a>
+                    <a class="ch_btn fill season-on" href="https://ig.me/m/chiu.florist" target="_blank" rel="noopener" data-order="緋紅歌劇"><span>預訂《緋紅歌劇》</span><i></i></a>
                 </div>
             </article>
 
@@ -287,13 +293,13 @@
                         <dt>尺寸</dt><dd>約 60 × 60 cm</dd>
                         <dt>材質</dt><dd>自然藤圈／玻璃掛飾／珠串飾件／針織、造型掛飾</dd>
                     </dl>
-                    <a class="ch_btn fill" href="https://ig.me/m/chiu.florist" target="_blank" rel="noopener" data-order="琉光松影"><span>預訂《琉光松影》</span><i></i></a>
+                    <a class="ch_btn fill season-on" href="https://ig.me/m/chiu.florist" target="_blank" rel="noopener" data-order="琉光松影"><span>預訂《琉光松影》</span><i></i></a>
                 </div>
             </article>
         </div>
     </section>
 
-    <section class="chx_d">
+    <section class="chx_d season-on">
         <div class="chx_d01">
             <div class="ch_title" data-animate-in="left">
                 <div class="ch_en">How to Order</div>
@@ -327,10 +333,14 @@
         <div class="chx_f01" data-animate-in="up">
             <span class="chx_script">Merry Christmas</span>
             <h2>為這個冬天，<span class="ch_s">預留一份光影</span></h2>
-            <p>11/22（日）前預訂，單件 9.5 折・2 件 9 折。</p>
+            <p class="eb-on">11/22（日）前預訂，單件 9.5 折・2 件 9 折。</p>
+            <p class="eb-off season-on">早鳥優惠已截止，仍歡迎私訊詢問預購狀況。</p>
+            <p class="season-off">本季預購已結束，新的節慶作品請追蹤我們的社群。</p>
             <div class="ch_btns">
-                <a class="ch_btn fill" href="https://ig.me/m/chiu.florist" target="_blank" rel="noopener" data-order="bottom"><span>Instagram 私訊預訂</span><i></i></a>
-                <a class="ch_btn" href="https://www.facebook.com/p/Chiuflorist-100071734697100/" target="_blank" rel="noopener" data-order="bottom-fb"><span>Facebook 私訊</span><i></i></a>
+                <a class="ch_btn fill season-on" href="https://ig.me/m/chiu.florist" target="_blank" rel="noopener" data-order="bottom"><span>Instagram 私訊預訂</span><i></i></a>
+                <a class="ch_btn season-on" href="https://www.facebook.com/p/Chiuflorist-100071734697100/" target="_blank" rel="noopener" data-order="bottom-fb"><span>Facebook 私訊</span><i></i></a>
+                <a class="ch_btn fill season-off" href="https://www.instagram.com/chiu.florist/" target="_blank" rel="noopener"><span>追蹤 Instagram</span><i></i></a>
+                <a class="ch_btn season-off" href="https://www.facebook.com/p/Chiuflorist-100071734697100/" target="_blank" rel="noopener"><span>追蹤 Facebook</span><i></i></a>
             </div>
         </div>
     </section>
@@ -341,8 +351,8 @@
 </div>
 
 <!-- 手機底部預購列 -->
-<div class="chx_bar" aria-hidden="true">
-    <p><b>2026 聖誕花禮預購</b>11/22 前 單件 9.5 折・2 件 9 折</p>
+<div class="chx_bar season-on" aria-hidden="true">
+    <p><b>2026 聖誕花禮預購</b><span class="eb-on">11/22 前 單件 9.5 折・2 件 9 折</span><span class="eb-off">早鳥已截止，歡迎私訊詢問</span></p>
     <a href="https://ig.me/m/chiu.florist" target="_blank" rel="noopener" data-order="bar" tabindex="-1">私訊預訂</a>
 </div>
 

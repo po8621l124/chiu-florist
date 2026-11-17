@@ -233,6 +233,8 @@ figure [class^="anima_"]{transition: filter 1.1s ease .3s, opacity 1.1s ease .3s
 
 /* 工具 */
 [hidden]{display: none !important;}
+/* 檔期開關（見頁面 head 的日期判斷） */
+html.is-eb-end .eb-on, html:not(.is-eb-end) .eb-off, html.is-season-end .season-on, html:not(.is-season-end) .season-off{display: none !important;}
 .cen{text-align: center;}
 /* 避免掉字：段落最後一行不留單字、標題各行長度平均 */
 .hs_box :is(p, dd, li, label){text-wrap: pretty;}
