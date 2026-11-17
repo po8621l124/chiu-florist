@@ -178,6 +178,7 @@
         [].forEach.call(document.querySelectorAll('.ch_btn, .ch_hd_btn, .ch_hd_ig, .ch_arw, .ch_totop'), function (el) {
             var k = el.classList.contains('ch_btn') || el.classList.contains('ch_hd_btn') ? 0.22 : 0.35;
             el.addEventListener('mousemove', function (e) {
+                el.style.setProperty('--sf_delay', '0s');   /* 進場已結束，清掉錯開延遲，避免離開時回正變慢 */
                 var r = el.getBoundingClientRect();
                 el.style.setProperty('--mx', ((e.clientX - r.left - r.width / 2) * k).toFixed(1) + 'px');
                 el.style.setProperty('--my', ((e.clientY - r.top - r.height / 2) * k).toFixed(1) + 'px');

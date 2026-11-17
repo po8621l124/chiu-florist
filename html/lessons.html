@@ -63,9 +63,6 @@
 .chl_c01{max-width: 1400px;width: 100%;margin: auto;}
 .chl_c01 .ch_title{margin-bottom: 60px;}
 .chl_c02{display: grid;grid-template-columns: repeat(3, 1fr);gap: 30px;--delay_time:.2s;}
-.chl_c02 > li:nth-child(1){transition-delay: calc(var(--delay_time) * 0) !important;}
-.chl_c02 > li:nth-child(2){transition-delay: calc(var(--delay_time) * 1) !important;}
-.chl_c02 > li:nth-child(3){transition-delay: calc(var(--delay_time) * 2) !important;}
 .chl_c02 > li{background: var(--color-bg2);display: flex;flex-direction: column;}
 .chl_c02 figure{aspect-ratio: 16 / 9;overflow: hidden;}
 .chl_c02 figure img{width: 100%;height: 100%;object-fit: cover;transition: transform 1.2s var(--ease);}
@@ -130,7 +127,6 @@
 .hs_box .QA_function dd p{color: var(--colorText-sub);}
 
 /* --- Media Queries --- */
-@media (max-width: 1440px) {}
 @media (max-width: 1024px) {
     .chl_b01{gap: 56px;}
     .chl_b02 > li{padding: 20px 16px 18px;}
@@ -181,7 +177,6 @@
     .chl_e02 li{grid-template-columns: 40px 1fr;gap: 12px;}
     .QA_function dt button{gap: 12px;}
 }
-@media (max-width: 380px) {}
 </style>
 </head>
 <body>

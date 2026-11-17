@@ -49,9 +49,7 @@
 .cha_c01{max-width: 1240px;width: 100%;margin: auto;}
 .hs_box .cha_c_lead{max-width: 520px;margin: 22px auto 0;font-family: var(--Seriffont);font-size: var(--f18);letter-spacing: .2em;color: var(--colorText-sub);}
 .cha_c02{display: grid;grid-template-columns: repeat(3, 1fr);gap: clamp(24px, 3.5vw, 56px);margin-top: clamp(50px, 6vw, 90px);--delay_time:.15s;}
-.cha_c02 > li:nth-child(1){transition-delay: calc(var(--delay_time) * 0) !important;}
-.cha_c02 > li:nth-child(2){transition-delay: calc(var(--delay_time) * 1) !important;margin-top: clamp(30px, 5vw, 80px);}
-.cha_c02 > li:nth-child(3){transition-delay: calc(var(--delay_time) * 2) !important;}
+.cha_c02 > li:nth-child(2){margin-top: clamp(30px, 5vw, 80px);}
 .cha_c02 figure{position: relative;overflow: hidden;aspect-ratio: 3 / 4;background: var(--color-bg);}
 .cha_c02 figure img{width: 100%;height: 100%;object-fit: cover;transition: transform 1.4s var(--sf_ease, ease);}
 .cha_c02 figure::after{content: '';position: absolute;inset: 12px;border: 1px solid rgba(255,255,255,.55);pointer-events: none;}
@@ -83,10 +81,6 @@
 .cha_e01 .ch_title{margin-bottom: 70px;}
 .cha_e02{display: grid;grid-template-columns: repeat(4, 1fr);gap: 30px;counter-reset: step;--delay_time:.2s;position: relative;}
 .cha_e02::before{content: '';position: absolute;left: 0;right: 0;top: 36px;height: 1px;background: var(--color-line);}
-.cha_e02 > li:nth-child(1){transition-delay: calc(var(--delay_time) * 0) !important;}
-.cha_e02 > li:nth-child(2){transition-delay: calc(var(--delay_time) * 1) !important;}
-.cha_e02 > li:nth-child(3){transition-delay: calc(var(--delay_time) * 2) !important;}
-.cha_e02 > li:nth-child(4){transition-delay: calc(var(--delay_time) * 3) !important;}
 .cha_e02 > li{position: relative;}
 .cha_e02 > li > i{position: relative;display: grid;place-items: center;width: 72px;height: 72px;border-radius: 50%;background: var(--color-bg);border: 1px solid var(--color-Sub) !important;transition: background-color .4s;}
 .cha_e02 > li:hover > i{background: var(--color-Sub);}
@@ -163,12 +157,10 @@
     .cha_f01 li{opacity: 1;width: 100%;max-width: 360px;padding-bottom: 18px;border-bottom: 1px solid var(--color-line) !important;}
     .cha_f01 li:last-child{padding-bottom: 0;border-bottom: 0 !important;}
 }
-@media (max-width: 576px) {}
 @media (max-width: 480px) {
     .cha_c02, .cha_e02{--delay_time:0s;}
     .cha_d01_list{grid-template-columns: 1fr;}
 }
-@media (max-width: 380px) {}
 </style>
 </head>
 <body>

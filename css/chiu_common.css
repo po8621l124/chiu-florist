@@ -469,7 +469,7 @@ body.cursor-on .ch_cursor.is-label + .ch_cursor_dot{opacity: 0;}
 
 /* ---------- 互動：3D 傾斜卡片 ---------- */
 [data-tilt]{transform-style: preserve-3d;}
-[data-tilt].is-tilting{transition: transform .15s ease-out !important;}
+[data-tilt].is-tilting{transition: transform .15s ease-out !important;transition-delay: 0s !important;}
 
 /* ---------- 減少動態 ---------- */
 @media (prefers-reduced-motion: reduce){
