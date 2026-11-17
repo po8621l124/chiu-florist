@@ -172,7 +172,10 @@
     .chx_bar p b{display: block;font-family: var(--Seriffont);font-weight: 500;font-size: 0.95rem;color: var(--gold2);}
     .chx_bar a{flex: none;display: inline-flex;align-items: center;gap: 8px;padding: 11px 20px;background: var(--color-Sub);color: #fff;font-family: var(--Seriffont);font-size: 0.9rem;letter-spacing: .15em;text-decoration: none;}
     body.chx_page .ch_chat{display: none;}
-    body.chx_page .ch_totop{bottom: calc(84px + env(safe-area-inset-bottom));}
+    /* 預購列出現時，回頂按鈕依實際列高往上移，並疊在列的上層 */
+    body.chx_page .ch_totop{z-index: 86;transition: opacity .4s, transform .4s, visibility 0s .4s, background-color .3s, bottom .5s var(--ease);}
+    body.chx_page .ch_totop.is-show{transition: opacity .4s, transform .4s, visibility 0s, background-color .3s, bottom .5s var(--ease);}
+    body.chx_bar_on .ch_totop{bottom: calc(var(--chx_bar_h, 70px) + 12px);}
     body.chx_page .ch_footer{padding-bottom: 70px;}
 }
 @media (max-width: 576px) {
@@ -352,7 +355,7 @@
 
 <!-- 手機底部預購列 -->
 <div class="chx_bar season-on" aria-hidden="true">
-    <p><b>2026 聖誕花禮預購</b><span class="eb-on">11/22 前 單件 9.5 折・2 件 9 折</span><span class="eb-off">早鳥已截止，歡迎私訊詢問</span></p>
+    <p><b>2026 聖誕花禮預購</b><span class="eb-on">11/22 前 <span class="ch_s">單件 9.5 折・2 件 9 折</span></span><span class="eb-off">早鳥已截止，歡迎私訊詢問</span></p>
     <a href="https://ig.me/m/chiu.florist" target="_blank" rel="noopener" data-order="bar" tabindex="-1">私訊預訂</a>
 </div>
 
@@ -387,6 +390,8 @@
         function update() {
             var show = hero.getBoundingClientRect().bottom < 0 && cta.getBoundingClientRect().top > window.innerHeight;
             bar.classList.toggle('is-show', show);
+            document.body.classList.toggle('chx_bar_on', show);
+            document.documentElement.style.setProperty('--chx_bar_h', bar.offsetHeight + 'px');
             bar.setAttribute('aria-hidden', !show);
             bar.querySelector('a').tabIndex = show ? 0 : -1;
         }
