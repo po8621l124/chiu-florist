@@ -53,7 +53,7 @@
         '<div class="ch_menu" id="ch_menu">' +
             '<ul>' + menuLinks + '</ul>' +
             '<div class="ch_menu_info">' +
-                '<p>台中・工作室採預約制</p>' +
+                '<p>台中市西屯區・工作室採預約制</p>' +
                 '<p>Instagram <a href="' + IG + '" target="_blank" rel="noopener">@chiu.florist</a></p>' +
                 '<p>Facebook <a href="' + FB + '" target="_blank" rel="noopener">Chiuflorist</a></p>' +
             '</div>' +
@@ -89,7 +89,7 @@
                         '<li>訂製花禮</li><li>婚慶活動視覺佈置</li><li>商業軟裝空間設計</li><li>企業商用週花</li><li>專屬黃銅家飾選品</li>' +
                     '</ul></div>' +
                     '<div><h3>Contact</h3><ul>' +
-                        '<li>服務地區｜台中</li><li>工作室採預約制，地點請私訊詢問</li><li><a href="contact.html">私訊小幫手</a></li>' +
+                        '<li>工作室｜台中市西屯區</li><li>採預約制，詳細地點請私訊詢問</li><li><a href="contact.html">私訊小幫手</a></li>' +
                     '</ul></div>' +
                 '</div>' +
                 '<div class="ch_footer_c">' +
