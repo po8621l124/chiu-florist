@@ -1,260 +1,291 @@
 {
   "_說明": "作品頁資料。新增作品：在 works 陣列加一筆，排序就是畫面上的順序。圖片放在 image/chiu/，width 與 height 填原圖尺寸（避免版面跳動）。category 要對應 categories 的 id。story 裡的 \n 是換行、\n\n 是空一行分段。instagram 填貼文網址 /p/ 後面那串代碼。加上 featured: true 會出現在首頁「作品精選」，建議用直式 3:4 的照片，順序依本檔排列。",
   "categories": [
-    { "id": "gift", "name": "訂製花禮" },
-    { "id": "wedding", "name": "婚禮" },
-    { "id": "space", "name": "空間佈置" },
-    { "id": "weekly", "name": "商業週花" },
-    { "id": "event", "name": "活動・課程" }
+    {
+      "id": "gift",
+      "name": "訂製花禮"
+    },
+    {
+      "id": "wedding",
+      "name": "婚禮"
+    },
+    {
+      "id": "space",
+      "name": "空間佈置"
+    },
+    {
+      "id": "weekly",
+      "name": "商業週花"
+    },
+    {
+      "id": "event",
+      "name": "活動・課程"
+    }
   ],
   "works": [
     {
+      "title": "證婚捧花｜柔粉與奶油杏s",
       "category": "wedding",
-      "featured": true,
       "label": "婚禮",
-      "title": "證婚捧花｜柔粉與奶油杏",
       "image": "w_bridal.webp",
-      "width": 1500,
-      "height": 2000,
+      "featured": true,
       "instagram": "Dfq1xMqlAJX",
-      "story": "不同深淺的柔粉與奶油杏色交織，讓鬱金香的純粹與白色石蒜跳躍的線條自然舒展。\n\n刻意保留了花材原本的呼吸感與空氣感，就像送花人那份不張揚、卻始終在身後的祝福。\n\n陪著她，走過人生最美的一天。"
+      "story": "不同深淺的柔粉與奶油杏色交織，讓鬱金香的純粹與白色石蒜跳躍的線條自然舒展。\n\n刻意保留了花材原本的呼吸感與空氣感，就像送花人那份不張揚、卻始終在身後的祝福。\n\n陪著她，走過人生最美的一天。",
+      "width": 1500,
+      "height": 2000
     },
     {
-      "category": "space",
-      "label": "空間佈置",
       "title": "晶漾金飾・鑽石｜櫥窗花藝",
+      "category": "space",
+      "label": "空間佈置",
       "image": "w_window.webp",
-      "width": 2000,
-      "height": 1125,
+      "featured": false,
       "instagram": "DfUfTHDFC1N",
-      "story": "推開古典石柱與幾何光影交織的大門，迎接您的是一場關於光芒與姿態的感官饗宴。\n\n以高雅的純白蝴蝶蘭為主幹，錯落著靈動的枝條與細緻的黃色植栽，宛如春日裡破曉的晨光，輕輕灑落在溫潤的金飾與璀璨鑽石旁。\n\nFloral Design & Spatial Styling｜CHIU Florist\nBoutique Showcase & Jewelry｜晶漾金飾・鑽石 市政店"
+      "story": "推開古典石柱與幾何光影交織的大門，迎接您的是一場關於光芒與姿態的感官饗宴。\n\n以高雅的純白蝴蝶蘭為主幹，錯落著靈動的枝條與細緻的黃色植栽，宛如春日裡破曉的晨光，輕輕灑落在溫潤的金飾與璀璨鑽石旁。\n\nFloral Design & Spatial Styling｜CHIU Florist\nBoutique Showcase & Jewelry｜晶漾金飾・鑽石 市政店",
+      "width": 2000,
+      "height": 1125
     },
     {
-      "category": "gift",
-      "featured": true,
-      "label": "訂製花禮",
       "title": "《 緋紅歌劇 · Crimson Opera 》",
+      "category": "gift",
+      "label": "訂製花禮",
       "image": "w_opera.webp",
-      "width": 1500,
-      "height": 2000,
+      "featured": true,
       "instagram": "DfRGz0LlLjG",
-      "story": "當夜幕低垂，古典劇院的紅絨帷幕緩緩拉開，一場專屬於聖誕季的華麗盛宴正隆重上演。\n\n以極致濃郁的酒紅與深緋為主調，交織著沉穩優雅的聖誕松綠。典雅的皮革花盒底座襯托出溫潤質感，點綴其間的珠串飾件、玻璃球與復古掛飾，在光影搖曳下閃耀著如古典珠寶般的光澤。\n\n聖誕桌花花禮｜NT$ 4,280｜約 58 × 45 cm"
+      "story": "當夜幕低垂，古典劇院的紅絨帷幕緩緩拉開，一場專屬於聖誕季的華麗盛宴正隆重上演。\n\n以極致濃郁的酒紅與深緋為主調，交織著沉穩優雅的聖誕松綠。典雅的皮革花盒底座襯托出溫潤質感，點綴其間的珠串飾件、玻璃球與復古掛飾，在光影搖曳下閃耀著如古典珠寶般的光澤。\n\n聖誕桌花花禮｜NT$ 4,280｜約 58 × 45 cm",
+      "width": 1500,
+      "height": 2000
     },
     {
-      "category": "weekly",
-      "label": "商業週花",
       "title": "光流域｜一場與空間的奇妙對話",
-      "image": "w_lobby3.webp",
-      "width": 2000,
-      "height": 1125,
-      "instagram": "DeTZR17ESoU",
-      "story": "有時候，創作過程中的巧合，會讓你不得不相信場域是有靈魂的。\n\n那天創作時，才與門市伙伴聊起最近帶有中東風格的花藝案子，清單裡的音樂竟隨機播起了中東風情的旋律——花與空間，就這樣有了一段奇妙的對話。"
-    },
-    {
-      "category": "wedding",
-      "label": "婚禮",
-      "title": "新人捧花｜時髦又漂亮",
-      "image": "w_couple.webp",
-      "width": 1369,
-      "height": 1369,
-      "instagram": "Cty8nYNv0fE",
-      "story": "好時髦，也好漂亮。\n\n提前了好大一陣子來討論捧花的妳們，起初擔心不知道哪種類型的捧花合適，認真地為了這重要的花兒前來與我們討論，細聊之後，才有了這束剛剛好的捧花。"
-    },
-    {
-      "category": "event",
-      "label": "活動佈置",
-      "title": "灰熊綠展｜光影交織的森林角落",
-      "image": "w_fair.webp",
-      "width": 2000,
-      "height": 1125,
-      "instagram": "DfW929qFFMu",
-      "story": "當陽光穿過樹梢，在布簾上投下溫柔的剪影；當金黃與橙黃的花草盛放，為溫潤的木質空間點綴出熱情的生命力。\n\n以自然為背景、光影為筆墨，為灰熊綠展打造出專屬於季節的溫暖氛圍。在這裡，不只是逛市集，更是一場融入自然景緻的感官體驗。"
-    },
-    {
-      "category": "space",
-      "featured": true,
-      "label": "空間佈置",
-      "title": "關於一個角落的重生",
-      "image": "w_corner.webp",
-      "width": 1500,
-      "height": 2000,
-      "instagram": "DejIL5WkfFy",
-      "story": "軟裝佈置與花藝一樣，最迷人的地方不是把空間填滿，而是幫這個地方找到屬於它的呼吸節奏感。\n\n本次空間唯一的小小訴求：「想要一種有溫度的秋天復古感，但全權交給我們。」原本的角落雖然明亮，卻少了一點讓人想停留的理由；於是換上溫暖而低調的燈色，讓角落重新有了溫度。"
-    },
-    {
-      "category": "gift",
-      "label": "訂製花禮",
-      "title": "《 珍珠星序 · Astro Pearl 》",
-      "image": "w_xmas_tree.webp",
-      "width": 3044,
-      "height": 1714,
-      "instagram": "DfO-B5BFP2v",
-      "story": "當冬夜微光點亮，我們在深綠松柏間，綴上一抹高訂的珠光。\n\n圓潤珍珠如歲月典藏的星芒，輕落於枝葉間，隨光影流轉散發著無可取代的優雅與奢麗。\n\n聖誕樹花禮｜NT$ 3,680｜約 48 × 30 cm"
-    },
-    {
-      "category": "gift",
-      "label": "訂製花禮",
-      "title": "《 琉光松影 · Velvet Luce 》",
-      "image": "w_xmas_wreath.webp",
-      "width": 1640,
-      "height": 697,
-      "instagram": "DfO-B5BFP2v",
-      "story": "以自然藤圈為底，綴上玻璃掛飾、珠串飾件與針織、造型掛飾，在深綠松枝間留下一圈溫潤的冬日光影。\n\n聖誕花圈花禮｜NT$ 3,880｜約 60 × 60 cm"
-    },
-    {
-      "category": "wedding",
-      "featured": true,
-      "label": "婚禮",
-      "title": "婚紗拍攝捧花｜鵝黃與珍珠",
-      "image": "w_yellow.webp",
-      "width": 1200,
-      "height": 1600,
-      "instagram": "DfGStIlqjOY",
-      "story": "當細膩的粉紗輕輕包覆著妳的溫柔，把一段段祝福放進了溫暖且充滿希望的色調裡。\n\n輕巧的姿態與細緻的珍珠線條交織，為柔美的粉色婚紗揉入一抹明亮而溫暖的光彩。不必張揚，卻精緻得剛剛好。"
-    },
-    {
-      "category": "space",
-      "label": "空間佈置",
-      "title": "晶漾金飾 市政店｜花藝與選品",
-      "image": "w_jewel.webp",
-      "width": 2000,
-      "height": 1047,
-      "instagram": "DfHLjdXFE6O",
-      "story": "為「晶漾金飾 市政店」操刀空間花藝佈置與擺飾選品。\n\n特別運用礁石與玫瑰石，搭配花藝進行佈置，讓粗獷的岩石紋理與浪漫柔美的花朵交織，碰撞出剛柔並濟的輕奢質感。主視覺「懸浮櫥窗」選用真實的梨枝，拉開空間層次，打造脫俗的高訂形象。"
-    },
-    {
-      "category": "gift",
-      "featured": true,
-      "label": "訂製花禮",
-      "title": "銀色系開幕花禮｜閃亮祝賀",
-      "image": "w_silver.webp",
-      "width": 1440,
-      "height": 1913,
-      "instagram": "DRmIHJ4kdDo",
-      "story": "銀色系花禮，閃亮祝賀。\n\n祝未來營運順順走——Keep it sharp."
-    },
-    {
-      "category": "event",
-      "label": "活動佈置",
-      "title": "Modern Vintage｜心潮 x 新潮",
-      "image": "w_vintage.webp",
-      "width": 1440,
-      "height": 753,
-      "instagram": "DVK9JQTkTh7",
-      "story": "在深色帷幕與光影的交界處，來一場關於色彩與食物的盛宴。\n\n復古的紅、優雅的藍紫，襯著沉靜的綠色牆面，空氣中流淌著一種不張揚的時髦。當台式靈魂遇上摩登美學，圓拱門廊下的繁花，在冷冽石紋上投下溫柔的光影。"
-    },
-    {
-      "category": "gift",
-      "featured": true,
-      "label": "訂製花禮",
-      "title": "秋天的顏色｜焦糖與柔粉",
-      "image": "w_autumn.webp",
-      "width": 1500,
-      "height": 2000,
-      "instagram": "DfwRmxrEX8M",
-      "story": "十一月的暖陽收進盆裡，秋天本來就不適合太規矩的形狀。\n\n水仙百合的焦糖黃吻上金魚的柔粉，是深秋才有的濃郁果實與紅葉，讓枝條隨性往外探、各自舒展。"
-    },
-    {
-      "category": "gift",
-      "featured": true,
-      "label": "訂製花禮",
-      "title": "午後斜光｜粉色大理花",
-      "image": "w_dahlia.webp",
-      "width": 1500,
-      "height": 2000,
-      "instagram": "DdYrqPhFDNa",
-      "story": "午後斜光穿過莫蘭迪綠牆面，桌上隨手擱著粉色大理花與仙氣的噴泉草。\n\n老件銅台與微光，本該就是日子裡的樣子。當日常的講究，慢慢延續成生命中某個重要日子的盛開——那種溫度，其實一直都在。"
-    },
-    {
       "category": "weekly",
       "label": "商業週花",
-      "title": "光流域｜神祕而沉靜的紫",
-      "image": "w_lobby.webp",
+      "image": "w_lobby3.webp",
+      "featured": false,
+      "instagram": "DeTZR17ESoU",
+      "story": "有時候，創作過程中的巧合，會讓你不得不相信場域是有靈魂的。\n\n那天創作時，才與門市伙伴聊起最近帶有中東風格的花藝案子，清單裡的音樂竟隨機播起了中東風情的旋律——花與空間，就這樣有了一段奇妙的對話。",
       "width": 2000,
-      "height": 1140,
-      "instagram": "DfmFZJcEdOC",
-      "story": "一抹神祕而沉靜的紫，悄然綻放。它不張揚，卻自帶一股撫平焦躁的力量。\n\n它是繁花簇擁間的典雅點綴，也是瓶中色彩流轉時，對身心最深情的對話。"
+      "height": 1125
     },
     {
+      "title": "新人捧花｜時髦又漂亮",
+      "category": "wedding",
+      "label": "婚禮",
+      "image": "w_couple.webp",
+      "featured": false,
+      "instagram": "Cty8nYNv0fE",
+      "story": "好時髦，也好漂亮。\n\n提前了好大一陣子來討論捧花的妳們，起初擔心不知道哪種類型的捧花合適，認真地為了這重要的花兒前來與我們討論，細聊之後，才有了這束剛剛好的捧花。",
+      "width": 1369,
+      "height": 1369
+    },
+    {
+      "title": "灰熊綠展｜光影交織的森林角落",
+      "category": "event",
+      "label": "活動佈置",
+      "image": "w_fair.webp",
+      "featured": false,
+      "instagram": "DfW929qFFMu",
+      "story": "當陽光穿過樹梢，在布簾上投下溫柔的剪影；當金黃與橙黃的花草盛放，為溫潤的木質空間點綴出熱情的生命力。\n\n以自然為背景、光影為筆墨，為灰熊綠展打造出專屬於季節的溫暖氛圍。在這裡，不只是逛市集，更是一場融入自然景緻的感官體驗。",
+      "width": 2000,
+      "height": 1125
+    },
+    {
+      "title": "關於一個角落的重生",
+      "category": "space",
+      "label": "空間佈置",
+      "image": "w_corner.webp",
+      "featured": true,
+      "instagram": "DejIL5WkfFy",
+      "story": "軟裝佈置與花藝一樣，最迷人的地方不是把空間填滿，而是幫這個地方找到屬於它的呼吸節奏感。\n\n本次空間唯一的小小訴求：「想要一種有溫度的秋天復古感，但全權交給我們。」原本的角落雖然明亮，卻少了一點讓人想停留的理由；於是換上溫暖而低調的燈色，讓角落重新有了溫度。",
+      "width": 1500,
+      "height": 2000
+    },
+    {
+      "title": "《 珍珠星序 · Astro Pearl 》",
       "category": "gift",
       "label": "訂製花禮",
-      "title": "私人訂製｜白玫瑰花禮",
-      "image": "w_roses.webp",
-      "width": 1500,
-      "height": 2000,
-      "instagram": "DchsacrFIgu",
-      "story": "Wishing you a truly beautiful day filled with moments that make you smile."
+      "image": "w_xmas_tree.webp",
+      "featured": false,
+      "instagram": "DfO-B5BFP2v",
+      "story": "當冬夜微光點亮，我們在深綠松柏間，綴上一抹高訂的珠光。\n\n圓潤珍珠如歲月典藏的星芒，輕落於枝葉間，隨光影流轉散發著無可取代的優雅與奢麗。\n\n聖誕樹花禮｜NT$ 3,680｜約 48 × 30 cm",
+      "width": 3044,
+      "height": 1714
     },
     {
+      "title": "《 琉光松影 · Velvet Luce 》",
+      "category": "gift",
+      "label": "訂製花禮",
+      "image": "w_xmas_wreath.webp",
+      "featured": false,
+      "instagram": "DfO-B5BFP2v",
+      "story": "以自然藤圈為底，綴上玻璃掛飾、珠串飾件與針織、造型掛飾，在深綠松枝間留下一圈溫潤的冬日光影。\n\n聖誕花圈花禮｜NT$ 3,880｜約 60 × 60 cm",
+      "width": 1640,
+      "height": 697
+    },
+    {
+      "title": "婚紗拍攝捧花｜鵝黃與珍珠",
+      "category": "wedding",
+      "label": "婚禮",
+      "image": "w_yellow.webp",
+      "featured": true,
+      "instagram": "DfGStIlqjOY",
+      "story": "當細膩的粉紗輕輕包覆著妳的溫柔，把一段段祝福放進了溫暖且充滿希望的色調裡。\n\n輕巧的姿態與細緻的珍珠線條交織，為柔美的粉色婚紗揉入一抹明亮而溫暖的光彩。不必張揚，卻精緻得剛剛好。",
+      "width": 1200,
+      "height": 1600
+    },
+    {
+      "title": "晶漾金飾 市政店｜花藝與選品",
+      "category": "space",
+      "label": "空間佈置",
+      "image": "w_jewel.webp",
+      "featured": false,
+      "instagram": "DfHLjdXFE6O",
+      "story": "為「晶漾金飾 市政店」操刀空間花藝佈置與擺飾選品。\n\n特別運用礁石與玫瑰石，搭配花藝進行佈置，讓粗獷的岩石紋理與浪漫柔美的花朵交織，碰撞出剛柔並濟的輕奢質感。主視覺「懸浮櫥窗」選用真實的梨枝，拉開空間層次，打造脫俗的高訂形象。",
+      "width": 2000,
+      "height": 1047
+    },
+    {
+      "title": "銀色系開幕花禮｜閃亮祝賀",
+      "category": "gift",
+      "label": "訂製花禮",
+      "image": "w_silver.webp",
+      "featured": true,
+      "instagram": "DRmIHJ4kdDo",
+      "story": "銀色系花禮，閃亮祝賀。\n\n祝未來營運順順走——Keep it sharp.",
+      "width": 1440,
+      "height": 1913
+    },
+    {
+      "title": "Modern Vintage｜心潮 x 新潮",
+      "category": "event",
+      "label": "活動佈置",
+      "image": "w_vintage.webp",
+      "featured": false,
+      "instagram": "DVK9JQTkTh7",
+      "story": "在深色帷幕與光影的交界處，來一場關於色彩與食物的盛宴。\n\n復古的紅、優雅的藍紫，襯著沉靜的綠色牆面，空氣中流淌著一種不張揚的時髦。當台式靈魂遇上摩登美學，圓拱門廊下的繁花，在冷冽石紋上投下溫柔的光影。",
+      "width": 1440,
+      "height": 753
+    },
+    {
+      "title": "秋天的顏色｜焦糖與柔粉",
+      "category": "gift",
+      "label": "訂製花禮",
+      "image": "w_autumn.webp",
+      "featured": true,
+      "instagram": "DfwRmxrEX8M",
+      "story": "十一月的暖陽收進盆裡，秋天本來就不適合太規矩的形狀。\n\n水仙百合的焦糖黃吻上金魚的柔粉，是深秋才有的濃郁果實與紅葉，讓枝條隨性往外探、各自舒展。",
+      "width": 1500,
+      "height": 2000
+    },
+    {
+      "title": "午後斜光｜粉色大理花",
+      "category": "gift",
+      "label": "訂製花禮",
+      "image": "w_dahlia.webp",
+      "featured": true,
+      "instagram": "DdYrqPhFDNa",
+      "story": "午後斜光穿過莫蘭迪綠牆面，桌上隨手擱著粉色大理花與仙氣的噴泉草。\n\n老件銅台與微光，本該就是日子裡的樣子。當日常的講究，慢慢延續成生命中某個重要日子的盛開——那種溫度，其實一直都在。",
+      "width": 1500,
+      "height": 2000
+    },
+    {
+      "title": "光流域｜神祕而沉靜的紫",
+      "category": "weekly",
+      "label": "商業週花",
+      "image": "w_lobby.webp",
+      "featured": false,
+      "instagram": "DfmFZJcEdOC",
+      "story": "一抹神祕而沉靜的紫，悄然綻放。它不張揚，卻自帶一股撫平焦躁的力量。\n\n它是繁花簇擁間的典雅點綴，也是瓶中色彩流轉時，對身心最深情的對話。",
+      "width": 2000,
+      "height": 1140
+    },
+    {
+      "title": "私人訂製｜白玫瑰花禮",
+      "category": "gift",
+      "label": "訂製花禮",
+      "image": "w_roses.webp",
+      "featured": false,
+      "instagram": "DchsacrFIgu",
+      "story": "Wishing you a truly beautiful day filled with moments that make you smile.",
+      "width": 1500,
+      "height": 2000
+    },
+    {
+      "title": "希拉茲的秋光｜波斯色調",
       "category": "event",
       "label": "花藝課程",
-      "title": "希拉茲的秋光｜波斯色調",
       "image": "w_persia.webp",
-      "width": 2000,
-      "height": 1125,
+      "featured": false,
       "instagram": "DfoGvLfFPN1",
-      "story": "與 Arsham 皇家波斯地毯聯名的花藝課。\n\n將波斯粉紅寺流動的光影美學，和地毯沉穩內斂的織品底蘊，揉合成秋天最迷人的浪漫。用微醺的紅褐、煙燻粉紫與秋日花材來對話。"
+      "story": "與 Arsham 皇家波斯地毯聯名的花藝課。\n\n將波斯粉紅寺流動的光影美學，和地毯沉穩內斂的織品底蘊，揉合成秋天最迷人的浪漫。用微醺的紅褐、煙燻粉紫與秋日花材來對話。",
+      "width": 2000,
+      "height": 1125
     },
     {
-      "category": "gift",
-      "featured": true,
-      "label": "訂製花禮",
       "title": "花禮的饋贈｜明亮橙黃",
+      "category": "gift",
+      "label": "訂製花禮",
       "image": "w_sunny.webp",
-      "width": 1440,
-      "height": 1920,
+      "featured": true,
       "instagram": "DOI-HPWETdY",
-      "story": "花禮的饋贈，是心意的綻放。\n\n明亮的橙黃色，就像日常裡的那道陽光，簡單卻能帶來好心情。不論是值得慶祝的時刻，還是想把笑容送給特別的人。"
+      "story": "花禮的饋贈，是心意的綻放。\n\n明亮的橙黃色，就像日常裡的那道陽光，簡單卻能帶來好心情。不論是值得慶祝的時刻，還是想把笑容送給特別的人。",
+      "width": 1440,
+      "height": 1920
     },
     {
+      "title": "神聖領域｜對稱線條花藝",
       "category": "space",
       "label": "空間佈置",
-      "title": "神聖領域｜對稱線條花藝",
       "image": "w_altar.webp",
-      "width": 2000,
-      "height": 1125,
+      "featured": false,
       "instagram": "De-2sowEcue",
-      "story": "為神聖領域創作的專屬花藝，講求的是「時髦的佛緣」。\n\n重視花兒對稱線條的流暢度，在莊重之中保有花材自然的姿態。"
+      "story": "為神聖領域創作的專屬花藝，講求的是「時髦的佛緣」。\n\n重視花兒對稱線條的流暢度，在莊重之中保有花材自然的姿態。",
+      "width": 2000,
+      "height": 1125
     },
     {
-      "category": "gift",
-      "label": "訂製花禮",
       "title": "藍紫色調｜慵懶日子",
-      "image": "w_blue.webp",
-      "width": 2000,
-      "height": 1124,
-      "instagram": "Dda-5t3kYC9",
-      "story": "藍紫色調，美得讓人移不開目光。\n\n揉合了萬代蘭、繡球與神祕的洋薊，隨性優雅、帶點個性的生命力。擺在桌上一隅，空氣彷彿都安靜了下來，很有幾分慵懶日子的氛圍。"
-    },
-    {
       "category": "gift",
       "label": "訂製花禮",
-      "title": "《 綻於夜中的凜光 》",
-      "image": "w_box.webp",
+      "image": "w_blue.webp",
+      "featured": false,
+      "instagram": "Dda-5t3kYC9",
+      "story": "藍紫色調，美得讓人移不開目光。\n\n揉合了萬代蘭、繡球與神祕的洋薊，隨性優雅、帶點個性的生命力。擺在桌上一隅，空氣彷彿都安靜了下來，很有幾分慵懶日子的氛圍。",
       "width": 2000,
-      "height": 1047,
-      "instagram": "DfZBGs_kV-z",
-      "story": "深沉的黑，是無聲紮根的韌性與力量。\n\n以深色花材與透明框體，收藏一份在夜裡依然閃耀的光芒。"
+      "height": 1124
     },
     {
+      "title": "《 綻於夜中的凜光 》",
+      "category": "gift",
+      "label": "訂製花禮",
+      "image": "w_box.webp",
+      "featured": false,
+      "instagram": "DfZBGs_kV-z",
+      "story": "深沉的黑，是無聲紮根的韌性與力量。\n\n以深色花材與透明框體，收藏一份在夜裡依然閃耀的光芒。",
+      "width": 2000,
+      "height": 1047
+    },
+    {
+      "title": "光流域｜與空間的溫柔對話",
       "category": "weekly",
       "label": "商業週花",
-      "title": "光流域｜與空間的溫柔對話",
       "image": "w_lobby2.webp",
-      "width": 2000,
-      "height": 1047,
+      "featured": false,
       "instagram": "De9ULXBFOVP",
-      "story": "每次的到來，都是一次與空間更深的溫柔對話。\n\n微調了空間的色階，讓整體色調與瓶中彩油的光采優雅地相互呼應；把新落定的花藝擺上，也順著光影，把季節更迭的氣息揉進了這裡。"
+      "story": "每次的到來，都是一次與空間更深的溫柔對話。\n\n微調了空間的色階，讓整體色調與瓶中彩油的光采優雅地相互呼應；把新落定的花藝擺上，也順著光影，把季節更迭的氣息揉進了這裡。",
+      "width": 2000,
+      "height": 1047
     },
     {
+      "title": "2026 新年系列｜歲序之光",
       "category": "gift",
       "label": "訂製花禮",
-      "title": "2026 新年系列｜歲序之光",
       "image": "w_newyear.webp",
-      "width": 1440,
-      "height": 754,
+      "featured": false,
       "instagram": "DTHLnHtkQAs",
-      "story": "續寫歲序，看見萬物新生的朝氣。"
+      "story": "續寫歲序，看見萬物新生的朝氣。",
+      "width": 1440,
+      "height": 754
     }
   ]
 }
