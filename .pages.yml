@@ -1,0 +1,76 @@
+# Pages CMS 後台設定（https://app.pagescms.org 用 GitHub 帳號登入）
+# 上傳照片後，.github/workflows/images.yml 會自動轉 webp、產生 480/960 縮圖、填好 width/height。
+
+media:
+  input: image/chiu
+  output: /image/chiu
+  extensions: [jpg, jpeg, png, webp]
+
+content:
+  - name: works
+    label: 作品
+    type: file
+    path: data/works.json
+    format: json
+    fields:
+      - name: _說明
+        type: text
+        hidden: true
+      - name: categories
+        label: 分類（改這裡要同步改下面作品的分類選項，請找工程師）
+        type: object
+        list: true
+        readonly: true
+        fields:
+          - { name: id, type: string }
+          - { name: name, type: string }
+      - name: works
+        label: 作品列表（順序＝網站上的順序）
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{fields.title}"
+        fields:
+          - name: title
+            label: 標題
+            type: string
+            required: true
+          - name: category
+            label: 分類
+            type: select
+            required: true
+            options:
+              values:
+                - { name: gift, label: 訂製花禮 }
+                - { name: wedding, label: 婚禮 }
+                - { name: space, label: 空間佈置 }
+                - { name: weekly, label: 商業週花 }
+                - { name: event, label: 活動・課程 }
+          - name: label
+            label: 卡片小標
+            type: string
+            description: 顯示在標題上方的小字，空白會自動用分類名稱
+          - name: image
+            label: 照片
+            type: image
+            required: true
+            description: jpg / png / webp 都可以，存檔後約 1～2 分鐘系統會自動處理成網站用的尺寸
+          - name: featured
+            label: 放到首頁「作品精選」
+            type: boolean
+            description: 建議用直式 3:4 的照片
+          - name: instagram
+            label: IG 貼文代碼
+            type: string
+            description: 貼文網址 instagram.com/p/ 後面那串，例如 Dfq1xMqlAJX
+          - name: story
+            label: 作品故事
+            type: text
+            description: 空一行就是分段
+          - name: width
+            type: number
+            hidden: true
+          - name: height
+            type: number
+            hidden: true

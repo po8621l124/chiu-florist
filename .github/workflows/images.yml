@@ -1,0 +1,33 @@
+name: 整理作品照片
+
+on:
+  push:
+    branches: [main]
+    paths: ['data/works.json', 'image/chiu/**']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: images
+  cancel-in-progress: false
+
+jobs:
+  images:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pillow
+      - run: python .github/scripts/process_images.py
+      - name: Commit
+        run: |
+          git add -A data image
+          git diff --cached --quiet && exit 0
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m '自動整理作品照片（webp、縮圖、尺寸）'
+          git push
