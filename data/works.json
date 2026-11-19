@@ -291,10 +291,12 @@
       "title": "tesㄔ",
       "category": "event",
       "label": "test",
-      "image": "/image/chiu/idx1.jpg",
+      "image": "idx1.webp",
       "featured": false,
       "instagram": "De9ULXBFOVP",
-      "story": "test"
+      "story": "test",
+      "width": 1920,
+      "height": 860
     }
   ]
 }
