@@ -70,7 +70,6 @@ body:has(.ch_header:not(.is-hidden).is-scrolled) .chw_filter{top: 74px;}
 .chw_grid{columns: 3;column-gap: 36px;}
 .chw_grid > li{display: block;break-inside: avoid;margin-bottom: 56px;}
 .chw_grid > li.is-hide{display: none;}
-.chw_grid[aria-busy="true"]{min-height: 60vh;}
 .chw_grid > li.is-off{display: none;}
 /* 分頁 */
 .chw_pager{display: flex;justify-content: center;align-items: center;flex-wrap: wrap;gap: 10px;margin-top: 30px;padding-top: 40px;border-top: 1px solid var(--color-line) !important;}
@@ -222,11 +221,90 @@ body:has(.chw_lb[open]){overflow: hidden;}
             </div>
 
             <div class="chw_filter">
-                <ul aria-label="作品分類"></ul>
-                <p class="chw_count" aria-live="polite">共 <b>23</b> 件作品</p>
+                <ul aria-label="作品分類"><!--works:filter--><li><button type="button" data-filter="all" aria-pressed="true"><span>全部</span><sup></sup></button></li><li><button type="button" data-filter="gift" aria-pressed="false"><span>訂製花禮</span><sup></sup></button></li><li><button type="button" data-filter="wedding" aria-pressed="false"><span>婚禮</span><sup></sup></button></li><li><button type="button" data-filter="space" aria-pressed="false"><span>空間佈置</span><sup></sup></button></li><li><button type="button" data-filter="weekly" aria-pressed="false"><span>商業週花</span><sup></sup></button></li><li><button type="button" data-filter="event" aria-pressed="false"><span>活動・課程</span><sup></sup></button></li><!--/works:filter--></ul>
+                <p class="chw_count" aria-live="polite">共 <b><!--works:count-->24<!--/works:count--></b> 件作品</p>
             </div>
 
-            <ul class="chw_grid" aria-busy="true"></ul>
+            <!-- 作品卡由 .github/scripts/render_works.py 依 data/works.json 自動產生，不要手動改標記之間的內容 -->
+            <ul class="chw_grid"><!--works:grid-->
+                <li class="ch_work" data-cat="wedding" data-ig="Dfq1xMqlAJX"><button type="button" data-cursor="View"><figure><img src="../image/chiu/w_bridal.webp" srcset="../image/chiu/480/w_bridal.webp 480w, ../image/chiu/960/w_bridal.webp 960w, ../image/chiu/w_bridal.webp 1500w" sizes="(max-width: 768px) 50vw, 33vw" onerror="this.onerror=null;this.removeAttribute('srcset')" alt="婚禮｜證婚捧花｜柔粉與奶油杏" width="1500" height="2000" loading="lazy"></figure><div class="ch_work_txt"><i>婚禮</i><h3>證婚捧花｜柔粉與奶油杏</h3></div></button><div class="chw_story" hidden>不同深淺的柔粉與奶油杏色交織，讓鬱金香的純粹與白色石蒜跳躍的線條自然舒展。
+
+刻意保留了花材原本的呼吸感與空氣感，就像送花人那份不張揚、卻始終在身後的祝福。
+
+陪著她，走過人生最美的一天。</div></li>
+                <li class="ch_work" data-cat="space" data-ig="DfUfTHDFC1N"><button type="button" data-cursor="View"><figure><img src="../image/chiu/w_window.webp" srcset="../image/chiu/480/w_window.webp 480w, ../image/chiu/960/w_window.webp 960w, ../image/chiu/w_window.webp 2000w" sizes="(max-width: 768px) 50vw, 33vw" onerror="this.onerror=null;this.removeAttribute('srcset')" alt="空間佈置｜晶漾金飾・鑽石｜櫥窗花藝" width="2000" height="1125" loading="lazy"></figure><div class="ch_work_txt"><i>空間佈置</i><h3>晶漾金飾・鑽石｜櫥窗花藝</h3></div></button><div class="chw_story" hidden>推開古典石柱與幾何光影交織的大門，迎接您的是一場關於光芒與姿態的感官饗宴。
+
+以高雅的純白蝴蝶蘭為主幹，錯落著靈動的枝條與細緻的黃色植栽，宛如春日裡破曉的晨光，輕輕灑落在溫潤的金飾與璀璨鑽石旁。
+
+Floral Design &amp; Spatial Styling｜CHIU Florist
+Boutique Showcase &amp; Jewelry｜晶漾金飾・鑽石 市政店</div></li>
+                <li class="ch_work" data-cat="gift" data-ig="DfRGz0LlLjG"><button type="button" data-cursor="View"><figure><img src="../image/chiu/w_opera.webp" srcset="../image/chiu/480/w_opera.webp 480w, ../image/chiu/960/w_opera.webp 960w, ../image/chiu/w_opera.webp 1500w" sizes="(max-width: 768px) 50vw, 33vw" onerror="this.onerror=null;this.removeAttribute('srcset')" alt="訂製花禮｜《 緋紅歌劇 · Crimson Opera 》" width="1500" height="2000" loading="lazy"></figure><div class="ch_work_txt"><i>訂製花禮</i><h3>《 緋紅歌劇 · Crimson Opera 》</h3></div></button><div class="chw_story" hidden>當夜幕低垂，古典劇院的紅絨帷幕緩緩拉開，一場專屬於聖誕季的華麗盛宴正隆重上演。
+
+以極致濃郁的酒紅與深緋為主調，交織著沉穩優雅的聖誕松綠。典雅的皮革花盒底座襯托出溫潤質感，點綴其間的珠串飾件、玻璃球與復古掛飾，在光影搖曳下閃耀著如古典珠寶般的光澤。
+
+聖誕桌花花禮｜NT$ 4,280｜約 58 × 45 cm</div></li>
+                <li class="ch_work" data-cat="weekly" data-ig="DeTZR17ESoU"><button type="button" data-cursor="View"><figure><img src="../image/chiu/w_lobby3.webp" srcset="../image/chiu/480/w_lobby3.webp 480w, ../image/chiu/960/w_lobby3.webp 960w, ../image/chiu/w_lobby3.webp 2000w" sizes="(max-width: 768px) 50vw, 33vw" onerror="this.onerror=null;this.removeAttribute('srcset')" alt="商業週花｜光流域｜一場與空間的奇妙對話" width="2000" height="1125" loading="lazy"></figure><div class="ch_work_txt"><i>商業週花</i><h3>光流域｜一場與空間的奇妙對話</h3></div></button><div class="chw_story" hidden>有時候，創作過程中的巧合，會讓你不得不相信場域是有靈魂的。
+
+那天創作時，才與門市伙伴聊起最近帶有中東風格的花藝案子，清單裡的音樂竟隨機播起了中東風情的旋律——花與空間，就這樣有了一段奇妙的對話。</div></li>
+                <li class="ch_work" data-cat="wedding" data-ig="Cty8nYNv0fE"><button type="button" data-cursor="View"><figure><img src="../image/chiu/w_couple.webp" srcset="../image/chiu/480/w_couple.webp 480w, ../image/chiu/960/w_couple.webp 960w, ../image/chiu/w_couple.webp 1369w" sizes="(max-width: 768px) 50vw, 33vw" onerror="this.onerror=null;this.removeAttribute('srcset')" alt="婚禮｜新人捧花｜時髦又漂亮" width="1369" height="1369" loading="lazy"></figure><div class="ch_work_txt"><i>婚禮</i><h3>新人捧花｜時髦又漂亮</h3></div></button><div class="chw_story" hidden>好時髦，也好漂亮。
+
+提前了好大一陣子來討論捧花的妳們，起初擔心不知道哪種類型的捧花合適，認真地為了這重要的花兒前來與我們討論，細聊之後，才有了這束剛剛好的捧花。</div></li>
+                <li class="ch_work" data-cat="event" data-ig="DfW929qFFMu"><button type="button" data-cursor="View"><figure><img src="../image/chiu/w_fair.webp" srcset="../image/chiu/480/w_fair.webp 480w, ../image/chiu/960/w_fair.webp 960w, ../image/chiu/w_fair.webp 2000w" sizes="(max-width: 768px) 50vw, 33vw" onerror="this.onerror=null;this.removeAttribute('srcset')" alt="活動佈置｜灰熊綠展｜光影交織的森林角落" width="2000" height="1125" loading="lazy"></figure><div class="ch_work_txt"><i>活動佈置</i><h3>灰熊綠展｜光影交織的森林角落</h3></div></button><div class="chw_story" hidden>當陽光穿過樹梢，在布簾上投下溫柔的剪影；當金黃與橙黃的花草盛放，為溫潤的木質空間點綴出熱情的生命力。
+
+以自然為背景、光影為筆墨，為灰熊綠展打造出專屬於季節的溫暖氛圍。在這裡，不只是逛市集，更是一場融入自然景緻的感官體驗。</div></li>
+                <li class="ch_work" data-cat="space" data-ig="DejIL5WkfFy"><button type="button" data-cursor="View"><figure><img src="../image/chiu/w_corner.webp" srcset="../image/chiu/480/w_corner.webp 480w, ../image/chiu/960/w_corner.webp 960w, ../image/chiu/w_corner.webp 1500w" sizes="(max-width: 768px) 50vw, 33vw" onerror="this.onerror=null;this.removeAttribute('srcset')" alt="空間佈置｜關於一個角落的重生" width="1500" height="2000" loading="lazy"></figure><div class="ch_work_txt"><i>空間佈置</i><h3>關於一個角落的重生</h3></div></button><div class="chw_story" hidden>軟裝佈置與花藝一樣，最迷人的地方不是把空間填滿，而是幫這個地方找到屬於它的呼吸節奏感。
+
+本次空間唯一的小小訴求：「想要一種有溫度的秋天復古感，但全權交給我們。」原本的角落雖然明亮，卻少了一點讓人想停留的理由；於是換上溫暖而低調的燈色，讓角落重新有了溫度。</div></li>
+                <li class="ch_work" data-cat="gift" data-ig="DfO-B5BFP2v"><button type="button" data-cursor="View"><figure><img src="../image/chiu/w_xmas_tree.webp" srcset="../image/chiu/480/w_xmas_tree.webp 480w, ../image/chiu/960/w_xmas_tree.webp 960w, ../image/chiu/w_xmas_tree.webp 2000w" sizes="(max-width: 768px) 50vw, 33vw" onerror="this.onerror=null;this.removeAttribute('srcset')" alt="訂製花禮｜《 珍珠星序 · Astro Pearl 》" width="2000" height="1126" loading="lazy"></figure><div class="ch_work_txt"><i>訂製花禮</i><h3>《 珍珠星序 · Astro Pearl 》</h3></div></button><div class="chw_story" hidden>當冬夜微光點亮，我們在深綠松柏間，綴上一抹高訂的珠光。
+
+圓潤珍珠如歲月典藏的星芒，輕落於枝葉間，隨光影流轉散發著無可取代的優雅與奢麗。
+
+聖誕樹花禮｜NT$ 3,680｜約 48 × 30 cm</div></li>
+                <li class="ch_work" data-cat="gift" data-ig="DfO-B5BFP2v"><button type="button" data-cursor="View"><figure><img src="../image/chiu/w_xmas_wreath.webp" srcset="../image/chiu/480/w_xmas_wreath.webp 480w, ../image/chiu/960/w_xmas_wreath.webp 960w, ../image/chiu/w_xmas_wreath.webp 1640w" sizes="(max-width: 768px) 50vw, 33vw" onerror="this.onerror=null;this.removeAttribute('srcset')" alt="訂製花禮｜《 琉光松影 · Velvet Luce 》" width="1640" height="697" loading="lazy"></figure><div class="ch_work_txt"><i>訂製花禮</i><h3>《 琉光松影 · Velvet Luce 》</h3></div></button><div class="chw_story" hidden>以自然藤圈為底，綴上玻璃掛飾、珠串飾件與針織、造型掛飾，在深綠松枝間留下一圈溫潤的冬日光影。
+
+聖誕花圈花禮｜NT$ 3,880｜約 60 × 60 cm</div></li>
+                <li class="ch_work" data-cat="wedding" data-ig="DfGStIlqjOY"><button type="button" data-cursor="View"><figure><img src="../image/chiu/w_yellow.webp" srcset="../image/chiu/480/w_yellow.webp 480w, ../image/chiu/960/w_yellow.webp 960w, ../image/chiu/w_yellow.webp 1200w" sizes="(max-width: 768px) 50vw, 33vw" onerror="this.onerror=null;this.removeAttribute('srcset')" alt="婚禮｜婚紗拍攝捧花｜鵝黃與珍珠" width="1200" height="1600" loading="lazy"></figure><div class="ch_work_txt"><i>婚禮</i><h3>婚紗拍攝捧花｜鵝黃與珍珠</h3></div></button><div class="chw_story" hidden>當細膩的粉紗輕輕包覆著妳的溫柔，把一段段祝福放進了溫暖且充滿希望的色調裡。
+
+輕巧的姿態與細緻的珍珠線條交織，為柔美的粉色婚紗揉入一抹明亮而溫暖的光彩。不必張揚，卻精緻得剛剛好。</div></li>
+                <li class="ch_work" data-cat="space" data-ig="DfHLjdXFE6O"><button type="button" data-cursor="View"><figure><img src="../image/chiu/w_jewel.webp" srcset="../image/chiu/480/w_jewel.webp 480w, ../image/chiu/960/w_jewel.webp 960w, ../image/chiu/w_jewel.webp 2000w" sizes="(max-width: 768px) 50vw, 33vw" onerror="this.onerror=null;this.removeAttribute('srcset')" alt="空間佈置｜晶漾金飾 市政店｜花藝與選品" width="2000" height="1047" loading="lazy"></figure><div class="ch_work_txt"><i>空間佈置</i><h3>晶漾金飾 市政店｜花藝與選品</h3></div></button><div class="chw_story" hidden>為「晶漾金飾 市政店」操刀空間花藝佈置與擺飾選品。
+
+特別運用礁石與玫瑰石，搭配花藝進行佈置，讓粗獷的岩石紋理與浪漫柔美的花朵交織，碰撞出剛柔並濟的輕奢質感。主視覺「懸浮櫥窗」選用真實的梨枝，拉開空間層次，打造脫俗的高訂形象。</div></li>
+                <li class="ch_work" data-cat="gift" data-ig="DRmIHJ4kdDo"><button type="button" data-cursor="View"><figure><img src="../image/chiu/w_silver.webp" srcset="../image/chiu/480/w_silver.webp 480w, ../image/chiu/960/w_silver.webp 960w, ../image/chiu/w_silver.webp 1440w" sizes="(max-width: 768px) 50vw, 33vw" onerror="this.onerror=null;this.removeAttribute('srcset')" alt="訂製花禮｜銀色系開幕花禮｜閃亮祝賀" width="1440" height="1913" loading="lazy"></figure><div class="ch_work_txt"><i>訂製花禮</i><h3>銀色系開幕花禮｜閃亮祝賀</h3></div></button><div class="chw_story" hidden>銀色系花禮，閃亮祝賀。
+
+祝未來營運順順走——Keep it sharp.</div></li>
+                <li class="ch_work" data-cat="event" data-ig="DVK9JQTkTh7"><button type="button" data-cursor="View"><figure><img src="../image/chiu/w_vintage.webp" srcset="../image/chiu/480/w_vintage.webp 480w, ../image/chiu/960/w_vintage.webp 960w, ../image/chiu/w_vintage.webp 1440w" sizes="(max-width: 768px) 50vw, 33vw" onerror="this.onerror=null;this.removeAttribute('srcset')" alt="活動佈置｜Modern Vintage｜心潮 x 新潮" width="1440" height="753" loading="lazy"></figure><div class="ch_work_txt"><i>活動佈置</i><h3>Modern Vintage｜心潮 x 新潮</h3></div></button><div class="chw_story" hidden>在深色帷幕與光影的交界處，來一場關於色彩與食物的盛宴。
+
+復古的紅、優雅的藍紫，襯著沉靜的綠色牆面，空氣中流淌著一種不張揚的時髦。當台式靈魂遇上摩登美學，圓拱門廊下的繁花，在冷冽石紋上投下溫柔的光影。</div></li>
+                <li class="ch_work" data-cat="gift" data-ig="DfwRmxrEX8M"><button type="button" data-cursor="View"><figure><img src="../image/chiu/w_autumn.webp" srcset="../image/chiu/480/w_autumn.webp 480w, ../image/chiu/960/w_autumn.webp 960w, ../image/chiu/w_autumn.webp 1500w" sizes="(max-width: 768px) 50vw, 33vw" onerror="this.onerror=null;this.removeAttribute('srcset')" alt="訂製花禮｜秋天的顏色｜焦糖與柔粉" width="1500" height="2000" loading="lazy"></figure><div class="ch_work_txt"><i>訂製花禮</i><h3>秋天的顏色｜焦糖與柔粉</h3></div></button><div class="chw_story" hidden>十一月的暖陽收進盆裡，秋天本來就不適合太規矩的形狀。
+
+水仙百合的焦糖黃吻上金魚的柔粉，是深秋才有的濃郁果實與紅葉，讓枝條隨性往外探、各自舒展。</div></li>
+                <li class="ch_work" data-cat="gift" data-ig="DdYrqPhFDNa"><button type="button" data-cursor="View"><figure><img src="../image/chiu/w_dahlia.webp" srcset="../image/chiu/480/w_dahlia.webp 480w, ../image/chiu/960/w_dahlia.webp 960w, ../image/chiu/w_dahlia.webp 1500w" sizes="(max-width: 768px) 50vw, 33vw" onerror="this.onerror=null;this.removeAttribute('srcset')" alt="訂製花禮｜午後斜光｜粉色大理花" width="1500" height="2000" loading="lazy"></figure><div class="ch_work_txt"><i>訂製花禮</i><h3>午後斜光｜粉色大理花</h3></div></button><div class="chw_story" hidden>午後斜光穿過莫蘭迪綠牆面，桌上隨手擱著粉色大理花與仙氣的噴泉草。
+
+老件銅台與微光，本該就是日子裡的樣子。當日常的講究，慢慢延續成生命中某個重要日子的盛開——那種溫度，其實一直都在。</div></li>
+                <li class="ch_work" data-cat="weekly" data-ig="DfmFZJcEdOC"><button type="button" data-cursor="View"><figure><img src="../image/chiu/w_lobby.webp" srcset="../image/chiu/480/w_lobby.webp 480w, ../image/chiu/960/w_lobby.webp 960w, ../image/chiu/w_lobby.webp 2000w" sizes="(max-width: 768px) 50vw, 33vw" onerror="this.onerror=null;this.removeAttribute('srcset')" alt="商業週花｜光流域｜神祕而沉靜的紫" width="2000" height="1140" loading="lazy"></figure><div class="ch_work_txt"><i>商業週花</i><h3>光流域｜神祕而沉靜的紫</h3></div></button><div class="chw_story" hidden>一抹神祕而沉靜的紫，悄然綻放。它不張揚，卻自帶一股撫平焦躁的力量。
+
+它是繁花簇擁間的典雅點綴，也是瓶中色彩流轉時，對身心最深情的對話。</div></li>
+                <li class="ch_work" data-cat="gift" data-ig="DchsacrFIgu"><button type="button" data-cursor="View"><figure><img src="../image/chiu/w_roses.webp" srcset="../image/chiu/480/w_roses.webp 480w, ../image/chiu/960/w_roses.webp 960w, ../image/chiu/w_roses.webp 1500w" sizes="(max-width: 768px) 50vw, 33vw" onerror="this.onerror=null;this.removeAttribute('srcset')" alt="訂製花禮｜私人訂製｜白玫瑰花禮" width="1500" height="2000" loading="lazy"></figure><div class="ch_work_txt"><i>訂製花禮</i><h3>私人訂製｜白玫瑰花禮</h3></div></button><div class="chw_story" hidden>Wishing you a truly beautiful day filled with moments that make you smile.</div></li>
+                <li class="ch_work" data-cat="event" data-ig="DfoGvLfFPN1"><button type="button" data-cursor="View"><figure><img src="../image/chiu/w_persia.webp" srcset="../image/chiu/480/w_persia.webp 480w, ../image/chiu/960/w_persia.webp 960w, ../image/chiu/w_persia.webp 2000w" sizes="(max-width: 768px) 50vw, 33vw" onerror="this.onerror=null;this.removeAttribute('srcset')" alt="花藝課程｜希拉茲的秋光｜波斯色調" width="2000" height="1125" loading="lazy"></figure><div class="ch_work_txt"><i>花藝課程</i><h3>希拉茲的秋光｜波斯色調</h3></div></button><div class="chw_story" hidden>與 Arsham 皇家波斯地毯聯名的花藝課。
+
+將波斯粉紅寺流動的光影美學，和地毯沉穩內斂的織品底蘊，揉合成秋天最迷人的浪漫。用微醺的紅褐、煙燻粉紫與秋日花材來對話。</div></li>
+                <li class="ch_work" data-cat="gift" data-ig="DOI-HPWETdY"><button type="button" data-cursor="View"><figure><img src="../image/chiu/w_sunny.webp" srcset="../image/chiu/480/w_sunny.webp 480w, ../image/chiu/960/w_sunny.webp 960w, ../image/chiu/w_sunny.webp 1440w" sizes="(max-width: 768px) 50vw, 33vw" onerror="this.onerror=null;this.removeAttribute('srcset')" alt="訂製花禮｜花禮的饋贈｜明亮橙黃" width="1440" height="1920" loading="lazy"></figure><div class="ch_work_txt"><i>訂製花禮</i><h3>花禮的饋贈｜明亮橙黃</h3></div></button><div class="chw_story" hidden>花禮的饋贈，是心意的綻放。
+
+明亮的橙黃色，就像日常裡的那道陽光，簡單卻能帶來好心情。不論是值得慶祝的時刻，還是想把笑容送給特別的人。</div></li>
+                <li class="ch_work" data-cat="space" data-ig="De-2sowEcue"><button type="button" data-cursor="View"><figure><img src="../image/chiu/w_altar.webp" srcset="../image/chiu/480/w_altar.webp 480w, ../image/chiu/960/w_altar.webp 960w, ../image/chiu/w_altar.webp 2000w" sizes="(max-width: 768px) 50vw, 33vw" onerror="this.onerror=null;this.removeAttribute('srcset')" alt="空間佈置｜神聖領域｜對稱線條花藝" width="2000" height="1125" loading="lazy"></figure><div class="ch_work_txt"><i>空間佈置</i><h3>神聖領域｜對稱線條花藝</h3></div></button><div class="chw_story" hidden>為神聖領域創作的專屬花藝，講求的是「時髦的佛緣」。
+
+重視花兒對稱線條的流暢度，在莊重之中保有花材自然的姿態。</div></li>
+                <li class="ch_work" data-cat="gift" data-ig="Dda-5t3kYC9"><button type="button" data-cursor="View"><figure><img src="../image/chiu/w_blue.webp" srcset="../image/chiu/480/w_blue.webp 480w, ../image/chiu/960/w_blue.webp 960w, ../image/chiu/w_blue.webp 2000w" sizes="(max-width: 768px) 50vw, 33vw" onerror="this.onerror=null;this.removeAttribute('srcset')" alt="訂製花禮｜藍紫色調｜慵懶日子" width="2000" height="1124" loading="lazy"></figure><div class="ch_work_txt"><i>訂製花禮</i><h3>藍紫色調｜慵懶日子</h3></div></button><div class="chw_story" hidden>藍紫色調，美得讓人移不開目光。
+
+揉合了萬代蘭、繡球與神祕的洋薊，隨性優雅、帶點個性的生命力。擺在桌上一隅，空氣彷彿都安靜了下來，很有幾分慵懶日子的氛圍。</div></li>
+                <li class="ch_work" data-cat="gift" data-ig="DfZBGs_kV-z"><button type="button" data-cursor="View"><figure><img src="../image/chiu/w_box.webp" srcset="../image/chiu/480/w_box.webp 480w, ../image/chiu/960/w_box.webp 960w, ../image/chiu/w_box.webp 2000w" sizes="(max-width: 768px) 50vw, 33vw" onerror="this.onerror=null;this.removeAttribute('srcset')" alt="訂製花禮｜《 綻於夜中的凜光 》" width="2000" height="1047" loading="lazy"></figure><div class="ch_work_txt"><i>訂製花禮</i><h3>《 綻於夜中的凜光 》</h3></div></button><div class="chw_story" hidden>深沉的黑，是無聲紮根的韌性與力量。
+
+以深色花材與透明框體，收藏一份在夜裡依然閃耀的光芒。</div></li>
+                <li class="ch_work" data-cat="weekly" data-ig="De9ULXBFOVP"><button type="button" data-cursor="View"><figure><img src="../image/chiu/w_lobby2.webp" srcset="../image/chiu/480/w_lobby2.webp 480w, ../image/chiu/960/w_lobby2.webp 960w, ../image/chiu/w_lobby2.webp 2000w" sizes="(max-width: 768px) 50vw, 33vw" onerror="this.onerror=null;this.removeAttribute('srcset')" alt="商業週花｜光流域｜與空間的溫柔對話" width="2000" height="1047" loading="lazy"></figure><div class="ch_work_txt"><i>商業週花</i><h3>光流域｜與空間的溫柔對話</h3></div></button><div class="chw_story" hidden>每次的到來，都是一次與空間更深的溫柔對話。
+
+微調了空間的色階，讓整體色調與瓶中彩油的光采優雅地相互呼應；把新落定的花藝擺上，也順著光影，把季節更迭的氣息揉進了這裡。</div></li>
+                <li class="ch_work" data-cat="gift" data-ig="DTHLnHtkQAs"><button type="button" data-cursor="View"><figure><img src="../image/chiu/w_newyear.webp" srcset="../image/chiu/480/w_newyear.webp 480w, ../image/chiu/960/w_newyear.webp 960w, ../image/chiu/w_newyear.webp 1440w" sizes="(max-width: 768px) 50vw, 33vw" onerror="this.onerror=null;this.removeAttribute('srcset')" alt="訂製花禮｜2026 新年系列｜歲序之光" width="1440" height="754" loading="lazy"></figure><div class="ch_work_txt"><i>訂製花禮</i><h3>2026 新年系列｜歲序之光</h3></div></button><div class="chw_story" hidden>續寫歲序，看見萬物新生的朝氣。</div></li>
+            <!--/works:grid--></ul>
             <nav class="chw_pager" aria-label="作品分頁" hidden></nav>
             <p class="chw_empty">這個分類目前沒有作品。</p>
         </div>
@@ -414,7 +492,7 @@ body:has(.chw_lb[open]){overflow: hidden;}
             lbCat.textContent = li.querySelector('.ch_work_txt i').textContent;
             lbTitle.textContent = li.querySelector('h3').textContent;
             if (window.chSegment) window.chSegment(lbTitle);
-            lbText.textContent = li.querySelector('template').content.textContent.trim();
+            lbText.textContent = li.querySelector('.chw_story').textContent.trim();
             var ig = li.getAttribute('data-ig');
             lbIg.href = ig ? 'https://www.instagram.com/p/' + ig + '/' : 'https://www.instagram.com/chiu.florist/';
             lbIdx.textContent = String(cur + 1).padStart(2, '0') + ' / ' + String(list.length).padStart(2, '0');
@@ -443,45 +521,7 @@ body:has(.chw_lb[open]){overflow: hidden;}
         });
     }
 
-    /* 讀取 data/works.json，產生分類按鈕與作品卡（之後改作品只要改 JSON） */
-    (function () {
-        var grid = document.querySelector('.chw_grid');
-        var filterUl = document.querySelector('.chw_filter ul');
-        var empty = document.querySelector('.chw_empty');
-        /* 響應式圖片：依原圖寬度提供 480／960 縮圖（data/works.json 的 width 要填原圖寬） */
-        function rs(w, sizes) {
-            var n = String(w.image).replace(/\.webp$/, ''), W = +w.width || 0, s = [];
-            if (W > 552) s.push('../image/chiu/480/' + n + '.webp 480w');
-            if (W > 1104) s.push('../image/chiu/960/' + n + '.webp 960w');
-            if (!s.length) return '';
-            s.push('../image/chiu/' + n + '.webp ' + W + 'w');
-            return ' srcset="' + s.join(', ') + '" sizes="' + sizes + '" onerror="this.onerror=null;this.removeAttribute(\x27srcset\x27)"';
-        }
-
-        function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
-        fetch('../data/works.json', { cache: 'no-cache' })
-            .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
-            .then(function (data) {
-                filterUl.innerHTML = '<li><button type="button" data-filter="all" aria-pressed="true"><span>全部</span><sup></sup></button></li>' +
-                    data.categories.map(function (c) {
-                        return '<li><button type="button" data-filter="' + esc(c.id) + '" aria-pressed="false"><span>' + esc(c.name) + '</span><sup></sup></button></li>';
-                    }).join('');
-                grid.innerHTML = data.works.map(function (w) {
-                    return '<li class="ch_work" data-cat="' + esc(w.category) + '" data-ig="' + esc(w.instagram) + '">' +
-                        '<button type="button" data-cursor="View"><figure><img src="../image/chiu/' + esc(w.image) + '"' + rs(w, '(max-width: 768px) 50vw, 33vw') + ' alt="' + esc(w.label + '｜' + w.title) + '" width="' + (+w.width || '') + '" height="' + (+w.height || '') + '" loading="lazy"></figure>' +
-                        '<div class="ch_work_txt"><i>' + esc(w.label) + '</i><h3>' + esc(w.title) + '</h3></div></button>' +
-                        '<template>' + esc(w.story) + '</template></li>';
-                }).join('');
-                grid.removeAttribute('aria-busy');
-                [].forEach.call(grid.querySelectorAll('h3'), function (h) { if (window.chSegment) window.chSegment(h); });
-                chwInit();
-            })
-            .catch(function () {
-                grid.removeAttribute('aria-busy');
-                empty.textContent = '作品資料載入失敗，請重新整理頁面。';
-                empty.style.display = 'block';
-            });
-    })();
+    chwInit();   /* 作品卡已由 render_works.py 寫進 HTML */
 </script>
 </body>
 </html>

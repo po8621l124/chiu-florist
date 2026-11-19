@@ -1,9 +1,9 @@
-name: 整理作品照片
+name: 整理作品照片與頁面
 
 on:
   push:
     branches: [main]
-    paths: ['data/works.json', 'image/chiu/**']
+    paths: ['data/works.json', 'image/chiu/**', 'html/works.html', 'html/index.html', '.github/scripts/**']
   workflow_dispatch:
 
 permissions:
@@ -23,11 +23,12 @@ jobs:
           python-version: '3.12'
       - run: pip install pillow
       - run: python .github/scripts/process_images.py
+      - run: python .github/scripts/render_works.py
       - name: Commit
         run: |
-          git add -A data image
+          git add -A data image html
           git diff --cached --quiet && exit 0
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git commit -m '自動整理作品照片（webp、縮圖、尺寸）'
+          git commit -m '自動整理作品照片與作品頁（webp、縮圖、尺寸、HTML）'
           git push
