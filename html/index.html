@@ -55,7 +55,9 @@
 .chi_a_slide.is-active{opacity: 1;transform: scale(1);}
 .hs_box .chi_a_slide.is-lazy{background-image: none;}   /* 第 2、3 張：頁面載入完才下載 */
 .chi_a::after{content: '';position: absolute;inset: 0;z-index: -1;background: linear-gradient(90deg, rgba(var(--rgb_shade),.82) 0%, rgba(var(--rgb_shade),.45) 50%, rgba(var(--rgb_shade),.15) 100%), linear-gradient(0deg, rgba(var(--rgb_shade),.6) 0%, rgba(var(--rgb_shade),0) 40%);}
-.chi_a01{max-width: 1400px;width: 100%;margin: auto;}
+.chi_a01{position: relative;max-width: 1400px;width: 100%;margin: auto;}
+.chi_a_petals{position: absolute;inset: 0;width: 100%;height: 100%;pointer-events: none;opacity: 0;transition: opacity 2.5s ease;}   /* 花瓣（js/petals.js），疊在遮罩上、文字下 */
+.chi_a_petals.is-on{opacity: 1;}
 .hs_box .chi_a_script{display: block;font-family: var(--Pinyfont);font-size: var(--f45);line-height: 1;color: var(--color-Sub);letter-spacing: 0;}
 /* h1：關鍵字在前（原始碼順序），畫面上顯示在草寫品牌名下方 */
 .chi_a_h1{display: flex;flex-direction: column-reverse;align-items: flex-start;gap: 12px;font-weight: 400;}
@@ -510,6 +512,7 @@
 
 <script src="../js/scrollfade.js"></script>
 <script src="../js/chiu_common.js"></script>
+<script src="../js/petals.js" defer></script>
 <script>
     /* 主視覺輪播 */
     (function () {
